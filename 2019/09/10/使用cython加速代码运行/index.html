@@ -1,0 +1,430 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="教书的先生">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content="cython">
+
+
+<meta name="description" content="引入毫无疑问，Python是社区最喜爱的编程语言!到目前为止，它是最容易使用的语言之一，因为python代码是用一种直观的、人类可读的方式编写的。
+然而，你经常会反复听到一些对Python的抱怨...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    使用cython加速代码运行 |
+    
+    教书的先生
+</title>
+
+<link rel="alternate" href="/atom.xml" title="教书的先生" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+
+
+
+    
+
+</head></html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='王荣胜'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        教书的先生</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="使用cython加速代码运行">
+            
+            使用cython加速代码运行
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/python/">python</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/cython/">cython</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/09/10</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h1><p>毫无疑问，Python是社区最喜爱的编程语言!到目前为止，它是最容易使用的语言之一，因为python代码是用一种直观的、人类可读的方式编写的。</p>
+<p>然而，你经常会反复听到一些对Python的抱怨，尤其是来自C语言爱好者的抱怨，这些抱怨无非就是Python很慢。</p>
+<p>是的，他们并没有说错。</p>
+<p>与许多其他编程语言相比，Python确实很慢。Benchmark game有一些比较不同编程语言在不同任务上的速度的可靠基准。</p>
+<blockquote>
+<p><a href="https://benchmarksgame-team.pages.debian.net/benchmarksgame/fastest/gpp-python3.html?source=post_page" target="_blank" rel="noopener">https://benchmarksgame-team.pages.debian.net/benchmarksgame/fastest/gpp-python3.html?source=post_page</a></p>
+</blockquote>
+<p>对于Python，我们有几种不同的方法可以加快速度:</p>
+<blockquote>
+<p>1.使用多进程库来使用所有的CPU核心<br><a href="https://towardsdatascience.com/heres-how-you-can-get-a-2-6x-speed-up-on-your-data-pre-processing-with-python-847887e63be5" target="_blank" rel="noopener">https://towardsdatascience.com/heres-how-you-can-get-a-2-6x-speed-up-on-your-data-pre-processing-with-python-847887e63be5</a><br>2.如果你使用Numpy、panda或Scikit-Learn，使用Rapids来加速GPU上的处理。<br><a href="https://towardsdatascience.com/heres-how-you-can-accelerate-your-data-science-on-gpu-4ecf99db3430" target="_blank" rel="noopener">https://towardsdatascience.com/heres-how-you-can-accelerate-your-data-science-on-gpu-4ecf99db3430</a></p>
+</blockquote>
+<p>如果你所做的实际上可以并行化，比如数据预处理或矩阵运算，这些都是很好的方法。</p>
+<p>但是如果你的代码是纯Python的呢?如果你不得不使用一个很大的for循环，且不能将数据放入矩阵中，因为数据必须按顺序处理，那会怎样?有没有办法加快Python本身的速度呢?</p>
+<p>答案是肯定的，<strong>这就是Cython来加速原生Python代码的地方</strong>。</p>
+<h1 id="什么是Cython？"><a href="#什么是Cython？" class="headerlink" title="什么是Cython？"></a>什么是Cython？</h1><p>Cython是Python和C/C++之间的一个中间步骤。它允许你编写纯Python代码，并且只需要做一些小修改，然后将其直接翻译成C代码。</p>
+<p>你对Python代码所做的惟一调整就是向每个变量添加类型信息。通常，我们可以像这样在Python中声明一个变量:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<p>使用Cython，我们将向该变量添加一个类型:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cdef int x = <span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<p>这告诉Cython，我们的变量是浮点类型，就像我们在C中所做的一样。对于纯Python，变量的类型是动态确定的。Cython中类型的显式声明使转换为C成为可能，因为显式类型声明是必须的。</p>
+<p>安装Cython只需要一行简单的pip命令:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install cython</span><br></pre></td></tr></table></figure>
+
+<h1 id="Cython中的类型"><a href="#Cython中的类型" class="headerlink" title="Cython中的类型"></a>Cython中的类型</h1><p>使用Cython时，变量和函数分别有不同的类型。</p>
+<p>对于变量我们有以下类型:</p>
+<ul>
+<li><p>cdef int a, b, c</p>
+</li>
+<li><p>cdef char *s</p>
+</li>
+<li><p>cdef float x = 0.5 (单精度)</p>
+</li>
+<li><p>cdef double x = 63.4 (双精度)</p>
+</li>
+<li><p>cdef list names</p>
+</li>
+<li><p>cdef dict goals_for_each_play</p>
+</li>
+<li><p>cdef object card_deck</p>
+</li>
+</ul>
+<p>注意所有这些类型都来自C/C++ ! 而对于方法我们有以下类型:</p>
+<ul>
+<li>def — 常规python函数，仅从python调用。</li>
+<li>cdef — 不能从python的代码中访问Cython的函数。即必须在Cython内调用</li>
+<li>cpdef — C 和 Python. 可以从C和Python中访问</li>
+</ul>
+<p>了解了Cython类型之后，我们就可以直接实现加速了!</p>
+<h1 id="如何使用Cython加速python代码"><a href="#如何使用Cython加速python代码" class="headerlink" title="如何使用Cython加速python代码"></a>如何使用Cython加速python代码</h1><p>我们要做的第一件事是设置Python代码基准:用于计算数值阶乘的for循环。原生Python代码如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(x)</span>:</span></span><br><span class="line">    y = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(x+<span class="number">1</span>):</span><br><span class="line">        y *= i</span><br><span class="line">    <span class="keyword">return</span> y</span><br></pre></td></tr></table></figure>
+
+<p>相同功能的Cython方法看起来非常相似。首先，我们将确保Cython代码文件具有<strong>.pyx</strong>扩展名。对代码本身的惟一更改是，我们已经声明了每个变量和函数的类型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cpdef int test(int x):</span><br><span class="line">    cdef int y = <span class="number">1</span></span><br><span class="line">    cdef int i</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(x+<span class="number">1</span>):</span><br><span class="line">        y *= i</span><br><span class="line">    <span class="keyword">return</span> y</span><br></pre></td></tr></table></figure>
+
+<p>Boom ! 可以看到我们的C代码已经编译好了，可以使用了!</p>
+<p>你将看到，在Cython代码所在的文件夹中，你拥有运行C代码所需的所有文件，包括<strong>run_cython.c</strong>文件。如果你感兴趣，可以查看一下Cython生成的C代码!</p>
+<p>现在我们准备测试我们新的并且超级快的C代码!查看下面的代码，它实现了一个速度测试，将原生Python代码与Cython代码进行比较。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> run_python</span><br><span class="line"><span class="keyword">import</span> run_cython</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">number = <span class="number">10</span></span><br><span class="line"></span><br><span class="line">start = time.time()</span><br><span class="line">run_python.test(number)</span><br><span class="line">end =  time.time()</span><br><span class="line"></span><br><span class="line">py_time = end - start</span><br><span class="line">print(<span class="string">"Python time = &#123;&#125;"</span>.format(py_time))</span><br><span class="line"></span><br><span class="line">start = time.time()</span><br><span class="line">run_cython.test(number)</span><br><span class="line">end =  time.time()</span><br><span class="line"></span><br><span class="line">cy_time = end - start</span><br><span class="line">print(<span class="string">"Cython time = &#123;&#125;"</span>.format(cy_time))</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Speedup = &#123;&#125;"</span>.format(py_time / cy_time))</span><br></pre></td></tr></table></figure>
+
+<p>代码非常直观，我们以与普通Python相同的方式导入文件，并以与普通Python相同的方式运行函数!</p>
+<p>Cython几乎可以让你在所有原生Python代码上获得良好的加速，而不需要太多额外的工作。需要注意的关键是，循环次数越多，处理的数据越多，Cython可以提供的帮助就越多。</p>
+<p>下表显示了Cython为不同的数值阶乘带来的加速性能。当数值为10000000的时候，可以看到，我们的Cython加速超过了<strong>36</strong>倍。</p>
+<p><a href="https://sm.ms/image/S5Htu6AUNiP7zOw" target="_blank"><img src="https://i.loli.net/2019/09/10/S5Htu6AUNiP7zOw.png"></a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://wpa.qq.com/msgrd?v=3&uin=603329354&site=qq&menu=yes" target="_blank">教书的先生</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/2019/09/07/《深度学习入门》阅读笔记/" class="next-post btn btn-default" title='《深度学习入门》阅读笔记'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            《深度学习入门》阅读笔记</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMzA1MS85NjEz">
+    <script type="text/javascript">
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+    </script>
+</div>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#引入"><span class="toc-text">引入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是Cython？"><span class="toc-text">什么是Cython？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cython中的类型"><span class="toc-text">Cython中的类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何使用Cython加速python代码"><span class="toc-text">如何使用Cython加速python代码</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+	
+
+
+	
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <center><a href="https://sm.ms/image/XFPAnNmzoVjyf7k" target="_blank"><img src="https://i.loli.net/2019/09/06/XFPAnNmzoVjyf7k.png" ></a></center>
+	
+	
+	
+	
+	
+	
+		<div class="dandelion">
+  <span class="smalldan"></span>
+  <span class="bigdan"></span>
+</div>
+<style type="text/css">
+@media screen and (max-width:600px){
+.dandelion{display: none !important;}
+}
+ .dandelion .smalldan {
+width: 36px;
+height: 60px;
+left: 88px;   
+background-position: 0 -90px;
+border: 0px solid red;
+}
+.dandelion span {
+-webkit-animation: ball-x 3s linear 2s infinite;
+ -moz-animation: ball-x 3s linear 2s infinite;
+ animation: ball-x 3s linear 2s infinite;
+-webkit-transform-origin: bottom center;
+ -moz-transform-origin: bottom center;
+ transform-origin: bottom center;
+}
+.dandelion span {
+display: block;
+position: fixed;
+z-index:9999999999;
+bottom: 0px;
+background-image: url(https://s2.ax1x.com/2019/08/17/mnS12j.png);
+background-repeat: no-repeat;
+_background: none;
+}
+.dandelion .bigdan {
+width: 64px;
+height: 115px;
+left: 41px;
+background-position: -86px -36px;
+border: 0px solid red;
+}
+@keyframes ball-x {
+ 0% { transform:rotate(0deg);}
+ 25% { transform:rotate(5deg); }
+ 50% { transform:rotate(0deg);}
+ 75% { transform:rotate(-5deg);}
+ 100% { transform:rotate(0deg);}  
+}
+@-webkit-keyframes ball-x {
+ 0% { -webkit-transform:rotate(0deg);}
+ 25% { -webkit-transform:rotate(5deg); }
+ 50% { -webkit-transform:rotate(0deg);}
+ 75% { -webkit-transform:rotate(-5deg);}
+ 100% { -webkit-transform:rotate(0deg);}
+}
+@-moz-keyframes ball-x {
+ 0% { -moz-transform:rotate(0deg);}
+ 25% { -moz-transform:rotate(5deg); }
+ 50% { -moz-transform:rotate(0deg);}
+ 75% { -moz-transform:rotate(-5deg);}
+ 100% { -moz-transform:rotate(0deg);}
+}
+</style>
+	
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9"></script>
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/app.js?rev=@@hash"></script>
+</body>
+</html>
