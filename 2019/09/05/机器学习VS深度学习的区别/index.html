@@ -60,17 +60,24 @@
 <link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
 <link rel="stylesheet" href="/css/style.css?rev=@@hash">
     
-<div class="hide">
-    <script type="text/javascript">
-    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-</div>
-
 
 
 
     
+
+<script>
+(function() {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
 
 </head></html>
 <!--[if lte IE 8]>
@@ -188,7 +195,7 @@
 </ol>
 </blockquote>
 <h2 id="1-数据的相关性"><a href="#1-数据的相关性" class="headerlink" title="1.数据的相关性"></a>1.数据的相关性</h2><p>深度学习与传统机器学习最重要的区别是，随着数据量的增加，其性能也随之提高。当数据很小的时候，深度学习算法并不能很好地执行，这是因为深度学习算法需要大量的数据才能完全理解它。下图便能很好的说明这个事实：<br><img src="https://i.loli.net/2019/09/05/im2Guo3AgBKPe48.jpg" alt="微信图片_20190905183052.jpg"><br>从上图我们可以看到，随着数据量的增大，深度学习的性能会越来越好，而传统机器学习方法性能表现却趋于平缓；但传统的机器学习算法在数据量较小的情况下，比深度学习有着更好的表现。</p>
-<h2 id="2-硬件的依赖性"><a href="#2-硬件的依赖性" class="headerlink" title="2.硬件的依赖性"></a>2.硬件的依赖性</h2><p>深度学习算法在很大程度上依赖于高端机器，而传统的机器学习算法可以在低端机器上工作。这是因为深度学习算法对GPU有较高的要求，GPU是其工作的一个组成部分。因为深度学习算法要固有地执行大量的矩阵乘法运，而使用GPU可以有效地优化这些操作，这就免不了对GPU的依赖。而相比之下，机器学习算法对硬件配置没有很高的要求。</p>
+<h2 id="2-硬件的依赖性"><a href="#2-硬件的依赖性" class="headerlink" title="2.硬件的依赖性"></a>2.硬件的依赖性</h2><p>深度学习算法在很大程度上依赖于高端机器，而传统的机器学习算法可以在低端机器上工作。这是因为深度学习算法对GPU有较高的要求，GPU是其工作的一个组成部分。因为深度学习算法要固有地执行大量的矩阵乘法运算，而使用GPU可以有效地优化这些操作，这就免不了对GPU的依赖。而相比之下，机器学习算法对硬件配置没有很高的要求。</p>
 <h2 id="3-特征工程"><a href="#3-特征工程" class="headerlink" title="3.特征工程"></a>3.特征工程</h2><p>特征工程是将领域知识应用到特征抽取的创建过程，以降低数据的复杂性为目的。但这一过程在训练时间和如何提取特征方面十分地困难。</p>
 <p>在机器学习中，大多数应用的特征需要由专家识别，然后根据域和数据类型手工编码。</p>
 <p>例如，特征可以是像素值、形状、纹理、位置和方向，大多数机器学习算法的性能取决于特征识别和提取的准确程度。</p>
@@ -208,7 +215,7 @@
         <div>
             
             转载声明：
-            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://wpa.qq.com/msgrd?v=3&uin=603329354&site=qq&menu=yes" target="_blank">教书的先生</a>
             
             
         </div>
@@ -236,27 +243,18 @@
 
 <div id="comments">
     
-
-<div id="vcomments" class="valine"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="/assets/valine.min.js"></script>
-<script>
-new Valine({
-    av: AV,
-    el: '#vcomments',
-    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
-    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
-    placeholder: '说点什么吧',
-    notify: false,
-    verify: true,
-    avatar: 'mm',
-    meta: 'nick,mail'.split(','),
-    pageSize: '10',
-    path: window.location.pathname,
-    lang: 'en'.toLowerCase()
-})
-</script>
-
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMzA1MS85NjEz">
+    <script type="text/javascript">
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+    </script>
+</div>
 
 </div>
 
