@@ -1,0 +1,461 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="教书的先生">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content="机器学习">
+
+
+<meta name="description" content="说起分类算法，相信学过机器学习的同学都能侃上一二。
+可是，你能够如数家珍地说出所有常用的分类算法，以及他们的特征、优缺点吗？比如说，你可以快速地回答下面的问题么:
+
+KNN算法的优缺点是什么？
+...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    机器学习分类算法 |
+    
+    教书的先生
+</title>
+
+<link rel="alternate" href="/atom.xml" title="教书的先生" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+
+
+
+    
+
+</head></html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='王荣胜'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        教书的先生</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="机器学习分类算法">
+            
+            机器学习分类算法
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/AI/">AI</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/机器学习/">机器学习</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/09/12</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>说起分类算法，相信学过机器学习的同学都能侃上一二。</p>
+<p>可是，你能够如数家珍地说出所有常用的分类算法，以及他们的特征、优缺点吗？比如说，你可以快速地回答下面的问题么:</p>
+<ul>
+<li><p>KNN算法的优缺点是什么？</p>
+</li>
+<li><p>Naive Bayes算法的基本假设是什么？</p>
+</li>
+<li><p>entropy loss是如何定义的？</p>
+</li>
+<li><p>最后，分类算法调参常用的图像又有哪些？</p>
+</li>
+</ul>
+<p>可能真的涉及这些问题时候，我们不能快速的回答，所以我总结了此文~</p>
+<p>机器学习是一种能从数据中学习的计算机编程科学以及艺术，就像下面这句话说得一样。</p>
+<blockquote>
+<p>机器学习是使计算机无需显式编程就能学习的研究领域。——阿瑟·塞缪尔，1959年</p>
+</blockquote>
+<p>不过还有一个更好的定义：</p>
+<blockquote>
+<p>“如果一个程序在使用既有的经验（E）执行某类任务（T）的过程中被认为是“具备学习能力的”，那么它一定需要展现出:利用现有的经验（E），不断改善其完成既定任务（T）的性能（P）的特性。” ——Tom Mitchell, 1997</p>
+</blockquote>
+<p>例如，你的垃圾邮件过滤器是一个机器学习程序，通过学习用户标记好的垃圾邮件和常规非垃圾邮件示例，它可以学会标记垃圾邮件。系统用于学习的示例称为训练集。在此案例中，任务（T）是标记新邮件是否为垃圾邮件，经验（E）是训练数据，性能度量（P） 需要定义。例如，你可以定义正确分类的电子邮件的比例为P。这种特殊的性能度量称为准确度，这是一种有监督的学习方法，常被用于分类任务。</p>
+<h1 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h1><p>在监督学习中，算法从有标记数据中学习。在理解数据之后，该算法通过将模式与未标记的新数据关联来确定应该给新数据赋哪种标签。</p>
+<p>监督学习可以分为两类：<strong>分类</strong>和<strong>回归</strong>。</p>
+<p><strong>分类问题预测数据所属的类别</strong>；</p>
+<p>分类的例子包括垃圾邮件检测、客户流失预测、情感分析、犬种检测等。</p>
+<p><strong>回归问题根据先前观察到的数据预测数值</strong>；</p>
+<p>回归的例子包括房价预测、股价预测、身高-体重预测等。</p>
+<h1 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h1><p>分类是一种基于一个或多个自变量确定因变量所属类别的技术。</p>
+<p><a href="https://sm.ms/image/isQALwyZW2k8qXa" target="_blank"><img src="https://i.loli.net/2019/09/12/isQALwyZW2k8qXa.jpg"></a></p>
+<h1 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h1><p>逻辑回归类似于线性回归，适用于因变量不是一个数值字的情况 (例如，一个“是/否”的响应)。它虽然被称为回归，但却是基于根据回归的分类，将因变量分为两类。</p>
+<p><a href="https://sm.ms/image/lXzAYr9EwIxL8su" target="_blank"><img src="https://i.loli.net/2019/09/12/lXzAYr9EwIxL8su.jpg"></a></p>
+<p>如上所述，逻辑回归用于预测二分类的输出。例如，如果信用卡公司构建一个模型来决定是否通过向客户的发行信用卡申请，它将预测客户的信用卡是否会“违约”。</p>
+<p><a href="https://sm.ms/image/AnCUkFxLyr4KqMQ" target="_blank"><img src="https://i.loli.net/2019/09/12/AnCUkFxLyr4KqMQ.jpg"></a></p>
+<p>首先对变量之间的关系进行线性回归以构建模型，分类的阈值假设为0.5。    </p>
+<p><a href="https://sm.ms/image/Th4bsK92YPzqfZO" target="_blank"><img src="https://i.loli.net/2019/09/12/Th4bsK92YPzqfZO.jpg"></a></p>
+<p>然后将Logistic函数应用于回归分析，得到两类的概率。</p>
+<p>该函数给出了事件发生和不发生概率的对数。最后，根据这两类中较高的概率对变量进行分类。</p>
+<p><a href="https://sm.ms/image/DU8lJCFVas4Oiqz" target="_blank"><img src="https://i.loli.net/2019/09/12/DU8lJCFVas4Oiqz.jpg"></a></p>
+<h1 id="K-近邻算法（K-NN）"><a href="#K-近邻算法（K-NN）" class="headerlink" title="K-近邻算法（K-NN）"></a>K-近邻算法（K-NN）</h1><p>K-NN算法是一种最简单的分类算法，通过识别被分成若干类的数据点，以预测新样本点的分类。K-NN是一种非参数的算法，是“懒惰学习”的著名代表，它根据相似性（如，距离函数）对新数据进行分类。</p>
+<p><a href="https://sm.ms/image/sXxPpoTJ1kY5SIV" target="_blank"><img src="https://i.loli.net/2019/09/12/sXxPpoTJ1kY5SIV.jpg"></a><br><a href="https://sm.ms/image/d1MlhBKkIQ7uDgs" target="_blank"><img src="https://i.loli.net/2019/09/12/d1MlhBKkIQ7uDgs.jpg"></a><br><a href="https://sm.ms/image/GCNHeT3znA51Eqt" target="_blank"><img src="https://i.loli.net/2019/09/12/GCNHeT3znA51Eqt.jpg"></a><br><a href="https://sm.ms/image/ouEkChiFIq8VNDW" target="_blank"><img src="https://i.loli.net/2019/09/12/ouEkChiFIq8VNDW.jpg"></a></p>
+<p>K-NN能很好地处理少量输入变量（p）的情况，但当输入量非常大时就会出现问题。  </p>
+<h1 id="支持向量机（SVM）"><a href="#支持向量机（SVM）" class="headerlink" title="支持向量机（SVM）"></a>支持向量机（SVM）</h1><p>支持向量机既可用于回归也可用于分类。它基于定义决策边界的决策平面。决策平面（超平面）可将一组属于不同类的对象分离开。</p>
+<p><a href="https://sm.ms/image/SIw1KX9NGdnfY7s" target="_blank"><img src="https://i.loli.net/2019/09/12/SIw1KX9NGdnfY7s.jpg"></a></p>
+<p>在支持向量的帮助下，SVM通过寻找超平面进行分类，并使两个类之间的边界距离最大化。</p>
+<p><a href="https://sm.ms/image/4r8JBhTmC2ntFYz" target="_blank"><img src="https://i.loli.net/2019/09/12/4r8JBhTmC2ntFYz.jpg"></a></p>
+<p>SVM中超平面的学习是通过将问题转化为使用一些某种线性代数转换问题来完成的。（上图的例子是一个线性核，它在每个变量之间具有线性可分性）。</p>
+<p>对于高维数据，使用可使用其他核函数，但高维数据不容易进行分类。具体方法将在之后阐述。</p>
+<h2 id="核支持向量机"><a href="#核支持向量机" class="headerlink" title="核支持向量机"></a>核支持向量机</h2><p>核支持向量机将核函数引入到SVM算法中，并将其转换为所需的形式，将数据映射到可分的高维空间。</p>
+<p>核函数的类型包括：</p>
+<p><a href="https://sm.ms/image/9MXo82Y6StNZrOW" target="_blank"><img src="https://i.loli.net/2019/09/12/9MXo82Y6StNZrOW.jpg"></a></p>
+<ul>
+<li><p>前文讨论的就是线性SVM。</p>
+</li>
+<li><p>多项式核中需要指定多项式的次数。它允许在输入空间中使用曲线进行分割。</p>
+</li>
+<li><p>径向基核（radial basis function, RBF）可用于非线性可分变量。使用平方欧几里德距离，参数的典型值会导致过度拟合。sklearn中默认使用RBF。</p>
+</li>
+<li><p>类似于与逻辑回归类似，sigmoid核用于二分类问题。</p>
+</li>
+</ul>
+<p><a href="https://sm.ms/image/4MDKNmzP26lBIUh" target="_blank"><img src="https://i.loli.net/2019/09/12/4MDKNmzP26lBIUh.jpg"></a></p>
+<h2 id="径向基核（RBF：Radial-Basis-Function-）"><a href="#径向基核（RBF：Radial-Basis-Function-）" class="headerlink" title="径向基核（RBF：Radial Basis Function ）"></a>径向基核（RBF：Radial Basis Function ）</h2><p>RBF核支持向量机的决策区域实际上也是一个线性决策区域。RBF核支持向量机的实际作用是构造特征的非线性组合，将样本映射到高维特征空间，再利用线性决策边界分离类。</p>
+<p><a href="https://sm.ms/image/9p1qE7lGF6QScYm" target="_blank"><img src="https://i.loli.net/2019/09/12/9p1qE7lGF6QScYm.jpg"></a></p>
+<p>因此，可以得出经验是：对线性问题使用线性支持向量机，对非线性问题使用非线性核函数，如RBF核函数。</p>
+<h1 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h1><p>朴素贝叶斯分类器建立在贝叶斯定理的基础上，基于特征之间互相独立的假设（假定类中存在一个与任何其他特征无关的特征）。即使这些特征相互依赖，或者依赖于其他特征的存在，朴素贝叶斯算法都认为这些特征都是独立的。这样的假设过于理想，朴素贝叶斯因此而得名。</p>
+<p><a href="https://sm.ms/image/6vg1DwypuzBiLeV" target="_blank"><img src="https://i.loli.net/2019/09/12/6vg1DwypuzBiLeV.jpg"></a></p>
+<p>在朴素贝叶斯的基础上，高斯朴素贝叶斯根据二项（正态）分布对数据进行分类。</p>
+<p><a href="https://sm.ms/image/wuVQl1qF9Bgfyt5" target="_blank"><img src="https://i.loli.net/2019/09/12/wuVQl1qF9Bgfyt5.jpg"></a></p>
+<p>P(class|data) 表示给定特征（属性）后数据属于某类（目标）的后验概率。给定数据，其属于各类的概率大小就是我们要计算的值。</p>
+<p>P(class)表示某类的先验概率。</p>
+<p>P(data|class)表示似然，是指定类别时特征出现的概率。</p>
+<p>P(data)表示特征或边际似然的先验概率。</p>
+<p><a href="https://sm.ms/image/cGoCjiKS6dyfrDz" target="_blank"><img src="https://i.loli.net/2019/09/12/cGoCjiKS6dyfrDz.jpg"></a></p>
+<p><strong>步骤:</strong></p>
+<p><strong>1、计算先验概率</strong></p>
+<p>P(class) = 类中数据点的数量/观测值的总数量</p>
+<p>P(yellow) = 10/17</p>
+<p>P(green) = 7/17</p>
+<p><strong>2、计算边际似然</strong></p>
+<p>P(data) = 与观测值相似的数据点的数量/观测值的总数量</p>
+<p>P(?) = 4/17</p>
+<p>该值用于检查各个概率。</p>
+<p><strong>3、计算似然</strong></p>
+<p>P(data/class) = 类中与观测值相似的数量/类中点的总数量</p>
+<p>P(?/yellow) = 1/7</p>
+<p>P(?/green) = 3/10</p>
+<p><strong>4、计算各类的后验概率</strong></p>
+<p><a href="https://sm.ms/image/VBUrNiq3HLOk5Ix" target="_blank"><img src="https://i.loli.net/2019/09/12/VBUrNiq3HLOk5Ix.jpg"></a></p>
+<p><strong>5、分类</strong></p>
+<p><a href="https://sm.ms/image/ECulc8Zj19aV4sN" target="_blank"><img src="https://i.loli.net/2019/09/12/ECulc8Zj19aV4sN.jpg"></a></p>
+<p>某一点归于后验概率高的类别，因为从上可知其属于绿色类的概率是75%根据其75%的概率这个点属于绿色类。</p>
+<p>多项式、伯努利朴素贝叶斯是计算概率的其他模型。朴素贝叶斯模型易于构建，不需要复杂的参数迭代估计，这使得它对非常大的数据集特别有用。</p>
+<h1 id="决策树分类"><a href="#决策树分类" class="headerlink" title="决策树分类"></a>决策树分类</h1>
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://wpa.qq.com/msgrd?v=3&uin=603329354&site=qq&menu=yes" target="_blank">教书的先生</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/2019/09/10/使用cython加速代码运行/" class="next-post btn btn-default" title='使用cython加速代码运行'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            使用cython加速代码运行</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMzA1MS85NjEz">
+    <script type="text/javascript">
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+    </script>
+</div>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#监督学习"><span class="toc-text">监督学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分类问题"><span class="toc-text">分类问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#逻辑回归"><span class="toc-text">逻辑回归</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#K-近邻算法（K-NN）"><span class="toc-text">K-近邻算法（K-NN）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#支持向量机（SVM）"><span class="toc-text">支持向量机（SVM）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#核支持向量机"><span class="toc-text">核支持向量机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#径向基核（RBF：Radial-Basis-Function-）"><span class="toc-text">径向基核（RBF：Radial Basis Function ）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#朴素贝叶斯"><span class="toc-text">朴素贝叶斯</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#决策树分类"><span class="toc-text">决策树分类</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+	
+
+
+	
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <center><a href="https://sm.ms/image/XFPAnNmzoVjyf7k" target="_blank"><img src="https://i.loli.net/2019/09/06/XFPAnNmzoVjyf7k.png" ></a></center>
+	
+	
+	
+	
+	
+	
+		<div class="dandelion">
+  <span class="smalldan"></span>
+  <span class="bigdan"></span>
+</div>
+<style type="text/css">
+@media screen and (max-width:600px){
+.dandelion{display: none !important;}
+}
+ .dandelion .smalldan {
+width: 36px;
+height: 60px;
+left: 88px;   
+background-position: 0 -90px;
+border: 0px solid red;
+}
+.dandelion span {
+-webkit-animation: ball-x 3s linear 2s infinite;
+ -moz-animation: ball-x 3s linear 2s infinite;
+ animation: ball-x 3s linear 2s infinite;
+-webkit-transform-origin: bottom center;
+ -moz-transform-origin: bottom center;
+ transform-origin: bottom center;
+}
+.dandelion span {
+display: block;
+position: fixed;
+z-index:9999999999;
+bottom: 0px;
+background-image: url(https://s2.ax1x.com/2019/08/17/mnS12j.png);
+background-repeat: no-repeat;
+_background: none;
+}
+.dandelion .bigdan {
+width: 64px;
+height: 115px;
+left: 41px;
+background-position: -86px -36px;
+border: 0px solid red;
+}
+@keyframes ball-x {
+ 0% { transform:rotate(0deg);}
+ 25% { transform:rotate(5deg); }
+ 50% { transform:rotate(0deg);}
+ 75% { transform:rotate(-5deg);}
+ 100% { transform:rotate(0deg);}  
+}
+@-webkit-keyframes ball-x {
+ 0% { -webkit-transform:rotate(0deg);}
+ 25% { -webkit-transform:rotate(5deg); }
+ 50% { -webkit-transform:rotate(0deg);}
+ 75% { -webkit-transform:rotate(-5deg);}
+ 100% { -webkit-transform:rotate(0deg);}
+}
+@-moz-keyframes ball-x {
+ 0% { -moz-transform:rotate(0deg);}
+ 25% { -moz-transform:rotate(5deg); }
+ 50% { -moz-transform:rotate(0deg);}
+ 75% { -moz-transform:rotate(-5deg);}
+ 100% { -moz-transform:rotate(0deg);}
+}
+</style>
+	
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9"></script>
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/app.js?rev=@@hash"></script>
+</body>
+</html>
