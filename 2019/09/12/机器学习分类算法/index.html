@@ -255,7 +255,16 @@ KNN算法的优缺点是什么？
 <p><a href="https://sm.ms/image/ECulc8Zj19aV4sN" target="_blank"><img src="https://i.loli.net/2019/09/12/ECulc8Zj19aV4sN.jpg"></a></p>
 <p>某一点归于后验概率高的类别，因为从上可知其属于绿色类的概率是75%根据其75%的概率这个点属于绿色类。</p>
 <p>多项式、伯努利朴素贝叶斯是计算概率的其他模型。朴素贝叶斯模型易于构建，不需要复杂的参数迭代估计，这使得它对非常大的数据集特别有用。</p>
-<h1 id="决策树分类"><a href="#决策树分类" class="headerlink" title="决策树分类"></a>决策树分类</h1>
+<h1 id="决策树分类"><a href="#决策树分类" class="headerlink" title="决策树分类"></a>决策树分类</h1><p><strong>决策树以树状结构构建分类或回归模型</strong>。它通过将数据集不断拆分为更小的子集来使决策树不断生长。最终长成具有决策节点（包括根节点和内部节点）和叶节点的树。最初决策树算法它采用采用Iterative Dichotomiser 3（ID3）算法来确定分裂节点的顺序。</p>
+<p><a href="https://sm.ms/image/hQLl2H65fwUaxA3" target="_blank"><img src="https://i.loli.net/2019/09/12/hQLl2H65fwUaxA3.jpg"></a></p>
+<p>信息熵和信息增益用于被用来构建决策树。</p>
+<h2 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a>信息熵</h2><p>信息熵是衡量元素无序状态程度的一个指标，即衡量信息的不纯度。</p>
+<p><a href="https://sm.ms/image/gRXyfz1eojrQ5BH" target="_blank"><img src="https://i.loli.net/2019/09/12/gRXyfz1eojrQ5BH.jpg"></a></p>
+<p>信息熵是衡量元素的无序状态的程度的一个指标，或者说，衡量信息的不纯度。</p>
+<p><a href="https://sm.ms/image/gRXyfz1eojrQ5BH" target="_blank"><img src="https://i.loli.net/2019/09/12/gRXyfz1eojrQ5BH.jpg"></a></p>
+<p>直观上说地理解，信息熵表示一个事件的确定性程度。信息熵度量样本的同一性，如果样本全部属于同一类，则信息熵为0；如果样本等分成不同的类别，则信息熵为1。</p>
+<h2 id="信息增益"><a href="#信息增益" class="headerlink" title="信息增益"></a>信息增益</h2><p>信息增益测量独立属性间信息熵的变化。它试图估计每个属性本身包含的信息，构造决策树就是要找到具有最高信息增益的属性（即纯度最高的分支）。</p>
+
     </div>
     
     <div class="post-footer">
@@ -307,7 +316,7 @@ KNN算法的优缺点是什么？
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#监督学习"><span class="toc-text">监督学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分类问题"><span class="toc-text">分类问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#逻辑回归"><span class="toc-text">逻辑回归</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#K-近邻算法（K-NN）"><span class="toc-text">K-近邻算法（K-NN）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#支持向量机（SVM）"><span class="toc-text">支持向量机（SVM）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#核支持向量机"><span class="toc-text">核支持向量机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#径向基核（RBF：Radial-Basis-Function-）"><span class="toc-text">径向基核（RBF：Radial Basis Function ）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#朴素贝叶斯"><span class="toc-text">朴素贝叶斯</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#决策树分类"><span class="toc-text">决策树分类</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#监督学习"><span class="toc-text">监督学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分类问题"><span class="toc-text">分类问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#逻辑回归"><span class="toc-text">逻辑回归</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#K-近邻算法（K-NN）"><span class="toc-text">K-近邻算法（K-NN）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#支持向量机（SVM）"><span class="toc-text">支持向量机（SVM）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#核支持向量机"><span class="toc-text">核支持向量机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#径向基核（RBF：Radial-Basis-Function-）"><span class="toc-text">径向基核（RBF：Radial Basis Function ）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#朴素贝叶斯"><span class="toc-text">朴素贝叶斯</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#决策树分类"><span class="toc-text">决策树分类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#信息熵"><span class="toc-text">信息熵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#信息增益"><span class="toc-text">信息增益</span></a></li></ol></li></ol>
         
     </div>
 </aside>
