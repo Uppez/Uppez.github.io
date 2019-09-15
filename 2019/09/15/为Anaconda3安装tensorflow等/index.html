@@ -1,0 +1,469 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="教书的先生">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content="Anaconda">
+
+
+<meta name="description" content="Anaconda3介绍简单来说，Anaconda是Python的包管理器和环境管理器。
+先来解决一个初学者都会问的问题：我已经安装了Python，那么为什么还需要Anaconda呢？原因有以下几...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    为Anaconda3安装tensorflow等 |
+    
+    教书的先生
+</title>
+
+<link rel="alternate" href="/atom.xml" title="教书的先生" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+
+
+
+    
+
+</head></html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='王荣胜'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        教书的先生</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="为Anaconda3安装tensorflow等">
+            
+            为Anaconda3安装tensorflow等
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/python/">python</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/Anaconda/">Anaconda</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/09/15</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="Anaconda3介绍"><a href="#Anaconda3介绍" class="headerlink" title="Anaconda3介绍"></a>Anaconda3介绍</h1><p>简单来说，Anaconda是Python的包管理器和环境管理器。</p>
+<p>先来解决一个初学者都会问的问题：我已经安装了Python，那么为什么还需要Anaconda呢？原因有以下几点：</p>
+<ol>
+<li><p>Anaconda附带了一大批常用数据科学包，它附带了conda、Python和 150 多个科学包及其依赖项。因此你可以用Anaconda立即开始处理数据。</p>
+</li>
+<li><p>管理包。Anaconda 是在 conda（一个包管理器和环境管理器）上发展出来的。在数据分析中，你会用到很多第三方的包，而conda（包管理器）可以很好的帮助你在计算机上安装和管理这些包，包括安装、卸载和更新包。</p>
+</li>
+<li><p>管理环境。为什么需要管理环境呢？比如你在A项目中用到了Python2，而新的项目要求使用Python3，而同时安装两个Python版本可能会造成许多混乱和错误。这时候conda就可以帮助你为不同的项目建立不同的运行环境。还有很多项目使用的包版本不同，比如不同的pandas版本，不可能同时安装两个pandas版本。你要做的应该是在项目对应的环境中创建对应的pandas版本。这时候conda就可以帮你做到。</p>
+</li>
+</ol>
+<h1 id="Anaconda3的安装"><a href="#Anaconda3的安装" class="headerlink" title="Anaconda3的安装"></a>Anaconda3的安装</h1><ol>
+<li><a href="https://www.anaconda.com/download/" target="_blank" rel="noopener">官网地址</a></li>
+<li><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/" target="_blank" rel="noopener">清华镜像</a></li>
+</ol>
+<p>关于安装过程中的细节,如全局变量设置…可自行百度,下面我们转入正题</p>
+<h1 id="Anaconda3安装tensorflow"><a href="#Anaconda3安装tensorflow" class="headerlink" title="Anaconda3安装tensorflow"></a>Anaconda3安装tensorflow</h1><ol>
+<li><p>打开anaconda安装时自带的Anaconda prompt</p>
+</li>
+<li><p>打开后,输入清华镜像的tensorflow的下载地址(如果你已经在墙外翱翔了,可以省略这一步):</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<ol start="3">
+<li>接着我们开始创建一个python3.6的环境,因为如果你安装的是最新的anaconda,它默认环境为py3.7,并且在不久之前,tensorflow已经开始支持py3.6,所以我们创建一个py3.6环境:<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n tensorflow python=3.6</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<ol start="4">
+<li>启动anaconda中的py3.6环境:<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">activate tensorflow</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<p>如果不能进入,则重新执行第3步骤</p>
+<ol start="5">
+<li>进入py3.6的环境中后,我们就可以进行安装了(此处我们安装的是CPU版本的tensorflow):<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade --ignore-installed tensorflow</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<ol start="6">
+<li>当我们不使用tensorflow时,我们就可以使用:<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<p> 退出该环境</p>
+<ol start="7">
+<li>开始测试一下是否安装成功:</li>
+</ol>
+<p>重新打开Anaconda Prompt—&gt;activate tensorflow—&gt;python来启动tensorflow，并进入python环境<br> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#TensorFlow使用图(Graph)来表示计算任务；并使用会话(Session)来执行图，通过Session.close()来关闭会话（这是一种显式关闭会话的方式）。会话方式有显式和隐式会话之分。</span></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">hello = tf.constant(<span class="string">'Hello, TensorFlow!'</span>)  <span class="comment">#初始化一个TensorFlow的常量</span></span><br><span class="line">sess = tf.Session()  <span class="comment">#启动一个会话</span></span><br><span class="line">print(sess.run(hello))</span><br></pre></td></tr></table></figure></p>
+<p>如果可以准确的输出结果,那么恭喜你,安装tensorflow成功!</p>
+<h1 id="Anaconda3安装pytorch"><a href="#Anaconda3安装pytorch" class="headerlink" title="Anaconda3安装pytorch"></a>Anaconda3安装pytorch</h1><ol>
+<li><p>打开anaconda安装时自带的Anaconda prompt</p>
+</li>
+<li><p>创建py3.6环境:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n pytorch python=3.6</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<ol start="3">
+<li>启动anaconda中的py3.6环境:<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">activate pytorch</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<ol start="4">
+<li>PyTorch 的官网提供了简单的安装方法，只需简单的命令即可。</li>
+</ol>
+<p>首先，打开 PyTorch 官网安装页面（需自备梯子）：<a href="https://pytorch.org/get-started/locally/" target="_blank" rel="noopener">https://pytorch.org/get-started/locally/</a></p>
+<p>然后复制页面中Run this Command后的代码,粘贴在你的命令行,等待安装完成就可以了~</p>
+<h1 id="Anaconda3安装keras"><a href="#Anaconda3安装keras" class="headerlink" title="Anaconda3安装keras"></a>Anaconda3安装keras</h1><p>其实keras是可以与tensorflow在共同环境下使用的,所以我们可以直接将keras安装在我们的tensorflow环境中。</p>
+<ol>
+<li><p>打开anaconda安装时自带的Anaconda prompt</p>
+</li>
+<li><p>创建py3.6环境:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n tensorflow python=3.6</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<ol start="3">
+<li>启动anaconda中的py3.6环境:<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">activate tensorflow</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<ol start="4">
+<li>直接运行命令:<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda install keras</span><br><span class="line">或者</span><br><span class="line">pip install keras</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<p> 等待安装完成即可~</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://wpa.qq.com/msgrd?v=3&uin=603329354&site=qq&menu=yes" target="_blank">教书的先生</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2019/09/15/AI领域区分介绍/" class="pre-post btn btn-default" title='AI领域区分介绍'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            AI领域区分介绍</span>
+    </a>
+    
+    
+    <a href="/2019/09/15/关于论文作者那点事/" class="next-post btn btn-default" title='关于论文作者那点事'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            关于论文作者那点事</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMzA1MS85NjEz">
+    <script type="text/javascript">
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+    </script>
+</div>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Anaconda3介绍"><span class="toc-text">Anaconda3介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Anaconda3的安装"><span class="toc-text">Anaconda3的安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Anaconda3安装tensorflow"><span class="toc-text">Anaconda3安装tensorflow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Anaconda3安装pytorch"><span class="toc-text">Anaconda3安装pytorch</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Anaconda3安装keras"><span class="toc-text">Anaconda3安装keras</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+	
+
+
+	
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <center><a href="https://sm.ms/image/XFPAnNmzoVjyf7k" target="_blank"><img src="https://i.loli.net/2019/09/06/XFPAnNmzoVjyf7k.png" ></a></center>
+	
+	
+	
+	
+	
+	
+		<div class="dandelion">
+  <span class="smalldan"></span>
+  <span class="bigdan"></span>
+</div>
+<style type="text/css">
+@media screen and (max-width:600px){
+.dandelion{display: none !important;}
+}
+ .dandelion .smalldan {
+width: 36px;
+height: 60px;
+left: 88px;   
+background-position: 0 -90px;
+border: 0px solid red;
+}
+.dandelion span {
+-webkit-animation: ball-x 3s linear 2s infinite;
+ -moz-animation: ball-x 3s linear 2s infinite;
+ animation: ball-x 3s linear 2s infinite;
+-webkit-transform-origin: bottom center;
+ -moz-transform-origin: bottom center;
+ transform-origin: bottom center;
+}
+.dandelion span {
+display: block;
+position: fixed;
+z-index:9999999999;
+bottom: 0px;
+background-image: url(https://s2.ax1x.com/2019/08/17/mnS12j.png);
+background-repeat: no-repeat;
+_background: none;
+}
+.dandelion .bigdan {
+width: 64px;
+height: 115px;
+left: 41px;
+background-position: -86px -36px;
+border: 0px solid red;
+}
+@keyframes ball-x {
+ 0% { transform:rotate(0deg);}
+ 25% { transform:rotate(5deg); }
+ 50% { transform:rotate(0deg);}
+ 75% { transform:rotate(-5deg);}
+ 100% { transform:rotate(0deg);}  
+}
+@-webkit-keyframes ball-x {
+ 0% { -webkit-transform:rotate(0deg);}
+ 25% { -webkit-transform:rotate(5deg); }
+ 50% { -webkit-transform:rotate(0deg);}
+ 75% { -webkit-transform:rotate(-5deg);}
+ 100% { -webkit-transform:rotate(0deg);}
+}
+@-moz-keyframes ball-x {
+ 0% { -moz-transform:rotate(0deg);}
+ 25% { -moz-transform:rotate(5deg); }
+ 50% { -moz-transform:rotate(0deg);}
+ 75% { -moz-transform:rotate(-5deg);}
+ 100% { -moz-transform:rotate(0deg);}
+}
+</style>
+	
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9"></script>
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/app.js?rev=@@hash"></script>
+</body>
+</html>
