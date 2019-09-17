@@ -252,109 +252,18 @@
             
         </h1>
         <div class="content">
-            <a id="more"></a>
-
-<h1 id="Anaconda3介绍"><a href="#Anaconda3介绍" class="headerlink" title="Anaconda3介绍"></a>Anaconda3介绍</h1><p>简单来说，Anaconda是Python的包管理器和环境管理器。</p>
+            <h1 id="Anaconda3介绍"><a href="#Anaconda3介绍" class="headerlink" title="Anaconda3介绍"></a>Anaconda3介绍</h1><p>简单来说，Anaconda是Python的包管理器和环境管理器。</p>
 <p>先来解决一个初学者都会问的问题：我已经安装了Python，那么为什么还需要Anaconda呢？原因有以下几点：</p>
-<ol>
-<li><p>Anaconda附带了一大批常用数据科学包，它附带了conda、Python和 150 多个科学包及其依赖项。因此你可以用Anaconda立即开始处理数据。</p>
-</li>
-<li><p>管理包。Anaconda 是在 conda（一个包管理器和环境管理器）上发展出来的。在数据分析中，你会用到很多第三方的包，而conda（包管理器）可以很好的帮助你在计算机上安装和管理这些包，包括安装、卸载和更新包。</p>
-</li>
-<li><p>管理环境。为什么需要管理环境呢？比如你在A项目中用到了Python2，而新的项目要求使用Python3，而同时安装两个Python版本可能会造成许多混乱和错误。这时候conda就可以帮助你为不同的项目建立不同的运行环境。还有很多项目使用的包版本不同，比如不同的pandas版本，不可能同时安装两个pandas版本。你要做的应该是在项目对应的环境中创建对应的pandas版本。这时候conda就可以帮你做到。</p>
-</li>
-</ol>
-<h1 id="Anaconda3的安装"><a href="#Anaconda3的安装" class="headerlink" title="Anaconda3的安装"></a>Anaconda3的安装</h1><ol>
-<li><a href="https://www.anaconda.com/download/" target="_blank" rel="noopener">官网地址</a></li>
-<li><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/" target="_blank" rel="noopener">清华镜像</a></li>
-</ol>
-<p>关于安装过程中的细节,如全局变量设置…可自行百度,下面我们转入正题</p>
-<h1 id="Anaconda3安装tensorflow"><a href="#Anaconda3安装tensorflow" class="headerlink" title="Anaconda3安装tensorflow"></a>Anaconda3安装tensorflow</h1><ol>
-<li><p>打开anaconda安装时自带的Anaconda prompt</p>
-</li>
-<li><p>打开后,输入清华镜像的tensorflow的下载地址(如果你已经在墙外翱翔了,可以省略这一步):</p>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<ol start="3">
-<li>接着我们开始创建一个python3.6的环境,因为如果你安装的是最新的anaconda,它默认环境为py3.7,并且在不久之前,tensorflow已经开始支持py3.6,所以我们创建一个py3.6环境:<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n tensorflow python=3.6</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<ol start="4">
-<li>启动anaconda中的py3.6环境:<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">activate tensorflow</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<p>如果不能进入,则重新执行第3步骤</p>
-<ol start="5">
-<li>进入py3.6的环境中后,我们就可以进行安装了(此处我们安装的是CPU版本的tensorflow):<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade --ignore-installed tensorflow</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<ol start="6">
-<li>当我们不使用tensorflow时,我们就可以使用:<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<p> 退出该环境</p>
-<ol start="7">
-<li>开始测试一下是否安装成功:</li>
-</ol>
-<p>重新打开Anaconda Prompt—&gt;activate tensorflow—&gt;python来启动tensorflow，并进入python环境<br> <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#TensorFlow使用图(Graph)来表示计算任务；并使用会话(Session)来执行图，通过Session.close()来关闭会话（这是一种显式关闭会话的方式）。会话方式有显式和隐式会话之分。</span></span><br><span class="line"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf</span><br><span class="line">hello = tf.constant(<span class="hljs-string">'Hello, TensorFlow!'</span>)  <span class="hljs-comment">#初始化一个TensorFlow的常量</span></span><br><span class="line">sess = tf.Session()  <span class="hljs-comment">#启动一个会话</span></span><br><span class="line">print(sess.run(hello))</span><br></pre></td></tr></table></figure></p>
-<p>如果可以准确的输出结果,那么恭喜你,安装tensorflow成功!</p>
-<h1 id="Anaconda3安装pytorch"><a href="#Anaconda3安装pytorch" class="headerlink" title="Anaconda3安装pytorch"></a>Anaconda3安装pytorch</h1><ol>
-<li><p>打开anaconda安装时自带的Anaconda prompt</p>
-</li>
-<li><p>创建py3.6环境:</p>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n pytorch python=3.6</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<ol start="3">
-<li>启动anaconda中的py3.6环境:<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">activate pytorch</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<ol start="4">
-<li>PyTorch 的官网提供了简单的安装方法，只需简单的命令即可。</li>
-</ol>
-<p>首先，打开 PyTorch 官网安装页面（需自备梯子）：<a href="https://pytorch.org/get-started/locally/" target="_blank" rel="noopener">https://pytorch.org/get-started/locally/</a></p>
-<p>然后复制页面中Run this Command后的代码,粘贴在你的命令行,等待安装完成就可以了~</p>
-<h1 id="Anaconda3安装keras"><a href="#Anaconda3安装keras" class="headerlink" title="Anaconda3安装keras"></a>Anaconda3安装keras</h1><p>其实keras是可以与tensorflow在共同环境下使用的,所以我们可以直接将keras安装在我们的tensorflow环境中。</p>
-<ol>
-<li><p>打开anaconda安装时自带的Anaconda prompt</p>
-</li>
-<li><p>创建py3.6环境:</p>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n tensorflow python=3.6</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<ol start="3">
-<li>启动anaconda中的py3.6环境:<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">activate tensorflow</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<ol start="4">
-<li>直接运行命令:<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda install keras</span><br><span class="line">或者</span><br><span class="line">pip install keras</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<p> 等待安装完成即可~</p>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/09/15/为Anaconda3安装tensorflow等/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -519,91 +428,18 @@
             
         </h1>
         <div class="content">
-            <a id="more"></a>
-
-<h1 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h1><p>毫无疑问，Python是社区最喜爱的编程语言!到目前为止，它是最容易使用的语言之一，因为python代码是用一种直观的、人类可读的方式编写的。</p>
+            <h1 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h1><p>毫无疑问，Python是社区最喜爱的编程语言!到目前为止，它是最容易使用的语言之一，因为python代码是用一种直观的、人类可读的方式编写的。</p>
 <p>然而，你经常会反复听到一些对Python的抱怨，尤其是来自C语言爱好者的抱怨，这些抱怨无非就是Python很慢。</p>
-<p>是的，他们并没有说错。</p>
-<p>与许多其他编程语言相比，Python确实很慢。Benchmark game有一些比较不同编程语言在不同任务上的速度的可靠基准。</p>
-<blockquote>
-<p><a href="https://benchmarksgame-team.pages.debian.net/benchmarksgame/fastest/gpp-python3.html?source=post_page" target="_blank" rel="noopener">https://benchmarksgame-team.pages.debian.net/benchmarksgame/fastest/gpp-python3.html?source=post_page</a></p>
-</blockquote>
-<p>对于Python，我们有几种不同的方法可以加快速度:</p>
-<blockquote>
-<p>1.使用多进程库来使用所有的CPU核心<br><a href="https://towardsdatascience.com/heres-how-you-can-get-a-2-6x-speed-up-on-your-data-pre-processing-with-python-847887e63be5" target="_blank" rel="noopener">https://towardsdatascience.com/heres-how-you-can-get-a-2-6x-speed-up-on-your-data-pre-processing-with-python-847887e63be5</a><br>2.如果你使用Numpy、panda或Scikit-Learn，使用Rapids来加速GPU上的处理。<br><a href="https://towardsdatascience.com/heres-how-you-can-accelerate-your-data-science-on-gpu-4ecf99db3430" target="_blank" rel="noopener">https://towardsdatascience.com/heres-how-you-can-accelerate-your-data-science-on-gpu-4ecf99db3430</a></p>
-</blockquote>
-<p>如果你所做的实际上可以并行化，比如数据预处理或矩阵运算，这些都是很好的方法。</p>
-<p>但是如果你的代码是纯Python的呢?如果你不得不使用一个很大的for循环，且不能将数据放入矩阵中，因为数据必须按顺序处理，那会怎样?有没有办法加快Python本身的速度呢?</p>
-<p>答案是肯定的，<strong>这就是Cython来加速原生Python代码的地方</strong>。</p>
-<h1 id="什么是Cython？"><a href="#什么是Cython？" class="headerlink" title="什么是Cython？"></a>什么是Cython？</h1><p>Cython是Python和C/C++之间的一个中间步骤。它允许你编写纯Python代码，并且只需要做一些小修改，然后将其直接翻译成C代码。</p>
-<p>你对Python代码所做的惟一调整就是向每个变量添加类型信息。通常，我们可以像这样在Python中声明一个变量:</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="hljs-number">5</span></span><br></pre></td></tr></table></figure>
-
-<p>使用Cython，我们将向该变量添加一个类型:</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cdef int x = <span class="hljs-number">5</span></span><br></pre></td></tr></table></figure>
-
-<p>这告诉Cython，我们的变量是浮点类型，就像我们在C中所做的一样。对于纯Python，变量的类型是动态确定的。Cython中类型的显式声明使转换为C成为可能，因为显式类型声明是必须的。</p>
-<p>安装Cython只需要一行简单的pip命令:</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install cython</span><br></pre></td></tr></table></figure>
-
-<h1 id="Cython中的类型"><a href="#Cython中的类型" class="headerlink" title="Cython中的类型"></a>Cython中的类型</h1><p>使用Cython时，变量和函数分别有不同的类型。</p>
-<p>对于变量我们有以下类型:</p>
-<ul>
-<li><p>cdef int a, b, c</p>
-</li>
-<li><p>cdef char *s</p>
-</li>
-<li><p>cdef float x = 0.5 (单精度)</p>
-</li>
-<li><p>cdef double x = 63.4 (双精度)</p>
-</li>
-<li><p>cdef list names</p>
-</li>
-<li><p>cdef dict goals_for_each_play</p>
-</li>
-<li><p>cdef object card_deck</p>
-</li>
-</ul>
-<p>注意所有这些类型都来自C/C++ ! 而对于方法我们有以下类型:</p>
-<ul>
-<li>def — 常规python函数，仅从python调用。</li>
-<li>cdef — 不能从python的代码中访问Cython的函数。即必须在Cython内调用</li>
-<li>cpdef — C 和 Python. 可以从C和Python中访问</li>
-</ul>
-<p>了解了Cython类型之后，我们就可以直接实现加速了!</p>
-<h1 id="如何使用Cython加速python代码"><a href="#如何使用Cython加速python代码" class="headerlink" title="如何使用Cython加速python代码"></a>如何使用Cython加速python代码</h1><p>我们要做的第一件事是设置Python代码基准:用于计算数值阶乘的for循环。原生Python代码如下:</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test</span><span class="hljs-params">(x)</span>:</span></span><br><span class="line">    y = <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(x+<span class="hljs-number">1</span>):</span><br><span class="line">        y *= i</span><br><span class="line">    <span class="hljs-keyword">return</span> y</span><br></pre></td></tr></table></figure>
-
-<p>相同功能的Cython方法看起来非常相似。首先，我们将确保Cython代码文件具有<strong>.pyx</strong>扩展名。对代码本身的惟一更改是，我们已经声明了每个变量和函数的类型。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cpdef int test(int x):</span><br><span class="line">    cdef int y = <span class="hljs-number">1</span></span><br><span class="line">    cdef int i</span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(x+<span class="hljs-number">1</span>):</span><br><span class="line">        y *= i</span><br><span class="line">    <span class="hljs-keyword">return</span> y</span><br></pre></td></tr></table></figure>
-
-<p>Boom ! 可以看到我们的C代码已经编译好了，可以使用了!</p>
-<p>你将看到，在Cython代码所在的文件夹中，你拥有运行C代码所需的所有文件，包括<strong>run_cython.c</strong>文件。如果你感兴趣，可以查看一下Cython生成的C代码!</p>
-<p>现在我们准备测试我们新的并且超级快的C代码!查看下面的代码，它实现了一个速度测试，将原生Python代码与Cython代码进行比较。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> run_python</span><br><span class="line"><span class="hljs-keyword">import</span> run_cython</span><br><span class="line"><span class="hljs-keyword">import</span> time</span><br><span class="line"></span><br><span class="line">number = <span class="hljs-number">10</span></span><br><span class="line"></span><br><span class="line">start = time.time()</span><br><span class="line">run_python.test(number)</span><br><span class="line">end =  time.time()</span><br><span class="line"></span><br><span class="line">py_time = end - start</span><br><span class="line">print(<span class="hljs-string">"Python time = &#123;&#125;"</span>.format(py_time))</span><br><span class="line"></span><br><span class="line">start = time.time()</span><br><span class="line">run_cython.test(number)</span><br><span class="line">end =  time.time()</span><br><span class="line"></span><br><span class="line">cy_time = end - start</span><br><span class="line">print(<span class="hljs-string">"Cython time = &#123;&#125;"</span>.format(cy_time))</span><br><span class="line"></span><br><span class="line">print(<span class="hljs-string">"Speedup = &#123;&#125;"</span>.format(py_time / cy_time))</span><br></pre></td></tr></table></figure>
-
-<p>代码非常直观，我们以与普通Python相同的方式导入文件，并以与普通Python相同的方式运行函数!</p>
-<p>Cython几乎可以让你在所有原生Python代码上获得良好的加速，而不需要太多额外的工作。需要注意的关键是，循环次数越多，处理的数据越多，Cython可以提供的帮助就越多。</p>
-<p>下表显示了Cython为不同的数值阶乘带来的加速性能。当数值为10000000的时候，可以看到，我们的Cython加速超过了<strong>36</strong>倍。</p>
-<p><a href="https://sm.ms/image/S5Htu6AUNiP7zOw" target="_blank"><img src="https://i.loli.net/2019/09/10/S5Htu6AUNiP7zOw.png"></a></p>
-<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>目前我的运行存在有</p>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DistutilsPlatformError: Unable to find vcvarsall.bat</span><br></pre></td></tr></table></figure>
-
-<p>错误,正在想办法解决,希望可以能尽快进入到一个c与python共存的世界</p>
-<p><strong>注意:</strong>该问题我已经解决，现在给出方法:</p>
-<ol>
-<li><p>安装vsstudio2019，教程在:<a href="https://b23.tv/av52977238" target="_blank" rel="noopener">cython加速你的代码运行</a></p>
-</li>
-<li><p>参考文章:<a href="https://blog.csdn.net/rookie_is_me/article/details/88421373" target="_blank" rel="noopener">cython加速python使用</a></p>
-</li>
-<li><p>我运行的代码源文件:<a href="https://www.lanzous.com/i64faxi" target="_blank" rel="noopener">下载</a></p>
-</li>
-<li><p><a href="https://www.jianshu.com/p/cfcc2c04a6f5" target="_blank" rel="noopener">使用笔记</a></p>
-</li>
-</ol>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/09/10/使用cython加速代码运行/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -651,86 +487,17 @@
             
         </h1>
         <div class="content">
-            <a id="more"></a>
-
-<h1 id="第1章-Python入门"><a href="#第1章-Python入门" class="headerlink" title="第1章 Python入门"></a>第1章 Python入门</h1><h2 id="1-5-4-Numpy的N维数组"><a href="#1-5-4-Numpy的N维数组" class="headerlink" title="1.5.4  Numpy的N维数组"></a>1.5.4  Numpy的N维数组</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line">a = np.array([[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>],[<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]])</span><br><span class="line">b = np.array([[<span class="hljs-number">3</span>,<span class="hljs-number">0</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">6</span>]])</span><br><span class="line">print(a+b)</span><br><span class="line">print(a*b)</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意</strong>:数学上，一维数组称为向量；二维数组称为矩阵；可以将一般化后的向量或矩阵等统称为张量。</p>
-<h2 id="1-5-5-广播"><a href="#1-5-5-广播" class="headerlink" title="1.5.5 广播"></a>1.5.5 广播</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line">a = np.array([[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>],[<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]])</span><br><span class="line">b = np.array([<span class="hljs-number">10</span>,<span class="hljs-number">20</span>])</span><br><span class="line">print(a*b)</span><br></pre></td></tr></table></figure>
-
-<h2 id="1-6-3-显示图像"><a href="#1-6-3-显示图像" class="headerlink" title="1.6.3 显示图像"></a>1.6.3 显示图像</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"><span class="hljs-keyword">from</span> matplotlib.image <span class="hljs-keyword">import</span> imread</span><br><span class="line">img = imread(<span class="hljs-string">'图片名称'</span>)</span><br><span class="line">plt.imshow(img)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<h1 id="第2章-感知机"><a href="#第2章-感知机" class="headerlink" title="第2章 感知机"></a>第2章 感知机</h1><p>感知机是神经网络(深度学习)的起源算法。</p>
-<h2 id="2-3-3-使用权重和偏置的实现"><a href="#2-3-3-使用权重和偏置的实现" class="headerlink" title="2.3.3 使用权重和偏置的实现"></a>2.3.3 使用权重和偏置的实现</h2><p>权重值是控制输入信号的重要参数；偏置值调整了神经元被激活的容易程度。</p>
-<h2 id="2-4-2-线性和非线性"><a href="#2-4-2-线性和非线性" class="headerlink" title="2.4.2 线性和非线性"></a>2.4.2 线性和非线性</h2><p>单层感知机的局限性在于它只能表示由一条直线分割的区间。</p>
-<h2 id="2-5-2-异或门的实现"><a href="#2-5-2-异或门的实现" class="headerlink" title="2.5.2 异或门的实现"></a>2.5.2 异或门的实现</h2><p>叠加了多层的感知机称为多层感知机。</p>
-<p>感知机的层数叫法问题。</p>
-<h2 id="2-6-从与非门到计算机"><a href="#2-6-从与非门到计算机" class="headerlink" title="2.6 从与非门到计算机"></a>2.6 从与非门到计算机</h2><p>实际上，使用感知机甚至可以表示计算机！</p>
-<h1 id="第3章-神经网络"><a href="#第3章-神经网络" class="headerlink" title="第3章 神经网络"></a>第3章 神经网络</h1><p>当拥有感知机的同时我们也知道了两个消息：</p>
-<ol>
-<li><p>好消息：对于复杂的函数，感知机也能通过叠加层数来有可能性的实现。</p>
-</li>
-<li><p>坏消息是：<strong>设定权重的工作在感知机中仍只能是由人工进行的</strong>。</p>
-</li>
-</ol>
-<p>而神经网络的出现就是为了解决来自感知机的坏消息。</p>
-<h3 id="3-1-3-激活函数登场"><a href="#3-1-3-激活函数登场" class="headerlink" title="3.1.3 激活函数登场"></a>3.1.3 激活函数登场</h3><p>激活函数的作用在于决定如何来激活输入信号的总和。</p>
-<p><img src="https://i.loli.net/2019/09/07/UgvDeCzXq1MoBdV.png" alt="微信截图_20190907111807.png"></p>
-<h3 id="3-2-激活函数"><a href="#3-2-激活函数" class="headerlink" title="3.2 激活函数"></a>3.2 激活函数</h3><p>阶跃函数：函数以阈值为界，一旦输入超过阈值，就切换输出。</p>
-<p>实际上，<strong>如果将激活函数从阶跃函数换成其他函数，我们就可以进入到神经网络的世界了</strong>。</p>
-<h3 id="3-2-5-sigmiod函数和阶跃函数的比较"><a href="#3-2-5-sigmiod函数和阶跃函数的比较" class="headerlink" title="3.2.5 sigmiod函数和阶跃函数的比较"></a>3.2.5 sigmiod函数和阶跃函数的比较</h3><p>sigmoid函数是一条平滑的曲线，输出随着输入发生连续性变化；而阶跃函数以0为界，输出发生急剧性的变化。<br>sigmoid函数的平滑性对神经网络的学习具有重要的意义。</p>
-<p>也就是说，相对于感知机中的神经元只能返回0或1的信号，神经网络中返回的是连续的实数值信号。</p>
-<h4 id="相同点"><a href="#相同点" class="headerlink" title="相同点"></a>相同点</h4><ul>
-<li><p>两者的图像结构均表示为：“输入小时，输出接近0（为0）；输入大时，随着输入的增大，输出靠近1（为1）”。</p>
-</li>
-<li><p>不管输入的大小为多少，输出信号的值始终在0到1之间。</p>
-</li>
-<li><p>均为非线性函数。</p>
-</li>
-</ul>
-<h4 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h4><ul>
-<li><p>阶跃函数：“竹筒敲石”。</p>
-</li>
-<li><p>sigmoid函数：“水车”。</p>
-</li>
-</ul>
-<h3 id="3-2-6-非线性函数"><a href="#3-2-6-非线性函数" class="headerlink" title="3.2.6 非线性函数"></a>3.2.6 非线性函数</h3><p>输出值为输入值的常数倍的函数称为线性函数。</p>
-<p>为了发挥叠加层的优势，神经网络必须使用非线性函数。</p>
-<h3 id="3-5-输出层的设计"><a href="#3-5-输出层的设计" class="headerlink" title="3.5 输出层的设计"></a>3.5 输出层的设计</h3><p>神经网络可以使用在分类和回归问题上，不过需要根据情况改变<strong>输出层的激活函数</strong> ，一般而言，回归问题用恒等函数，分类问题用softmax函数。</p>
-<p>softmax函数python实现：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">softmax</span><span class="hljs-params">(a)</span>:</span></span><br><span class="line">	exp_a = np.exp(a)</span><br><span class="line">	sum_exp_a = np.sum(exp_a)</span><br><span class="line">	y = exp_a / sum_exp_a</span><br><span class="line">	<span class="hljs-keyword">return</span> y</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-5-2-使用softmax函数时的注意事项"><a href="#3-5-2-使用softmax函数时的注意事项" class="headerlink" title="3.5.2 使用softmax函数时的注意事项"></a>3.5.2 使用softmax函数时的注意事项</h3><p>softmax函数的分子进行了指数的运算，可能会产生一些超大值，如果这些超大值进行除法运算，会出现”不确定”的情况，这就是产生了溢出问题。</p>
-<p>改进的softmax函数python实现：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">softmax</span><span class="hljs-params">(a)</span>:</span></span><br><span class="line">	c = np.max(a)</span><br><span class="line">	exp_a = np.exp(a - c)</span><br><span class="line">	sum_exp_a = np.sum(exp_a)</span><br><span class="line">	y = exp_a / sum_exp_a</span><br><span class="line">	<span class="hljs-keyword">return</span> y</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-5-4-输出层的神经元数量"><a href="#3-5-4-输出层的神经元数量" class="headerlink" title="3.5.4 输出层的神经元数量"></a>3.5.4 输出层的神经元数量</h3><p>输出层的神经元数量需要根据需要解决的问题来决定。对于分类问题，输出层的神经元的数量一般设为类别的数量。</p>
-<h2 id="第4章-神经网络的学习"><a href="#第4章-神经网络的学习" class="headerlink" title="第4章 神经网络的学习"></a>第4章 神经网络的学习</h2><p>“学习”是指从训练数据中自动获取<strong>最优权重参数</strong>的过程。</p>
-<h3 id="4-1-1-数据驱动"><a href="#4-1-1-数据驱动" class="headerlink" title="4.1.1 数据驱动"></a>4.1.1 数据驱动</h3><p>对于一个数字“5”的识别，我们可以采用一些方法来识别：</p>
-<ul>
-<li><p>人暴力想出一个算法识别，得出答案。-人参与</p>
-</li>
-<li><p>人想到特征量（如一个横，一个类似s构成了5），然后采用机器学习（SVM，KNN）得出答案。-人参与</p>
-</li>
-<li><p>神经网络（深度学习）利用数据学习，机器自己识别判断。-完全机器</p>
-</li>
-</ul>
-<p>深度学习也被称为端到端的机器学习。</p>
-<p>神经网络的优点是对所有问题都可以采用同样的流程来解决，不管解决的是识别数字还是人脸，神经网络都是通过不断的学习所提供的数据，尝试发现待解决的问题。</p>
-<h3 id="4-1-2-训练数据和测试数据"><a href="#4-1-2-训练数据和测试数据" class="headerlink" title="4.1.2 训练数据和测试数据"></a>4.1.2 训练数据和测试数据</h3><ul>
-<li><p>训练数据：也称<strong>监督数据</strong>，用来训练新的模型的数据。</p>
-</li>
-<li><p>测试数据：为了检验模型的泛化能力。</p>
-</li>
-</ul>
-<p>泛化能力指处理未被观察过的数据（不包含在训练数据中的数据）的能力。</p>
-<p>获得泛化能力是机器学习的最终目标。</p>
-<h3 id="4-4-1-梯度法"><a href="#4-4-1-梯度法" class="headerlink" title="4.4.1 梯度法"></a>4.4.1 梯度法</h3><p>根据寻找最小值还是最大值，寻找最小值的梯度法称为梯度下降法，寻找最大值的梯度法称为梯度上升法。但是通过反转损失函数的符号，求最大和最小值会变成相同的问题，所以一般来说，神经网络（深度学习）中，梯度法指的是梯度下降法。</p>
-<h2 id="第5章-误差反向传播法"><a href="#第5章-误差反向传播法" class="headerlink" title="第5章 误差反向传播法"></a>第5章 误差反向传播法</h2><h3 id="5-4-简单层的实现"><a href="#5-4-简单层的实现" class="headerlink" title="5.4 简单层的实现"></a>5.4 简单层的实现</h3><p>Affine层是负责矩阵乘积的。</p>
-<h2 id="第6章-与学习相关的技巧"><a href="#第6章-与学习相关的技巧" class="headerlink" title="第6章 与学习相关的技巧"></a>第6章 与学习相关的技巧</h2><h3 id="6-1-3-SGD的缺点"><a href="#6-1-3-SGD的缺点" class="headerlink" title="6.1.3 SGD的缺点"></a>6.1.3 SGD的缺点</h3><p>为了改正SGD的缺点，我们可以使用优化算法Momentum，AdaGrad，Adam等。</p>
-<h2 id="第7章-卷积神经网络"><a href="#第7章-卷积神经网络" class="headerlink" title="第7章 卷积神经网络"></a>第7章 卷积神经网络</h2><h2 id="第8章-深度学习"><a href="#第8章-深度学习" class="headerlink" title="第8章 深度学习"></a>第8章 深度学习</h2>
+            <h1 id="第1章-Python入门"><a href="#第1章-Python入门" class="headerlink" title="第1章 Python入门"></a>第1章 Python入门</h1><h2 id="1-5-4-Numpy的N维数组"><a href="#1-5-4-Numpy的N维数组" class="headerlink" title="1.5.4  Numpy的N维数组"></a>1.5.4  Numpy的N维数组</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line">a = np.array([[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>],[<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]])</span><br><span class="line">b = np.array([[<span class="hljs-number">3</span>,<span class="hljs-number">0</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">6</span>]])</span><br><span class="line">print(a+b)</span><br><span class="line">print(a*b)</span><br></pre></td></tr></table></figure>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/09/07/《深度学习入门》阅读笔记/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -846,146 +613,17 @@
             
         </h1>
         <div class="content">
-            <a id="more"></a>
-
-<h2 id="一-Git简介"><a href="#一-Git简介" class="headerlink" title="一.Git简介"></a>一.Git简介</h2><p>Git 是一种分布式版本控制系统，它可以不受网络连接的限制，加上其它众多优点，目前已经成为程序开发人员做项目版本管理时的首选，非开发人员也可以用 Git 来做自己的文档版本管理工具。</p>
-<p>Git 的api很多，但其实平时项目中90%的需求都只需要用到几个基本的功能即可，所以本文将从实用主和深入探索(后期更新)2个方面去谈谈如何在项目中使用 Git，一般来说，看完实用主义这一节就可以开始在项目中动手用。</p>
-<blockquote>
-<p>说明：本文的操作都是基于Windows系统</p>
-</blockquote>
-<h2 id="二-实用主义"><a href="#二-实用主义" class="headerlink" title="二.实用主义"></a>二.实用主义</h2><h3 id="1-准备阶段"><a href="#1-准备阶段" class="headerlink" title="1.准备阶段"></a>1.准备阶段</h3><blockquote>
-<p>工具准备</p>
-</blockquote>
-<p>进入 <a href="https://git-scm.com/" target="_blank" rel="noopener">Git官网</a>下载合适你的安装包。</p>
-<blockquote>
-<p>账号准备</p>
-</blockquote>
-<p>进入Github网站 注册一个账号就可以使用了。</p>
-<h3 id="2-常用操作"><a href="#2-常用操作" class="headerlink" title="2.常用操作"></a>2.常用操作</h3><p>所谓实用主义，就是掌握了以下知识就可以玩转 Git，轻松应对90%以上的需求。以下是实用主义型的Git命令列表，先大致看一下:</p>
-<ul>
-<li><p>git clone</p>
-</li>
-<li><p>git config</p>
-</li>
-<li><p>git branch</p>
-</li>
-<li><p>git checkout</p>
-</li>
-<li><p>git status</p>
-</li>
-<li><p>git add</p>
-</li>
-<li><p>git commit</p>
-</li>
-<li><p>git push</p>
-</li>
-<li><p>git pull</p>
-</li>
-<li><p>git log</p>
-</li>
-<li><p>git tag</p>
-</li>
-</ul>
-<h4 id="1-git-clone"><a href="#1-git-clone" class="headerlink" title="(1)git clone"></a>(1)git clone</h4><blockquote>
-<p>从git服务器拉取代码</p>
-</blockquote>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/user/repo.git</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-git-config"><a href="#2-git-config" class="headerlink" title="(2)git config"></a>(2)git config</h4><blockquote>
-<p>配置开发者用户名和邮箱</p>
-</blockquote>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name user</span><br><span class="line">git config user.email user@qq.com</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-git-branch"><a href="#3-git-branch" class="headerlink" title="(3)git branch"></a>(3)git branch</h4><blockquote>
-<p>创建、重命名、查看、删除项目分支，通过Git做项目开发时，一般都是在开发分支中进行，开发完成后合并分支到主干。</p>
-</blockquote>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch daily/0.0.0</span><br></pre></td></tr></table></figure>
-
-<p>创建一个名为daily/0.0.0的日常开发分支，分支名只要不包括特殊字符即可。</p>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -m daily/0.0.0 daily/0.0.1</span><br></pre></td></tr></table></figure>
-
-<p>如果觉得之前的分支名不合适，可以为新建的分支重命名，重命名分支名为daily/0.0.1。</p>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
-
-<p>通过不带参数的branch命令可以查看当前项目分支列表。</p>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d daily/0.0.1</span><br></pre></td></tr></table></figure>
-
-<p>如果分支已经完成使命则可以通过-d参数将分支删除，这里为了继续下一步操作，暂不执行删除操作。</p>
-<h4 id="4-git-checkout"><a href="#4-git-checkout" class="headerlink" title="(4)git checkout"></a>(4)git checkout</h4><blockquote>
-<p>切换分支</p>
-</blockquote>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout daily/0.0.1</span><br></pre></td></tr></table></figure>
-
-<h4 id="5-git-status"><a href="#5-git-status" class="headerlink" title="(5)git status"></a>(5)git status</h4><blockquote>
-<p>查看文件变动状态<br>通过任何你喜欢的编辑器对项目中的 README.md 文件做一些改动，保存。</p>
-</blockquote>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
-
-<p>通过git status命令可以看到文件当前状态Changes not staged for commit:(改动文件未提交到暂存区）</p>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">On branch daily/0.0.1</span><br><span class="line">Changes not staged for commit:</span><br><span class="line">  (use "git add <span class="hljs-tag">&lt;<span class="hljs-name">file</span>&gt;</span>..." to update what will be committed)</span><br><span class="line">  (use "git checkout -- <span class="hljs-tag">&lt;<span class="hljs-name">file</span>&gt;</span>..." to discard changes in working directory)</span><br><span class="line">    modified:   README.md</span><br><span class="line">no changes added to commit (use "git add" and/or "git commit -a")</span><br></pre></td></tr></table></figure>
-
-<h4 id="6-git-add"><a href="#6-git-add" class="headerlink" title="(6)git add"></a>(6)git add</h4><blockquote>
-<p>添加文件变动到暂存区</p>
-</blockquote>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add README.md</span><br></pre></td></tr></table></figure>
-
-<p>通过指定文件名README.md可以将该文件添加到暂存区，如果想添加所有文件可用git add. 命令，这时候可通过git status看到文件当前状态Changes to be committed:（文件已提交到暂存区）</p>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">On branch daily/0.0.1</span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use "git reset HEAD <span class="hljs-tag">&lt;<span class="hljs-name">file</span>&gt;</span>..." to unstage)</span><br><span class="line">    modified:   README.md</span><br></pre></td></tr></table></figure>
-
-<h4 id="7-git-commit"><a href="#7-git-commit" class="headerlink" title="(7)git commit"></a>(7)git commit</h4><blockquote>
-<p>提交文件变动到版本库</p>
-</blockquote>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m '这里写提交原因'</span><br></pre></td></tr></table></figure>
-
-<p>通过-m参数可直接在命令行里输入提交描述文本。</p>
-<h4 id="8-git-push"><a href="#8-git-push" class="headerlink" title="(8)git push"></a>(8)git push</h4><blockquote>
-<p>将本地的代码改动推送到服务器</p>
-</blockquote>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin daily/0.0.1</span><br></pre></td></tr></table></figure>
-
-<p>origin 指代的是当前的git服务器地址，这行命令的意思是把 daily/0.0.1 分支推送到服务器，当看到命令行返回如下字符表示推送成功了。</p>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Counting objects: 3, done.</span><br><span class="line">Delta compression using up to 8 threads.</span><br><span class="line">Compressing objects: 100% (2/2), done.</span><br><span class="line">Writing objects: 100% (3/3), 267 bytes | 0 bytes/s, done.</span><br><span class="line">Total 3 (delta 1), reused 0 (delta 0)</span><br><span class="line">remote: Resolving deltas: 100% (1/1), completed with 1 local objects.</span><br><span class="line">To https://github.com/gafish/gafish.github.com.git</span><br><span class="line"> * [new branch]      daily/0.0.1 -&gt; daily/0.0.1</span><br></pre></td></tr></table></figure>
-
-<p>现在我们回到Github网站的项目首页，点击Branch:master下拉按钮，就会看到刚才推送的daily/00.1分支了。</p>
-<h4 id="9-git-pull"><a href="#9-git-pull" class="headerlink" title="(9)git pull"></a>(9)git pull</h4><blockquote>
-<p>将服务器上的最新代码拉取到本地</p>
-</blockquote>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin daily/0.0.1</span><br></pre></td></tr></table></figure>
-
-<p>如果其它项目成员对项目做了改动并推送到服务器，我们需要将最新的改动更新到本地，这里我们来模拟一下这种情况。</p>
-<p>进入Github网站的项目首页，再进入daily/0.0.1分支，在线对README.md文件做一些修改并保存，然后在命令中执行以上命令，它将把刚才在线修改的部分拉取到本地，用编辑器打开README.md，你会发现文件已经跟线上的内容同步了。</p>
-<p>如果线上代码做了变动，而你本地的代码也有变动，拉取的代码就有可能会跟你本地的改动冲突，一般情况下Git会自动处理这种冲突合并，但如果改动的是同一行，那就需要手动来合并代码，编辑文件，保存最新的改动，再通过git add .和git commit -m ‘xxx’来提交合并。</p>
-<h4 id="10-git-log"><a href="#10-git-log" class="headerlink" title="(10)git log"></a>(10)git log</h4><blockquote>
-<p>查看版本提交记录</p>
-</blockquote>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
-
-<p>通过以上命令，我们可以查看整个项目的版本提交记录，它里面包含了提交人、日期、提交原因等信息，得到的结果如下：</p>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">commit c334730f8dba5096c54c8ac04fdc2b31ede7107a</span><br><span class="line">Author: gafish <span class="hljs-tag">&lt;<span class="hljs-name">gafish@qqqq.com</span>&gt;</span></span><br><span class="line">Date:   Wed Jan 11 09:44:13 2017 +0800</span><br><span class="line">    Update README.md</span><br><span class="line">commit ba6e3d21fcb1c87a718d2a73cdd11261eb672b2a</span><br><span class="line">Author: gafish <span class="hljs-tag">&lt;<span class="hljs-name">gafish@qqqq.com</span>&gt;</span></span><br><span class="line">Date:   Wed Jan 11 09:31:33 2017 +0800</span><br><span class="line">    test</span><br><span class="line">.....</span><br></pre></td></tr></table></figure>
-
-<p>提交记录可能会非常多，按J键往下翻，按K键往上翻，按Q键退出查看。</p>
-<h4 id="11-git-tag"><a href="#11-git-tag" class="headerlink" title="(11)git tag"></a>(11)git tag</h4><blockquote>
-<p>为项目标记里程碑</p>
-</blockquote>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git tag publish/0.0.1</span><br><span class="line">git push origin publish/0.0.1</span><br></pre></td></tr></table></figure>
-
-<p>当我们完成某个功能需求准备发布上线时，应该将此次完整的项目代码做个标记，并将这个标记好的版本发布到线上，这里我们以publish/0.0.1为标记名并发布，当看到命令行返回如下内容则表示发布成功了。</p>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Total 0 (delta 0), reused 0 (delta 0)</span><br><span class="line">To https://github.com/gafish/gafish.github.com.git</span><br><span class="line"> * [new tag]         publish/0.0.1 -&gt; publish/0.0.1</span><br></pre></td></tr></table></figure>
-
-<h4 id="12-gitignore"><a href="#12-gitignore" class="headerlink" title="(12).gitignore"></a>(12).gitignore</h4><blockquote>
-<p>设置哪些内容不需要推送到服务器，这是一个配置文件</p>
-</blockquote>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch .gitignore</span><br></pre></td></tr></table></figure>
-
-<p>.gitignore 不是Git命令，而在项目中的一个文件，通过设置.gitignore的内容告诉Git哪些文件应该被忽略不需要推送到服务器，通过以上命令可以创建一个.gitignore文件，并在编辑器中打开文件，每一行代表一个要忽略的文件或目录，如：</p>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">demo.html</span><br><span class="line">build/</span><br></pre></td></tr></table></figure>
-
-<p>以上内容的意思是Git将忽略demo.html文件 和build/目录，这些内容不会被推送到服务器上。</p>
-<p>小结</p>
-<p>通过掌握以上这些基本命令就可以在项目中开始用起来了，如果追求实用，那关于Git的学习就可以到此结束了，偶尔遇到的问题也基本上通过Google/百度也能找到答案。</p>
-
+            <h2 id="一-Git简介"><a href="#一-Git简介" class="headerlink" title="一.Git简介"></a>一.Git简介</h2><p>Git 是一种分布式版本控制系统，它可以不受网络连接的限制，加上其它众多优点，目前已经成为程序开发人员做项目版本管理时的首选，非开发人员也可以用 Git 来做自己的文档版本管理工具。</p>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/09/04/Git操作/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
