@@ -146,7 +146,7 @@
                 
                 
                 
-                <a class="navbar-item search" title="Pencarian" href="javascript:;">
+                <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -181,7 +181,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    8 minutes membaca (Sekitar 1193 kata)
+                    8 minutes read (About 1194 words)
                 </span>
                 
                 
@@ -196,42 +196,16 @@
         <div class="content">
             <p>#引言</p>
 <p>Python 的 Matplotlib 是最常用的图表绘制以及数据可视化库。我们对折线图、柱状图以及热力图都比较熟悉，但你知道用 Matplotlib 还能做简单的动画吗？</p>
-<p>下面就是用 Matplotlib 制作动画的例子。展示的是 John Conway 的 《The Game of Life》，这是一个 Metis（数据科学夏令营）中的编程挑战题目，同时给了我一个机会让我知道Matpltlib可以制作动图。看看结果的动图：</p>
-<p><a href="https://sm.ms/image/CAmo9P5xGeOHMcR" target="_blank"><img src="https://i.loli.net/2019/09/18/CAmo9P5xGeOHMcR.gif"></a></p>
-<p>这篇文章的重点还是主要放在 python 中如何用 Matploylib 制作动画。</p>
-<p>但如果你不太熟悉模拟游戏的话（它更像是可以看的模拟动画，而非可以玩的游戏），我来给大家介绍一下规则：</p>
-<ol>
-<li><p>一开始先设置一个 N×N 的网格（我的动画中用的是 50×50 ）；</p>
-</li>
-<li><p>接着随机地向格子中填充“小细胞”（一开始随机地从 2500 个格子中选取 1500 个进行填充）；</p>
-</li>
-<li><p>如果邻居小细胞少于等于 1 个，那格子中的小细胞会死掉；</p>
-</li>
-<li><p>如果邻居大于等于 4 个的也会死掉；</p>
-</li>
-<li><p>只有 2 个或 3 个邻居时可以生存；</p>
-</li>
-<li><p>空的格子中如果正好有 3 个邻居，则会长出 1 个新的“小细胞”；</p>
-</li>
-</ol>
-<p>通过对规则的阅读我最先想到的是：<a href="https://baike.sogou.com/v9062794.htm?fromTitle=生命游戏" target="_blank" rel="noopener">生命游戏</a></p>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p><strong>注意:</strong>我运行采用的是<strong>Anaconda3集成环境</strong>；程序运行<strong>两次</strong>，第一次营造运行环境，第二次运行程序输出。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> time</span><br><span class="line"><span class="hljs-keyword">from</span> IPython <span class="hljs-keyword">import</span> display</span><br><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"><span class="hljs-keyword">import</span> matplotlib.animation <span class="hljs-keyword">as</span> animation</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"><span class="hljs-keyword">import</span> seaborn <span class="hljs-keyword">as</span> sns</span><br><span class="line"><span class="hljs-keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Some helper functions</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Initialize the board with starting positions</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_board</span><span class="hljs-params">(pos_list, my_board)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">for</span> pos <span class="hljs-keyword">in</span> pos_list:</span><br><span class="line">        my_board[pos[<span class="hljs-number">0</span>], pos[<span class="hljs-number">1</span>]] = <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">return</span> my_board</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Make sure padded border values are always zero</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">force_pad_zero</span><span class="hljs-params">(my_board)</span>:</span></span><br><span class="line">    edge_row_0 = <span class="hljs-number">0</span></span><br><span class="line">    edge_row_1 = my_board.shape[<span class="hljs-number">0</span>] - <span class="hljs-number">1</span></span><br><span class="line">    edge_col_0 = <span class="hljs-number">0</span></span><br><span class="line">    edge_col_1 = my_board.shape[<span class="hljs-number">1</span>] - <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">for</span> index, row <span class="hljs-keyword">in</span> enumerate(my_board):</span><br><span class="line">        <span class="hljs-keyword">if</span> index == <span class="hljs-number">0</span>:</span><br><span class="line">            row[:] = <span class="hljs-number">0</span></span><br><span class="line">        <span class="hljs-keyword">elif</span> index == edge_row_1:</span><br><span class="line">            row[:] = <span class="hljs-number">0</span></span><br><span class="line">        <span class="hljs-keyword">else</span>:</span><br><span class="line">            row[edge_col_0] = <span class="hljs-number">0</span></span><br><span class="line">            row[edge_col_1] = <span class="hljs-number">0</span></span><br><span class="line">    <span class="hljs-keyword">for</span> col <span class="hljs-keyword">in</span> my_board:</span><br><span class="line">        col[edge_row_0] = <span class="hljs-number">0</span></span><br><span class="line">        col[edge_row_1] = <span class="hljs-number">0</span></span><br><span class="line">    <span class="hljs-keyword">return</span> my_board</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Figure out the number of neighbors for a given cell</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">calc_neighbors</span><span class="hljs-params">(row, col, my_board)</span>:</span></span><br><span class="line">    b = force_pad_zero(my_board)</span><br><span class="line">    num_neighbors = (b[row<span class="hljs-number">-1</span>,col<span class="hljs-number">-1</span>] + b[row+<span class="hljs-number">0</span>,col<span class="hljs-number">-1</span>] + b[row+<span class="hljs-number">1</span>,col<span class="hljs-number">-1</span>] + b[row+<span class="hljs-number">1</span>,col+<span class="hljs-number">0</span>] </span><br><span class="line">                   + b[row+<span class="hljs-number">1</span>,col+<span class="hljs-number">1</span>] + b[row+<span class="hljs-number">0</span>,col+<span class="hljs-number">1</span>] + b[row<span class="hljs-number">-1</span>,col+<span class="hljs-number">1</span>] + b[row<span class="hljs-number">-1</span>,col+<span class="hljs-number">0</span>])</span><br><span class="line">    <span class="hljs-keyword">return</span> num_neighbors</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Update the board based on the game rules, each call to update_board is one turn</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">update_board</span><span class="hljs-params">(my_board)</span>:</span></span><br><span class="line">    old_board = my_board.copy()</span><br><span class="line">    set_zero = []</span><br><span class="line">    set_one = []</span><br><span class="line">    <span class="hljs-comment"># Loop through board and update according to rules</span></span><br><span class="line">    <span class="hljs-keyword">for</span> i, row <span class="hljs-keyword">in</span> enumerate(my_board[<span class="hljs-number">1</span>:<span class="hljs-number">-1</span>,<span class="hljs-number">1</span>:<span class="hljs-number">-1</span>]):</span><br><span class="line">        <span class="hljs-keyword">for</span> j, col <span class="hljs-keyword">in</span> enumerate(row):</span><br><span class="line">            true_i = i + <span class="hljs-number">1</span></span><br><span class="line">            true_j = j + <span class="hljs-number">1</span></span><br><span class="line">            <span class="hljs-comment"># Update based on number of neighbors (using calc_neighbors)</span></span><br><span class="line">            <span class="hljs-comment"># set_zero and set_one are lists that tell me the coordinates of cells that require updating</span></span><br><span class="line">            <span class="hljs-keyword">if</span> (((calc_neighbors(true_i, true_j, my_board) &lt;= <span class="hljs-number">1</span>) </span><br><span class="line">                  <span class="hljs-keyword">or</span> (calc_neighbors(true_i, true_j, my_board) &gt;= <span class="hljs-number">4</span>))</span><br><span class="line">                  <span class="hljs-keyword">and</span> my_board[true_i, true_j] != <span class="hljs-number">0</span>):</span><br><span class="line">                set_zero.append([true_i, true_j])</span><br><span class="line">            <span class="hljs-keyword">elif</span> ((calc_neighbors(true_i, true_j, my_board) == <span class="hljs-number">3</span>)</span><br><span class="line">                  <span class="hljs-keyword">and</span> my_board[true_i, true_j] == <span class="hljs-number">0</span>):</span><br><span class="line">                set_one.append([true_i, true_j])</span><br><span class="line">    <span class="hljs-comment"># Update the required cells</span></span><br><span class="line">    <span class="hljs-keyword">for</span> index, val <span class="hljs-keyword">in</span> enumerate(set_zero):</span><br><span class="line">        my_board[val[<span class="hljs-number">0</span>], val[<span class="hljs-number">1</span>]] = <span class="hljs-number">0</span></span><br><span class="line">    <span class="hljs-keyword">for</span> index, val <span class="hljs-keyword">in</span> enumerate(set_one):</span><br><span class="line">        my_board[val[<span class="hljs-number">0</span>], val[<span class="hljs-number">1</span>]] = <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">return</span> my_board</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Input variables for the board</span></span><br><span class="line">boardsize = <span class="hljs-number">50</span>        <span class="hljs-comment"># board will be X by X where X = boardsize</span></span><br><span class="line">pad = <span class="hljs-number">2</span>               <span class="hljs-comment"># padded border, do not change this!</span></span><br><span class="line">initial_cells = <span class="hljs-number">1500</span>  <span class="hljs-comment"># this number of initial cells will be placed </span></span><br><span class="line">                      <span class="hljs-comment"># in randomly generated positions</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Get a list of random coordinates so that we can initialize </span></span><br><span class="line"><span class="hljs-comment"># board with randomly placed organisms</span></span><br><span class="line">pos_list = []</span><br><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(initial_cells):</span><br><span class="line">    pos_list.append([random.randint(<span class="hljs-number">1</span>, boardsize), </span><br><span class="line">                     random.randint(<span class="hljs-number">1</span>, boardsize)])</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Initialize the board</span></span><br><span class="line">my_board = np.zeros((boardsize+pad, boardsize+pad))</span><br><span class="line">my_board = init_board(pos_list, my_board)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">##### Animate the board #####</span></span><br><span class="line"><span class="hljs-comment"># This will throw an error the first time you run the code, but the program will run properly if you</span></span><br><span class="line"><span class="hljs-comment"># execute the cell again (there is an error with the animation package that I cannot seem to get rid of)</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Required line for plotting the animation</span></span><br><span class="line">%matplotlib notebook</span><br><span class="line"><span class="hljs-comment"># Initialize the plot of the board that will be used for animation</span></span><br><span class="line">fig = plt.gcf()</span><br><span class="line"><span class="hljs-comment"># Show first image - which is the initial board</span></span><br><span class="line">im = plt.imshow(my_board)</span><br><span class="line">plt.show()</span><br><span class="line">plt.savefig(fname=<span class="hljs-string">'game_of_life'</span>, dpi=<span class="hljs-number">150</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Helper function that updates the board and returns a new image of</span></span><br><span class="line"><span class="hljs-comment"># the updated board animate is the function that FuncAnimation calls</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">animate</span><span class="hljs-params">(frame)</span>:</span></span><br><span class="line">    im.set_data(update_board(my_board))</span><br><span class="line">    <span class="hljs-keyword">return</span> im,</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># This line creates the animation</span></span><br><span class="line">anim = animation.FuncAnimation(fig, animate, frames=<span class="hljs-number">200</span>, </span><br><span class="line">                               interval=<span class="hljs-number">50</span>)</span><br></pre></td></tr></table></figure>
-
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>希望这篇文章能帮到大家。在结束之前，让我来帮助大家脑补更多我们今天学到的动画功能在数据科学上的应用：</p>
-<ul>
-<li><p>一个个地画出蒙特卡洛模拟数据，你能观察到最终的分布是如何逐步形成的；</p>
-</li>
-<li><p>按顺序遍历时间序列数据，可以描绘你的模型或数据在新的观察角度下有什么表现；</p>
-</li>
-<li><p>当你改变输入参数时，比如族群数，可以展现你的算法是如何划分族群的；</p>
-</li>
-<li><p>根据时间或不同的数据子集生成关联热力图，用于观察不同的样本是如何影响你的模型的预期参数的。</p>
-</li>
-</ul>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/09/18/The-Game-of-Life/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -266,7 +240,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a minute membaca (Sekitar 193 kata)
+                    a minute read (About 194 words)
                 </span>
                 
                 
@@ -281,23 +255,16 @@
         <div class="content">
             <p>网易镜像：<a href="http://mirrors.163.com/" target="_blank" rel="noopener">http://mirrors.163.com/</a></p>
 <p>阿里云镜像：<a href="http://mirrors.aliyun.com/" target="_blank" rel="noopener">http://mirrors.aliyun.com/</a></p>
-<p>中国科学技术大学镜像：<a href="http://mirrors.ustc.edu.cn/" target="_blank" rel="noopener">http://mirrors.ustc.edu.cn/</a></p>
-<p>厦门大学镜像：<a href="http://mirrors.xmu.edu.cn/" target="_blank" rel="noopener">http://mirrors.xmu.edu.cn/</a></p>
-<p>搜狐镜像：<a href="http://mirrors.sohu.com/" target="_blank" rel="noopener">http://mirrors.sohu.com/</a></p>
-<p>北京交通大学镜像：<a href="http://mirror.bjtu.edu.cn/" target="_blank" rel="noopener">http://mirror.bjtu.edu.cn/</a></p>
-<p>北京理工大学镜像：<a href="http://mirror.bit.edu.cn/web/" target="_blank" rel="noopener">http://mirror.bit.edu.cn/web/</a></p>
-<p>兰州大学镜像：<a href="http://mirror.lzu.edu.cn/" target="_blank" rel="noopener">http://mirror.lzu.edu.cn/</a></p>
-<p>上海交通大学镜像：<a href="http://ftp.sjtu.edu.cn/" target="_blank" rel="noopener">http://ftp.sjtu.edu.cn/</a></p>
-<p>清华大学镜像：<a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/</a></p>
-<p>东北大学镜像：<a href="http://mirror.neu.edu.cn/" target="_blank" rel="noopener">http://mirror.neu.edu.cn/</a></p>
-<p>浙江大学镜像：<a href="http://mirrors.zju.edu.cn/" target="_blank" rel="noopener">http://mirrors.zju.edu.cn/</a></p>
-<p>东软信息学院：<a href="http://mirrors.neusoft.edu.cn/" target="_blank" rel="noopener">http://mirrors.neusoft.edu.cn/</a></p>
-<p>重庆大学镜像：<a href="http://mirrors.cqu.edu.cn/" target="_blank" rel="noopener">http://mirrors.cqu.edu.cn/</a></p>
-<p>大连理工大学镜像：<a href="http://mirror.dlut.edu.cn/" target="_blank" rel="noopener">http://mirror.dlut.edu.cn/</a></p>
-<p>CN99镜像：<a href="http://mirrors.cn99.com/" target="_blank" rel="noopener">http://mirrors.cn99.com/</a></p>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/09/18/镜像站/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -332,7 +299,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    8 minutes membaca (Sekitar 1199 kata)
+                    8 minutes read (About 1199 words)
                 </span>
                 
                 
@@ -352,7 +319,7 @@
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/09/15/AI领域区分介绍/#more">Selengkapnya</a>
+                <a class="button is-size-7 is-light" href="/2019/09/15/AI领域区分介绍/#more">Read More</a>
                 </div>
             </div>
         </div>
@@ -390,7 +357,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7 minutes membaca (Sekitar 1014 kata)
+                    7 minutes read (About 1014 words)
                 </span>
                 
                 
@@ -411,7 +378,7 @@
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/09/15/为Anaconda3安装tensorflow等/#more">Selengkapnya</a>
+                <a class="button is-size-7 is-light" href="/2019/09/15/为Anaconda3安装tensorflow等/#more">Read More</a>
                 </div>
             </div>
         </div>
@@ -449,7 +416,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    18 minutes membaca (Sekitar 2688 kata)
+                    18 minutes read (About 2688 words)
                 </span>
                 
                 
@@ -469,7 +436,7 @@
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/09/15/关于论文作者那点事/#more">Selengkapnya</a>
+                <a class="button is-size-7 is-light" href="/2019/09/15/关于论文作者那点事/#more">Read More</a>
                 </div>
             </div>
         </div>
@@ -507,7 +474,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    33 minutes membaca (Sekitar 4948 kata)
+                    33 minutes read (About 4948 words)
                 </span>
                 
                 
@@ -528,7 +495,7 @@
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/09/12/机器学习分类算法/#more">Selengkapnya</a>
+                <a class="button is-size-7 is-light" href="/2019/09/12/机器学习分类算法/#more">Read More</a>
                 </div>
             </div>
         </div>
@@ -566,7 +533,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    10 minutes membaca (Sekitar 1429 kata)
+                    10 minutes read (About 1429 words)
                 </span>
                 
                 
@@ -587,7 +554,7 @@
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/09/10/使用cython加速代码运行/#more">Selengkapnya</a>
+                <a class="button is-size-7 is-light" href="/2019/09/10/使用cython加速代码运行/#more">Read More</a>
                 </div>
             </div>
         </div>
@@ -625,7 +592,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    11 minutes membaca (Sekitar 1589 kata)
+                    11 minutes read (About 1589 words)
                 </span>
                 
                 
@@ -645,7 +612,7 @@
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/09/07/《深度学习入门》阅读笔记/#more">Selengkapnya</a>
+                <a class="button is-size-7 is-light" href="/2019/09/07/《深度学习入门》阅读笔记/#more">Read More</a>
                 </div>
             </div>
         </div>
@@ -683,7 +650,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    11 minutes membaca (Sekitar 1659 kata)
+                    11 minutes read (About 1659 words)
                 </span>
                 
                 
@@ -713,7 +680,7 @@
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/09/05/机器学习VS深度学习的区别/#more">Selengkapnya</a>
+                <a class="button is-size-7 is-light" href="/2019/09/05/机器学习VS深度学习的区别/#more">Read More</a>
                 </div>
             </div>
         </div>
@@ -751,7 +718,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    12 minutes membaca (Sekitar 1794 kata)
+                    12 minutes read (About 1794 words)
                 </span>
                 
                 
@@ -771,7 +738,7 @@
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/09/04/Git操作/#more">Selengkapnya</a>
+                <a class="button is-size-7 is-light" href="/2019/09/04/Git操作/#more">Read More</a>
                 </div>
             </div>
         </div>
@@ -802,7 +769,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Kategori
+                Categories
             </h3>
             <ul class="menu-list">
             <li>
@@ -855,7 +822,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Awan tag
+            Tag Cloud
         </h3>
         <a href="/tags/Anaconda/" style="font-size: 10px;">Anaconda</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Git常用操作/" style="font-size: 10px;">Git常用操作</a> <a href="/tags/机器学习/" style="font-size: 20px;">机器学习</a> <a href="/tags/深度学习/" style="font-size: 20px;">深度学习</a> <a href="/tags/生命游戏/" style="font-size: 10px;">生命游戏</a> <a href="/tags/论文/" style="font-size: 10px;">论文</a> <a href="/tags/镜像/" style="font-size: 10px;">镜像</a>
     </div>
@@ -866,7 +833,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tag
+                Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -967,7 +934,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Artikel
+                        Posts
                     </p>
                     <p class="title has-text-weight-normal">
                         10
@@ -977,7 +944,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Kategori
+                        Categories
                     </p>
                     <p class="title has-text-weight-normal">
                         5
@@ -987,7 +954,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tag
+                        Tags
                     </p>
                     <p class="title has-text-weight-normal">
                         8
@@ -997,7 +964,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/Uppez" target="_blank">
-                IKUTI</a>
+                Follow</a>
         </div>
         
         
@@ -1049,7 +1016,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Tautan
+            Links
         </h3>
         <ul class="menu-list">
         
@@ -1075,7 +1042,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Terbaru
+            Recent
         </h3>
         
         <article class="media">
@@ -1181,7 +1148,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Arsip
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -1245,7 +1212,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Artikel
+                        Posts
                     </p>
                     <p class="title has-text-weight-normal">
                         10
@@ -1255,7 +1222,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Kategori
+                        Categories
                     </p>
                     <p class="title has-text-weight-normal">
                         5
@@ -1265,7 +1232,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tag
+                        Tags
                     </p>
                     <p class="title has-text-weight-normal">
                         8
@@ -1275,7 +1242,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/Uppez" target="_blank">
-                IKUTI</a>
+                Follow</a>
         </div>
         
         
@@ -1327,7 +1294,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Tautan
+            Links
         </h3>
         <ul class="menu-list">
         
@@ -1353,7 +1320,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Terbaru
+            Recent
         </h3>
         
         <article class="media">
@@ -1459,7 +1426,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Arsip
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -1646,7 +1613,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     
 
-<a id="back-to-top" title="Kembali ke atas" href="javascript:;">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -1673,7 +1640,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Tulis Sesuatu.." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -1685,11 +1652,11 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Artikel',
-                PAGES: 'Halaman',
-                CATEGORIES: 'Kategori',
-                TAGS: 'Tag',
-                UNTITLED: 'Tanpa Judul',
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
         };
