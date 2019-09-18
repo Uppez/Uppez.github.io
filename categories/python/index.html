@@ -18,7 +18,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Category: Python - 教书的先生</title>
+<title>Kategori: Python - 教书的先生</title>
 
 
     <meta property="og:type" content="website">
@@ -146,7 +146,7 @@
                 
                 
                 
-                <a class="navbar-item search" title="Search" href="javascript:;">
+                <a class="navbar-item search" title="Pencarian" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -162,13 +162,98 @@
     <div class="card-content">
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
-            <li><a href="/categories">Categories</a></li>
+            <li><a href="/categories">Kategori</a></li>
             
             <li class="is-active"><a href="#" aria-current="page">Python</a></li>
         </ul>
         </nav>
     </div>
 </div>
+
+    <div class="card">
+    
+    <div class="card-image">
+        <a href="/2019/09/18/The-Game-of-Life/" class="image is-7by1">
+            <img class="thumbnail" src="https://i.loli.net/2019/09/18/ctX48F3p1rhdyfI.png" alt="The Game of Life">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-09-18T14:47:02.000Z">2019-09-18</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Python/">Python</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8 minutes membaca (Sekitar 1193 kata)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/09/18/The-Game-of-Life/">The Game of Life</a>
+            
+        </h1>
+        <div class="content">
+            <p>#引言</p>
+<p>Python 的 Matplotlib 是最常用的图表绘制以及数据可视化库。我们对折线图、柱状图以及热力图都比较熟悉，但你知道用 Matplotlib 还能做简单的动画吗？</p>
+<p>下面就是用 Matplotlib 制作动画的例子。展示的是 John Conway 的 《The Game of Life》，这是一个 Metis（数据科学夏令营）中的编程挑战题目，同时给了我一个机会让我知道Matpltlib可以制作动图。看看结果的动图：</p>
+<p><a href="https://sm.ms/image/CAmo9P5xGeOHMcR" target="_blank"><img src="https://i.loli.net/2019/09/18/CAmo9P5xGeOHMcR.gif"></a></p>
+<p>这篇文章的重点还是主要放在 python 中如何用 Matploylib 制作动画。</p>
+<p>但如果你不太熟悉模拟游戏的话（它更像是可以看的模拟动画，而非可以玩的游戏），我来给大家介绍一下规则：</p>
+<ol>
+<li><p>一开始先设置一个 N×N 的网格（我的动画中用的是 50×50 ）；</p>
+</li>
+<li><p>接着随机地向格子中填充“小细胞”（一开始随机地从 2500 个格子中选取 1500 个进行填充）；</p>
+</li>
+<li><p>如果邻居小细胞少于等于 1 个，那格子中的小细胞会死掉；</p>
+</li>
+<li><p>如果邻居大于等于 4 个的也会死掉；</p>
+</li>
+<li><p>只有 2 个或 3 个邻居时可以生存；</p>
+</li>
+<li><p>空的格子中如果正好有 3 个邻居，则会长出 1 个新的“小细胞”；</p>
+</li>
+</ol>
+<p>通过对规则的阅读我最先想到的是：<a href="https://baike.sogou.com/v9062794.htm?fromTitle=生命游戏" target="_blank" rel="noopener">生命游戏</a></p>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p><strong>注意:</strong>我运行采用的是<strong>Anaconda3集成环境</strong>；程序运行<strong>两次</strong>，第一次营造运行环境，第二次运行程序输出。</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> time</span><br><span class="line"><span class="hljs-keyword">from</span> IPython <span class="hljs-keyword">import</span> display</span><br><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"><span class="hljs-keyword">import</span> matplotlib.animation <span class="hljs-keyword">as</span> animation</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"><span class="hljs-keyword">import</span> seaborn <span class="hljs-keyword">as</span> sns</span><br><span class="line"><span class="hljs-keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Some helper functions</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Initialize the board with starting positions</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_board</span><span class="hljs-params">(pos_list, my_board)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">for</span> pos <span class="hljs-keyword">in</span> pos_list:</span><br><span class="line">        my_board[pos[<span class="hljs-number">0</span>], pos[<span class="hljs-number">1</span>]] = <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">return</span> my_board</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Make sure padded border values are always zero</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">force_pad_zero</span><span class="hljs-params">(my_board)</span>:</span></span><br><span class="line">    edge_row_0 = <span class="hljs-number">0</span></span><br><span class="line">    edge_row_1 = my_board.shape[<span class="hljs-number">0</span>] - <span class="hljs-number">1</span></span><br><span class="line">    edge_col_0 = <span class="hljs-number">0</span></span><br><span class="line">    edge_col_1 = my_board.shape[<span class="hljs-number">1</span>] - <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">for</span> index, row <span class="hljs-keyword">in</span> enumerate(my_board):</span><br><span class="line">        <span class="hljs-keyword">if</span> index == <span class="hljs-number">0</span>:</span><br><span class="line">            row[:] = <span class="hljs-number">0</span></span><br><span class="line">        <span class="hljs-keyword">elif</span> index == edge_row_1:</span><br><span class="line">            row[:] = <span class="hljs-number">0</span></span><br><span class="line">        <span class="hljs-keyword">else</span>:</span><br><span class="line">            row[edge_col_0] = <span class="hljs-number">0</span></span><br><span class="line">            row[edge_col_1] = <span class="hljs-number">0</span></span><br><span class="line">    <span class="hljs-keyword">for</span> col <span class="hljs-keyword">in</span> my_board:</span><br><span class="line">        col[edge_row_0] = <span class="hljs-number">0</span></span><br><span class="line">        col[edge_row_1] = <span class="hljs-number">0</span></span><br><span class="line">    <span class="hljs-keyword">return</span> my_board</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Figure out the number of neighbors for a given cell</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">calc_neighbors</span><span class="hljs-params">(row, col, my_board)</span>:</span></span><br><span class="line">    b = force_pad_zero(my_board)</span><br><span class="line">    num_neighbors = (b[row<span class="hljs-number">-1</span>,col<span class="hljs-number">-1</span>] + b[row+<span class="hljs-number">0</span>,col<span class="hljs-number">-1</span>] + b[row+<span class="hljs-number">1</span>,col<span class="hljs-number">-1</span>] + b[row+<span class="hljs-number">1</span>,col+<span class="hljs-number">0</span>] </span><br><span class="line">                   + b[row+<span class="hljs-number">1</span>,col+<span class="hljs-number">1</span>] + b[row+<span class="hljs-number">0</span>,col+<span class="hljs-number">1</span>] + b[row<span class="hljs-number">-1</span>,col+<span class="hljs-number">1</span>] + b[row<span class="hljs-number">-1</span>,col+<span class="hljs-number">0</span>])</span><br><span class="line">    <span class="hljs-keyword">return</span> num_neighbors</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Update the board based on the game rules, each call to update_board is one turn</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">update_board</span><span class="hljs-params">(my_board)</span>:</span></span><br><span class="line">    old_board = my_board.copy()</span><br><span class="line">    set_zero = []</span><br><span class="line">    set_one = []</span><br><span class="line">    <span class="hljs-comment"># Loop through board and update according to rules</span></span><br><span class="line">    <span class="hljs-keyword">for</span> i, row <span class="hljs-keyword">in</span> enumerate(my_board[<span class="hljs-number">1</span>:<span class="hljs-number">-1</span>,<span class="hljs-number">1</span>:<span class="hljs-number">-1</span>]):</span><br><span class="line">        <span class="hljs-keyword">for</span> j, col <span class="hljs-keyword">in</span> enumerate(row):</span><br><span class="line">            true_i = i + <span class="hljs-number">1</span></span><br><span class="line">            true_j = j + <span class="hljs-number">1</span></span><br><span class="line">            <span class="hljs-comment"># Update based on number of neighbors (using calc_neighbors)</span></span><br><span class="line">            <span class="hljs-comment"># set_zero and set_one are lists that tell me the coordinates of cells that require updating</span></span><br><span class="line">            <span class="hljs-keyword">if</span> (((calc_neighbors(true_i, true_j, my_board) &lt;= <span class="hljs-number">1</span>) </span><br><span class="line">                  <span class="hljs-keyword">or</span> (calc_neighbors(true_i, true_j, my_board) &gt;= <span class="hljs-number">4</span>))</span><br><span class="line">                  <span class="hljs-keyword">and</span> my_board[true_i, true_j] != <span class="hljs-number">0</span>):</span><br><span class="line">                set_zero.append([true_i, true_j])</span><br><span class="line">            <span class="hljs-keyword">elif</span> ((calc_neighbors(true_i, true_j, my_board) == <span class="hljs-number">3</span>)</span><br><span class="line">                  <span class="hljs-keyword">and</span> my_board[true_i, true_j] == <span class="hljs-number">0</span>):</span><br><span class="line">                set_one.append([true_i, true_j])</span><br><span class="line">    <span class="hljs-comment"># Update the required cells</span></span><br><span class="line">    <span class="hljs-keyword">for</span> index, val <span class="hljs-keyword">in</span> enumerate(set_zero):</span><br><span class="line">        my_board[val[<span class="hljs-number">0</span>], val[<span class="hljs-number">1</span>]] = <span class="hljs-number">0</span></span><br><span class="line">    <span class="hljs-keyword">for</span> index, val <span class="hljs-keyword">in</span> enumerate(set_one):</span><br><span class="line">        my_board[val[<span class="hljs-number">0</span>], val[<span class="hljs-number">1</span>]] = <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">return</span> my_board</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Input variables for the board</span></span><br><span class="line">boardsize = <span class="hljs-number">50</span>        <span class="hljs-comment"># board will be X by X where X = boardsize</span></span><br><span class="line">pad = <span class="hljs-number">2</span>               <span class="hljs-comment"># padded border, do not change this!</span></span><br><span class="line">initial_cells = <span class="hljs-number">1500</span>  <span class="hljs-comment"># this number of initial cells will be placed </span></span><br><span class="line">                      <span class="hljs-comment"># in randomly generated positions</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Get a list of random coordinates so that we can initialize </span></span><br><span class="line"><span class="hljs-comment"># board with randomly placed organisms</span></span><br><span class="line">pos_list = []</span><br><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(initial_cells):</span><br><span class="line">    pos_list.append([random.randint(<span class="hljs-number">1</span>, boardsize), </span><br><span class="line">                     random.randint(<span class="hljs-number">1</span>, boardsize)])</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Initialize the board</span></span><br><span class="line">my_board = np.zeros((boardsize+pad, boardsize+pad))</span><br><span class="line">my_board = init_board(pos_list, my_board)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">##### Animate the board #####</span></span><br><span class="line"><span class="hljs-comment"># This will throw an error the first time you run the code, but the program will run properly if you</span></span><br><span class="line"><span class="hljs-comment"># execute the cell again (there is an error with the animation package that I cannot seem to get rid of)</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Required line for plotting the animation</span></span><br><span class="line">%matplotlib notebook</span><br><span class="line"><span class="hljs-comment"># Initialize the plot of the board that will be used for animation</span></span><br><span class="line">fig = plt.gcf()</span><br><span class="line"><span class="hljs-comment"># Show first image - which is the initial board</span></span><br><span class="line">im = plt.imshow(my_board)</span><br><span class="line">plt.show()</span><br><span class="line">plt.savefig(fname=<span class="hljs-string">'game_of_life'</span>, dpi=<span class="hljs-number">150</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># Helper function that updates the board and returns a new image of</span></span><br><span class="line"><span class="hljs-comment"># the updated board animate is the function that FuncAnimation calls</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">animate</span><span class="hljs-params">(frame)</span>:</span></span><br><span class="line">    im.set_data(update_board(my_board))</span><br><span class="line">    <span class="hljs-keyword">return</span> im,</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># This line creates the animation</span></span><br><span class="line">anim = animation.FuncAnimation(fig, animate, frames=<span class="hljs-number">200</span>, </span><br><span class="line">                               interval=<span class="hljs-number">50</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>希望这篇文章能帮到大家。在结束之前，让我来帮助大家脑补更多我们今天学到的动画功能在数据科学上的应用：</p>
+<ul>
+<li><p>一个个地画出蒙特卡洛模拟数据，你能观察到最终的分布是如何逐步形成的；</p>
+</li>
+<li><p>按顺序遍历时间序列数据，可以描绘你的模型或数据在新的观察角度下有什么表现；</p>
+</li>
+<li><p>当你改变输入参数时，比如族群数，可以展现你的算法是如何划分族群的；</p>
+</li>
+<li><p>根据时间或不同的数据子集生成关联热力图，用于观察不同的样本是如何影响你的模型的预期参数的。</p>
+</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
 
     <div class="card">
     
@@ -192,7 +277,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7 minutes read (About 1014 words)
+                    7 minutes membaca (Sekitar 1014 kata)
                 </span>
                 
                 
@@ -213,7 +298,7 @@
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/09/15/为Anaconda3安装tensorflow等/#more">Read More</a>
+                <a class="button is-size-7 is-light" href="/2019/09/15/为Anaconda3安装tensorflow等/#more">Selengkapnya</a>
                 </div>
             </div>
         </div>
@@ -251,7 +336,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    10 minutes read (About 1429 words)
+                    10 minutes membaca (Sekitar 1429 kata)
                 </span>
                 
                 
@@ -272,7 +357,7 @@
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/09/10/使用cython加速代码运行/#more">Read More</a>
+                <a class="button is-size-7 is-light" href="/2019/09/10/使用cython加速代码运行/#more">Selengkapnya</a>
                 </div>
             </div>
         </div>
@@ -303,7 +388,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categories
+                Kategori
             </h3>
             <ul class="menu-list">
             <li>
@@ -328,7 +413,7 @@
                 <span class="level-item">Python</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/杂谈/">
@@ -336,7 +421,7 @@
                 <span class="level-item">杂谈</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/阅读笔记/">
@@ -356,9 +441,9 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Tag Cloud
+            Awan tag
         </h3>
-        <a href="/tags/Anaconda/" style="font-size: 10px;">Anaconda</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Git常用操作/" style="font-size: 10px;">Git常用操作</a> <a href="/tags/机器学习/" style="font-size: 20px;">机器学习</a> <a href="/tags/深度学习/" style="font-size: 20px;">深度学习</a> <a href="/tags/论文/" style="font-size: 10px;">论文</a>
+        <a href="/tags/Anaconda/" style="font-size: 10px;">Anaconda</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Git常用操作/" style="font-size: 10px;">Git常用操作</a> <a href="/tags/机器学习/" style="font-size: 20px;">机器学习</a> <a href="/tags/深度学习/" style="font-size: 20px;">深度学习</a> <a href="/tags/生命游戏/" style="font-size: 10px;">生命游戏</a> <a href="/tags/论文/" style="font-size: 10px;">论文</a> <a href="/tags/镜像/" style="font-size: 10px;">镜像</a>
     </div>
 </div>
 
@@ -367,7 +452,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Tag
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -407,8 +492,22 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/生命游戏/">
+                        <span class="tag">生命游戏</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/论文/">
                         <span class="tag">论文</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/镜像/">
+                        <span class="tag">镜像</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -454,17 +553,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        Artikel
                     </p>
                     <p class="title has-text-weight-normal">
-                        8
+                        10
                     </p>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        Kategori
                     </p>
                     <p class="title has-text-weight-normal">
                         5
@@ -474,17 +573,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tags
+                        Tag
                     </p>
                     <p class="title has-text-weight-normal">
-                        6
+                        8
                     </p>
                 </div>
             </div>
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/Uppez" target="_blank">
-                Follow</a>
+                IKUTI</a>
         </div>
         
         
@@ -536,7 +635,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Links
+            Tautan
         </h3>
         <ul class="menu-list">
         
@@ -562,8 +661,46 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Terbaru
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/09/18/The-Game-of-Life/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://i.loli.net/2019/09/18/ctX48F3p1rhdyfI.png" alt="The Game of Life">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-18T14:47:02.000Z">2019-09-18</time></div>
+                    <a href="/2019/09/18/The-Game-of-Life/" class="title has-link-black-ter is-size-6 has-text-weight-normal">The Game of Life</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Python/">Python</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/09/18/镜像站/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://i.loli.net/2019/09/18/isrJ1PVLlvx3jH7.png" alt="镜像站">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-18T14:38:20.000Z">2019-09-18</time></div>
+                    <a href="/2019/09/18/镜像站/" class="title has-link-black-ter is-size-6 has-text-weight-normal">镜像站</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/杂谈/">杂谈</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -622,44 +759,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/09/12/机器学习分类算法/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://i.loli.net/2019/09/17/63iruFAXBdICPN5.png" alt="机器学习分类算法">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-12T12:10:45.000Z">2019-09-12</time></div>
-                    <a href="/2019/09/12/机器学习分类算法/" class="title has-link-black-ter is-size-6 has-text-weight-normal">机器学习分类算法</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AI/">AI</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/09/10/使用cython加速代码运行/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://i.loli.net/2019/09/17/qlg39NeOJaR4sMp.png" alt="使用cython加速代码运行">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-10T09:09:22.000Z">2019-09-10</time></div>
-                    <a href="/2019/09/10/使用cython加速代码运行/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用cython加速代码运行</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Python/">Python</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -668,7 +767,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Arsip
         </h3>
         <ul class="menu-list">
         
@@ -678,7 +777,7 @@
                     <span class="level-item">September 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">8</span>
+                    <span class="level-item tag">10</span>
                 </span>
             </a>
         </li>
@@ -732,17 +831,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        Artikel
                     </p>
                     <p class="title has-text-weight-normal">
-                        8
+                        10
                     </p>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        Kategori
                     </p>
                     <p class="title has-text-weight-normal">
                         5
@@ -752,17 +851,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tags
+                        Tag
                     </p>
                     <p class="title has-text-weight-normal">
-                        6
+                        8
                     </p>
                 </div>
             </div>
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/Uppez" target="_blank">
-                Follow</a>
+                IKUTI</a>
         </div>
         
         
@@ -814,7 +913,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Links
+            Tautan
         </h3>
         <ul class="menu-list">
         
@@ -840,8 +939,46 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Terbaru
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/09/18/The-Game-of-Life/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://i.loli.net/2019/09/18/ctX48F3p1rhdyfI.png" alt="The Game of Life">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-18T14:47:02.000Z">2019-09-18</time></div>
+                    <a href="/2019/09/18/The-Game-of-Life/" class="title has-link-black-ter is-size-6 has-text-weight-normal">The Game of Life</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Python/">Python</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/09/18/镜像站/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://i.loli.net/2019/09/18/isrJ1PVLlvx3jH7.png" alt="镜像站">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-18T14:38:20.000Z">2019-09-18</time></div>
+                    <a href="/2019/09/18/镜像站/" class="title has-link-black-ter is-size-6 has-text-weight-normal">镜像站</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/杂谈/">杂谈</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -900,44 +1037,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/09/12/机器学习分类算法/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://i.loli.net/2019/09/17/63iruFAXBdICPN5.png" alt="机器学习分类算法">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-12T12:10:45.000Z">2019-09-12</time></div>
-                    <a href="/2019/09/12/机器学习分类算法/" class="title has-link-black-ter is-size-6 has-text-weight-normal">机器学习分类算法</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/AI/">AI</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/09/10/使用cython加速代码运行/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://i.loli.net/2019/09/17/qlg39NeOJaR4sMp.png" alt="使用cython加速代码运行">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-10T09:09:22.000Z">2019-09-10</time></div>
-                    <a href="/2019/09/10/使用cython加速代码运行/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用cython加速代码运行</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Python/">Python</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -946,7 +1045,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Arsip
         </h3>
         <ul class="menu-list">
         
@@ -956,7 +1055,7 @@
                     <span class="level-item">September 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">8</span>
+                    <span class="level-item tag">10</span>
                 </span>
             </a>
         </li>
@@ -1133,7 +1232,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="Kembali ke atas" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -1160,7 +1259,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Tulis Sesuatu.." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -1172,11 +1271,11 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
-                UNTITLED: '(Untitled)',
+                POSTS: 'Artikel',
+                PAGES: 'Halaman',
+                CATEGORIES: 'Kategori',
+                TAGS: 'Tag',
+                UNTITLED: 'Tanpa Judul',
             },
             CONTENT_URL: '/content.json',
         };
