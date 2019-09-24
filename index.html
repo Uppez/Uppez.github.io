@@ -181,7 +181,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    8 minutes read (About 1179 words)
+                    8 minutes read (About 1180 words)
                 </span>
                 
                 
@@ -196,81 +196,16 @@
         <div class="content">
             <h2 id="1-检查重复元素"><a href="#1-检查重复元素" class="headerlink" title="1.检查重复元素"></a>1.检查重复元素</h2><p>下面的方法可以检查给定列表中是否有重复的元素。它使用了 set() 属性，该属性将会从列表中删除重复的元素。</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">all_unique</span><span class="hljs-params">(lst)</span>:</span>    </span><br><span class="line">    <span class="hljs-keyword">return</span> len(lst) == len(set(lst))  </span><br><span class="line">      </span><br><span class="line">x = [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>]    </span><br><span class="line">y = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]    </span><br><span class="line">all_unique(x) <span class="hljs-comment"># False    </span></span><br><span class="line">all_unique(y) <span class="hljs-comment"># True</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="2-变位词"><a href="#2-变位词" class="headerlink" title="2.变位词"></a>2.变位词</h2><p>检测两个字符串是否互为变位词（即互相颠倒字符顺序）</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> Counter   </span><br><span class="line"> </span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">anagram</span><span class="hljs-params">(first, second)</span>:</span>    </span><br><span class="line">    <span class="hljs-keyword">return</span> Counter(first) == Counter(second)    </span><br><span class="line">anagram(<span class="hljs-string">"abcd3"</span>, <span class="hljs-string">"3acdb"</span>) <span class="hljs-comment"># True</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-检查内存使用情况"><a href="#3-检查内存使用情况" class="headerlink" title="3.检查内存使用情况"></a>3.检查内存使用情况</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> sys    </span><br><span class="line">variable = <span class="hljs-number">30</span>     </span><br><span class="line">print(sys.getsizeof(variable)) <span class="hljs-comment"># 24</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="4-字节大小计算"><a href="#4-字节大小计算" class="headerlink" title="4.字节大小计算"></a>4.字节大小计算</h2><p>以下方法将以字节为单位返回字符串长度。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">byte_size</span><span class="hljs-params">(string)</span>:</span>    </span><br><span class="line">    <span class="hljs-keyword">return</span>(len(string.encode( utf<span class="hljs-number">-8</span> )))   </span><br><span class="line">     </span><br><span class="line">byte_size( 😀 ) <span class="hljs-comment"># 4    </span></span><br><span class="line">byte_size( Hello World ) <span class="hljs-comment"># 11</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="5-重复打印字符n次"><a href="#5-重复打印字符n次" class="headerlink" title="5.重复打印字符n次"></a>5.重复打印字符n次</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="hljs-number">2</span>; </span><br><span class="line">s =<span class="hljs-string">"Programming"</span>; print(s * n); </span><br><span class="line"><span class="hljs-comment"># ProgrammingProgramming</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="6-首字母大写"><a href="#6-首字母大写" class="headerlink" title="6.首字母大写"></a>6.首字母大写</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="hljs-string">"programming is awesome"</span>    </span><br><span class="line">print(s.title()) <span class="hljs-comment"># Programming Is Awesome</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="7-分块"><a href="#7-分块" class="headerlink" title="7.分块"></a>7.分块</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> ceil </span><br><span class="line">   </span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">chunk</span><span class="hljs-params">(lst, size)</span>:</span>    </span><br><span class="line">    <span class="hljs-keyword">return</span> list(    </span><br><span class="line">        map(<span class="hljs-keyword">lambda</span> x: lst[x * size:x * size + size],    </span><br><span class="line">            list(range(<span class="hljs-number">0</span>, ceil(len(lst) / size)))))    </span><br><span class="line">chunk([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>],<span class="hljs-number">2</span>) <span class="hljs-comment"># [[1,2],[3,4],5]</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="8-压缩"><a href="#8-压缩" class="headerlink" title="8.压缩"></a>8.压缩</h2><p>以下方法使用 fliter() 删除列表中的错误值（如：False, None, 0 和“”）</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">compact</span><span class="hljs-params">(lst)</span>:</span>    </span><br><span class="line">    <span class="hljs-keyword">return</span> list(filter(bool, lst))    </span><br><span class="line">compact([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-literal">False</span>, <span class="hljs-number">2</span>,   , <span class="hljs-number">3</span>,  a ,  s , <span class="hljs-number">34</span>]) <span class="hljs-comment"># [ 1, 2, 3,  a ,  s , 34 ]</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="9-间隔数"><a href="#9-间隔数" class="headerlink" title="9.间隔数"></a>9.间隔数</h2><p>以下代码段可以用来转换一个二维数组。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">array = [[ a ,  b ], [ c ,  d ], [ e ,  f ]]    </span><br><span class="line">transposed = zip(*array)    </span><br><span class="line">print(transposed) <span class="hljs-comment"># [( a ,  c ,  e ), ( b ,  d ,  f )]</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="10-链式比较"><a href="#10-链式比较" class="headerlink" title="10.链式比较"></a>10.链式比较</h2><p>以下代码可以在一行中用各种操作符进行多次比较。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="hljs-number">3</span>    </span><br><span class="line">print( <span class="hljs-number">2</span> &lt; a &lt; <span class="hljs-number">8</span>) <span class="hljs-comment"># True    </span></span><br><span class="line">print(<span class="hljs-number">1</span> == a &lt; <span class="hljs-number">2</span>) <span class="hljs-comment"># False</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="11-逗号分隔"><a href="#11-逗号分隔" class="headerlink" title="11.逗号分隔"></a>11.逗号分隔</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hobbies = [<span class="hljs-string">"basketball"</span>, <span class="hljs-string">"football"</span>, <span class="hljs-string">"swimming"</span>]</span><br><span class="line">print(<span class="hljs-string">"My hobbies are: "</span> + <span class="hljs-string">", "</span>.join(hobbies)) <span class="hljs-comment"># My hobbies are: basketball, football, swimming</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="12-计算元音字母数"><a href="#12-计算元音字母数" class="headerlink" title="12.计算元音字母数"></a>12.计算元音字母数</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> re    </span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">count_vowels</span><span class="hljs-params">(str)</span>:</span>    </span><br><span class="line">    <span class="hljs-keyword">return</span> len(len(re.findall(r [aeiou] , str, re.IGNORECASE)))    </span><br><span class="line">count_vowels( foobar ) <span class="hljs-comment"># 3    </span></span><br><span class="line">count_vowels( gym ) <span class="hljs-comment"># 0</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="13-首字母恢复小写"><a href="#13-首字母恢复小写" class="headerlink" title="13.首字母恢复小写"></a>13.首字母恢复小写</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decapitalize</span><span class="hljs-params">(string)</span>:</span>    </span><br><span class="line">    <span class="hljs-keyword">return</span> str[:<span class="hljs-number">1</span>].lower() + str[<span class="hljs-number">1</span>:]    </span><br><span class="line">decapitalize( FooBar ) <span class="hljs-comment">#  fooBar     </span></span><br><span class="line">decapitalize( FooBar ) <span class="hljs-comment">#  fooBar</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="14-平面化"><a href="#14-平面化" class="headerlink" title="14.平面化"></a>14.平面化</h2><p>以下方法使用递归来展开潜在的深度列表。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">spread</span><span class="hljs-params">(arg)</span>:</span></span><br><span class="line">    ret = []</span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> arg:</span><br><span class="line">        <span class="hljs-keyword">if</span> isinstance(i, list):</span><br><span class="line">            ret.extend(i)</span><br><span class="line">        <span class="hljs-keyword">else</span>:</span><br><span class="line">            ret.append(i)</span><br><span class="line">    <span class="hljs-keyword">return</span> ret</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">deep_flatten</span><span class="hljs-params">(lst)</span>:</span></span><br><span class="line">    result = []</span><br><span class="line">    result.extend(</span><br><span class="line">        spread(list(map(<span class="hljs-keyword">lambda</span> x: deep_flatten(x) <span class="hljs-keyword">if</span> type(x) == list <span class="hljs-keyword">else</span> x, lst))))</span><br><span class="line">    <span class="hljs-keyword">return</span> result</span><br><span class="line">deep_flatten([<span class="hljs-number">1</span>, [<span class="hljs-number">2</span>], [[<span class="hljs-number">3</span>], <span class="hljs-number">4</span>], <span class="hljs-number">5</span>]) <span class="hljs-comment"># [1,2,3,4,5]</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="15-差异"><a href="#15-差异" class="headerlink" title="15.差异"></a>15.差异</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">difference</span><span class="hljs-params">(a, b)</span>:</span></span><br><span class="line">    set_a = set(a)</span><br><span class="line">    set_b = set(b)</span><br><span class="line">    comparison = set_a.difference(set_b)</span><br><span class="line">    <span class="hljs-keyword">return</span> list(comparison)</span><br><span class="line">difference([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>], [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>]) <span class="hljs-comment"># [3]</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="16-寻找差异"><a href="#16-寻找差异" class="headerlink" title="16.寻找差异"></a>16.寻找差异</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">difference_by</span><span class="hljs-params">(a, b, fn)</span>:</span></span><br><span class="line">    b = set(map(fn, b))</span><br><span class="line">    <span class="hljs-keyword">return</span> [item <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> a <span class="hljs-keyword">if</span> fn(item) <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> b]</span><br><span class="line"><span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> floor</span><br><span class="line">difference_by([<span class="hljs-number">2.1</span>, <span class="hljs-number">1.2</span>], [<span class="hljs-number">2.3</span>, <span class="hljs-number">3.4</span>],floor) <span class="hljs-comment"># [1.2]</span></span><br><span class="line">difference_by([&#123;  x : <span class="hljs-number">2</span> &#125;, &#123;  x : <span class="hljs-number">1</span> &#125;], [&#123;  x : <span class="hljs-number">1</span> &#125;], <span class="hljs-keyword">lambda</span> v : v[ x ]) <span class="hljs-comment"># [ &#123; x: 2 &#125; ]</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="17-链式函数调用"><a href="#17-链式函数调用" class="headerlink" title="17.链式函数调用"></a>17.链式函数调用</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span><span class="hljs-params">(a, b)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">return</span> a + b</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">subtract</span><span class="hljs-params">(a, b)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">return</span> a - b</span><br><span class="line">a, b = <span class="hljs-number">4</span>, <span class="hljs-number">5</span></span><br><span class="line">print((subtract <span class="hljs-keyword">if</span> a &gt; b <span class="hljs-keyword">else</span> add)(a, b)) <span class="hljs-comment"># 9</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="18-检查重复元素"><a href="#18-检查重复元素" class="headerlink" title="18.检查重复元素"></a>18.检查重复元素</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">has_duplicates</span><span class="hljs-params">(lst)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">return</span> len(lst) != len(set(lst))</span><br><span class="line">    </span><br><span class="line">x = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">5</span>]</span><br><span class="line">y = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]</span><br><span class="line">has_duplicates(x) <span class="hljs-comment"># True</span></span><br><span class="line">has_duplicates(y) <span class="hljs-comment"># False</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="19-合并两个字典"><a href="#19-合并两个字典" class="headerlink" title="19.合并两个字典"></a>19.合并两个字典</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">merge_two_dicts</span><span class="hljs-params">(a, b)</span>:</span></span><br><span class="line">    c = a.copy()   <span class="hljs-comment"># make a copy of a </span></span><br><span class="line">    c.update(b)    <span class="hljs-comment"># modify keys and values of a with the ones from b</span></span><br><span class="line">    <span class="hljs-keyword">return</span> c</span><br><span class="line">a = &#123;  x : <span class="hljs-number">1</span>,  y : <span class="hljs-number">2</span>&#125;</span><br><span class="line">b = &#123;  y : <span class="hljs-number">3</span>,  z : <span class="hljs-number">4</span>&#125;</span><br><span class="line">print(merge_two_dicts(a, b)) <span class="hljs-comment"># &#123; y : 3,  x : 1,  z : 4&#125;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#在python3.5版本后你还可以：</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">merge_dictionaries</span><span class="hljs-params">(a, b)</span></span></span><br><span class="line">   return &#123;**a, **b&#125;</span><br><span class="line">a = &#123;  x : <span class="hljs-number">1</span>,  y : <span class="hljs-number">2</span>&#125;</span><br><span class="line">b = &#123;  y : <span class="hljs-number">3</span>,  z : <span class="hljs-number">4</span>&#125;</span><br><span class="line">print(merge_dictionaries(a, b)) <span class="hljs-comment"># &#123; y : 3,  x : 1,  z : 4&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="20-将两个列表转化成一个字典"><a href="#20-将两个列表转化成一个字典" class="headerlink" title="20.将两个列表转化成一个字典"></a>20.将两个列表转化成一个字典</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">to_dictionary</span><span class="hljs-params">(keys, values)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">return</span> dict(zip(keys, values))</span><br><span class="line">    </span><br><span class="line">keys = [<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>, <span class="hljs-string">"c"</span>]    </span><br><span class="line">values = [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]</span><br><span class="line">print(to_dictionary(keys, values)) <span class="hljs-comment"># &#123; a : 2,  c : 4,  b : 3&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="21-使用枚举"><a href="#21-使用枚举" class="headerlink" title="21.使用枚举"></a>21.使用枚举</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">以下方法将字典作为输入，然后仅返回该字典中的键。</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">list = [<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>, <span class="hljs-string">"c"</span>, <span class="hljs-string">"d"</span>]</span><br><span class="line"><span class="hljs-keyword">for</span> index, element <span class="hljs-keyword">in</span> enumerate(list): </span><br><span class="line">    print(<span class="hljs-string">"Value"</span>, element, <span class="hljs-string">"Index "</span>, index, )</span><br><span class="line"><span class="hljs-comment"># ( Value ,  a ,  Index  , 0)</span></span><br><span class="line"><span class="hljs-comment"># ( Value ,  b ,  Index  , 1)</span></span><br><span class="line"><span class="hljs-comment">#( Value ,  c ,  Index  , 2)</span></span><br><span class="line"><span class="hljs-comment"># ( Value ,  d ,  Index  , 3)</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="22-计算需要的时间"><a href="#22-计算需要的时间" class="headerlink" title="22.计算需要的时间"></a>22.计算需要的时间</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> time</span><br><span class="line">start_time = time.time()</span><br><span class="line">a = <span class="hljs-number">1</span></span><br><span class="line">b = <span class="hljs-number">2</span></span><br><span class="line">c = a + b</span><br><span class="line">print(c) <span class="hljs-comment">#3</span></span><br><span class="line">end_time = time.time()</span><br><span class="line">total_time = end_time - start_time</span><br><span class="line">print(<span class="hljs-string">"Time: "</span>, total_time)</span><br><span class="line"><span class="hljs-comment"># ( Time:  , 1.1205673217773438e-05)</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="23-Try-else指令"><a href="#23-Try-else指令" class="headerlink" title="23.Try else指令"></a>23.Try else指令</h2><p>你可以将 else 子句作为 try/except 块的一部分，如果没有抛出异常，则执行该子句。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">try</span>:</span><br><span class="line">    <span class="hljs-number">2</span>*<span class="hljs-number">3</span></span><br><span class="line"><span class="hljs-keyword">except</span> TypeError:</span><br><span class="line">    print(<span class="hljs-string">"An exception was raised"</span>)</span><br><span class="line"><span class="hljs-keyword">else</span>:</span><br><span class="line">    print(<span class="hljs-string">"Thank God, no exceptions were raised."</span>)</span><br><span class="line"><span class="hljs-comment">#Thank God, no exceptions were raised.</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="24-查找最常见元素"><a href="#24-查找最常见元素" class="headerlink" title="24.查找最常见元素"></a>24.查找最常见元素</h2><p>以下方法返回列表中出现的最常见元素。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">most_frequent</span><span class="hljs-params">(list)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">return</span> max(set(list), key = list.count)</span><br><span class="line">  </span><br><span class="line">list = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,<span class="hljs-number">2</span>]</span><br><span class="line">most_frequent(list)</span><br></pre></td></tr></table></figure>
-
-<h2 id="25-回文"><a href="#25-回文" class="headerlink" title="25.回文"></a>25.回文</h2><p>以下方法可检查给定的字符串是否为回文结构。该方法首先将字符串转换为小写，然后从中删除非字母数字字符。最后，它会将新的字符串与反转版本进行比较。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">palindrome</span><span class="hljs-params">(string)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">from</span> re <span class="hljs-keyword">import</span> sub</span><br><span class="line">    s = sub( [W_] ,   , string.lower())</span><br><span class="line">    <span class="hljs-keyword">return</span> s == s[::<span class="hljs-number">-1</span>]</span><br><span class="line">palindrome( taco cat ) <span class="hljs-comment"># True</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="26-没有-if-else-语句的简单计算器"><a href="#26-没有-if-else-语句的简单计算器" class="headerlink" title="26.没有 if-else 语句的简单计算器"></a>26.没有 if-else 语句的简单计算器</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> operator</span><br><span class="line">action = &#123;</span><br><span class="line">    <span class="hljs-string">"+"</span>: operator.add,</span><br><span class="line">    <span class="hljs-string">"-"</span>: operator.sub,</span><br><span class="line">    <span class="hljs-string">"/"</span>: operator.truediv,</span><br><span class="line">    <span class="hljs-string">"*"</span>: operator.mul,</span><br><span class="line">    <span class="hljs-string">"**"</span>: pow</span><br><span class="line">&#125;</span><br><span class="line">print(action[ - ](<span class="hljs-number">50</span>, <span class="hljs-number">25</span>)) <span class="hljs-comment"># 25</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="27-元素顺序打乱"><a href="#27-元素顺序打乱" class="headerlink" title="27.元素顺序打乱"></a>27.元素顺序打乱</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> copy <span class="hljs-keyword">import</span> deepcopy</span><br><span class="line"><span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> randint</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">shuffle</span><span class="hljs-params">(lst)</span>:</span></span><br><span class="line">    temp_lst = deepcopy(lst)</span><br><span class="line">    m = len(temp_lst)</span><br><span class="line">    <span class="hljs-keyword">while</span> (m):</span><br><span class="line">        m -= <span class="hljs-number">1</span></span><br><span class="line">        i = randint(<span class="hljs-number">0</span>, m)</span><br><span class="line">        temp_lst[m], temp_lst[i] = temp_lst[i], temp_lst[m]</span><br><span class="line">    <span class="hljs-keyword">return</span> temp_lst</span><br><span class="line">  </span><br><span class="line">foo = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]</span><br><span class="line">shuffle(foo) <span class="hljs-comment"># [2,3,1] , foo = [1,2,3]</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="28-列表扁平化"><a href="#28-列表扁平化" class="headerlink" title="28.列表扁平化"></a>28.列表扁平化</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">spread</span><span class="hljs-params">(arg)</span>:</span></span><br><span class="line">    ret = []</span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> arg:</span><br><span class="line">        <span class="hljs-keyword">if</span> isinstance(i, list):</span><br><span class="line">            ret.extend(i)</span><br><span class="line">        <span class="hljs-keyword">else</span>:</span><br><span class="line">            ret.append(i)</span><br><span class="line">    <span class="hljs-keyword">return</span> ret</span><br><span class="line">spread([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,[<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>],[<span class="hljs-number">7</span>],<span class="hljs-number">8</span>,<span class="hljs-number">9</span>]) <span class="hljs-comment"># [1,2,3,4,5,6,7,8,9]</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="29-变量变换"><a href="#29-变量变换" class="headerlink" title="29.变量变换"></a>29.变量变换</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">swap</span><span class="hljs-params">(a, b)</span>:</span></span><br><span class="line">  <span class="hljs-keyword">return</span> b, a</span><br><span class="line">a, b = <span class="hljs-number">-1</span>, <span class="hljs-number">14</span></span><br><span class="line">swap(a, b) <span class="hljs-comment"># (14, -1)</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="30-获取确实键的默认值"><a href="#30-获取确实键的默认值" class="headerlink" title="30.获取确实键的默认值"></a>30.获取确实键的默认值</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">d = &#123; a : <span class="hljs-number">1</span>,  b : <span class="hljs-number">2</span>&#125;</span><br><span class="line">print(d.get( c , <span class="hljs-number">3</span>)) <span class="hljs-comment"># 3</span></span><br></pre></td></tr></table></figure>
-
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/09/24/即学即用的30个python常用代码/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -825,10 +760,10 @@
 <div class="card card-transparent">
     <nav class="pagination is-centered" role="navigation" aria-label="pagination">
         <div class="pagination-previous is-invisible is-hidden-mobile">
-            <a class="is-flex-grow has-text-black-ter" href="/page/0/">Préc</a>
+            <a class="is-flex-grow has-text-black-ter" href="/page/0/">Previous</a>
         </div>
         <div class="pagination-next">
-            <a class="is-flex-grow has-text-black-ter" href="/page/2/">Suiv</a>
+            <a class="is-flex-grow has-text-black-ter" href="/page/2/">Next</a>
         </div>
         <ul class="pagination-list is-hidden-mobile">
             
@@ -854,7 +789,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Catégories
+                Categories
             </h3>
             <ul class="menu-list">
             <li>
@@ -907,7 +842,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Nuage de tags
+            Tag Cloud
         </h3>
         <a href="/tags/Anaconda/" style="font-size: 10px;">Anaconda</a> <a href="/tags/Cython/" style="font-size: 10px;">Cython</a> <a href="/tags/Git常用操作/" style="font-size: 10px;">Git常用操作</a> <a href="/tags/python常用代码/" style="font-size: 10px;">python常用代码</a> <a href="/tags/机器学习/" style="font-size: 20px;">机器学习</a> <a href="/tags/深度学习/" style="font-size: 20px;">深度学习</a> <a href="/tags/生命游戏/" style="font-size: 10px;">生命游戏</a> <a href="/tags/论文/" style="font-size: 10px;">论文</a> <a href="/tags/镜像/" style="font-size: 10px;">镜像</a>
     </div>
@@ -1026,7 +961,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Articles
+                        Posts
                     </p>
                     <p class="title has-text-weight-normal">
                         11
@@ -1036,7 +971,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Catégories
+                        Categories
                     </p>
                     <p class="title has-text-weight-normal">
                         5
@@ -1056,7 +991,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/Uppez" target="_blank">
-                SUIVRE</a>
+                Follow</a>
         </div>
         
         
@@ -1108,7 +1043,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Liens
+            Links
         </h3>
         <ul class="menu-list">
         
@@ -1134,7 +1069,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Récents
+            Recent
         </h3>
         
         <article class="media">
@@ -1304,7 +1239,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Articles
+                        Posts
                     </p>
                     <p class="title has-text-weight-normal">
                         11
@@ -1314,7 +1249,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Catégories
+                        Categories
                     </p>
                     <p class="title has-text-weight-normal">
                         5
@@ -1334,7 +1269,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/Uppez" target="_blank">
-                SUIVRE</a>
+                Follow</a>
         </div>
         
         
@@ -1386,7 +1321,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Liens
+            Links
         </h3>
         <ul class="menu-list">
         
@@ -1412,7 +1347,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Récents
+            Recent
         </h3>
         
         <article class="media">
@@ -1744,9 +1679,9 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Articles',
+                POSTS: 'Posts',
                 PAGES: 'Pages',
-                CATEGORIES: 'Catégories',
+                CATEGORIES: 'Categories',
                 TAGS: 'Tags',
                 UNTITLED: '(Untitled)',
             },
