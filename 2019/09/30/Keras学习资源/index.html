@@ -18,23 +18,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Mish:撼动深度学习ReLU激活函数的新继任者 - 教书的先生</title>
+<title>Keras学习资源 - 教书的先生</title>
 
 
-    <meta name="description" content="对激活函数的研究一直没有停止过，ReLU还是统治着深度学习的激活函数，不过，这种情况有可能会被Mish改变。">
-<meta name="keywords" content="深度学习">
+    <meta name="description" content="Keras简介Keras是Python中以CNTK、Tensorflow或者Theano为计算后台的一个深度学习建模环境。">
+<meta name="keywords" content="学习资料">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mish:撼动深度学习ReLU激活函数的新继任者">
-<meta property="og:url" content="http://yoursite.com/2019/09/25/Mish-撼动深度学习ReLU激活函数的新继任者/index.html">
+<meta property="og:title" content="Keras学习资源">
+<meta property="og:url" content="http://yoursite.com/2019/09/30/Keras学习资源/index.html">
 <meta property="og:site_name" content="教书的先生">
-<meta property="og:description" content="对激活函数的研究一直没有停止过，ReLU还是统治着深度学习的激活函数，不过，这种情况有可能会被Mish改变。">
+<meta property="og:description" content="Keras简介Keras是Python中以CNTK、Tensorflow或者Theano为计算后台的一个深度学习建模环境。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.loli.net/2019/09/25/MtpOR6Qfu3ZXPEe.png">
-<meta property="og:updated_time" content="2019-09-25T11:10:41.493Z">
+<meta property="og:image" content="https://i.loli.net/2019/09/30/a8gjnN1fhJVUo7t.png">
+<meta property="og:updated_time" content="2019-09-30T04:41:14.662Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mish:撼动深度学习ReLU激活函数的新继任者">
-<meta name="twitter:description" content="对激活函数的研究一直没有停止过，ReLU还是统治着深度学习的激活函数，不过，这种情况有可能会被Mish改变。">
-<meta name="twitter:image" content="https://i.loli.net/2019/09/25/MtpOR6Qfu3ZXPEe.png">
+<meta name="twitter:title" content="Keras学习资源">
+<meta name="twitter:description" content="Keras简介Keras是Python中以CNTK、Tensorflow或者Theano为计算后台的一个深度学习建模环境。">
+<meta name="twitter:image" content="https://i.loli.net/2019/09/30/a8gjnN1fhJVUo7t.png">
 
 
 
@@ -110,7 +110,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Mish:撼动深度学习ReLU激活函数的新继任者" height="28">
+                <img src="/images/logo.svg" alt="Keras学习资源" height="28">
             
             </a>
         </div>
@@ -173,7 +173,7 @@
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="https://i.loli.net/2019/09/25/MtpOR6Qfu3ZXPEe.png" alt="Mish:撼动深度学习ReLU激活函数的新继任者">
+            <img class="thumbnail" src="https://i.loli.net/2019/09/30/a8gjnN1fhJVUo7t.png" alt="Keras学习资源">
         </span>
     </div>
     
@@ -181,7 +181,7 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-09-25T10:55:14.000Z">2019-09-25</time>
+                <time class="level-item has-text-grey" datetime="2019-09-30T04:33:59.000Z">2019-09-30</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/AI/">AI</a>
@@ -191,7 +191,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7 minutes read (About 1093 words)
+                    8 minutes read (About 1142 words)
                 </span>
                 
                 
@@ -200,45 +200,91 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Mish:撼动深度学习ReLU激活函数的新继任者
+                Keras学习资源
             
         </h1>
         <div class="content">
-            <blockquote>
-<p>对激活函数的研究一直没有停止过，ReLU还是统治着深度学习的激活函数，不过，这种情况有可能会被Mish改变。</p>
-</blockquote>
+            <h2 id="Keras简介"><a href="#Keras简介" class="headerlink" title="Keras简介"></a>Keras简介</h2><p>Keras是Python中以CNTK、Tensorflow或者Theano为计算后台的一个深度学习建模环境。</p>
 <a id="more"></a>
 
-<p>Diganta Misra的一篇题为“Mish: A Self Regularized Non-Monotonic Neural Activation Function”的新论文介绍了一个新的深度学习激活函数，该函数在最终准确度上比Swish(+.494%)和ReLU(+ 1.671%)都有提高。</p>
-<p>他们的小型FastAI团队使用Mish代替ReLU，打破了之前在FastAI全球排行榜上准确性得分记录的一部分。结合Ranger优化器，Mish激活，Flat + Cosine 退火和自注意力层，他们能够获得12个新的排行榜记录！</p>
-<p><a href="https://sm.ms/image/PZMCh1OpjkRvYqf" target="_blank"><img src="https://i.loli.net/2019/09/25/PZMCh1OpjkRvYqf.jpg"></a></p>
-<p>我们12项排行榜记录中的6项。每条记录都是用Mish而不是ReLU。(蓝色高亮显示，400 epoch的准确率为94.6，略高于我们的20 epoch的准确率为93.8:)</p>
-<p>作为他们自己测试的一部分，对于ImageWoof数据集的5 epoch测试，他们说：</p>
-<blockquote>
-<p>Mish在高显著性水平上优于ReLU (P &lt; 0.0001)。(FastAI论坛@ Seb)</p>
-</blockquote>
-<p>Mish已经在70多个基准上进行了测试，包括图像分类、分割和生成，并与其他15个激活函数进行了比较。</p>
-<h1 id="什么是Mesh"><a href="#什么是Mesh" class="headerlink" title="什么是Mesh"></a>什么是Mesh</h1><p>直接看Mesh的代码会更简单一点，简单总结一下，Mish=x * tanh(ln(1+e^x))。</p>
-<p>其他的激活函数，ReLU是x = max(0,x)，Swish是x * sigmoid(x)。</p>
-<p><strong>PyTorch的Mish实现</strong>：</p>
-<p><a href="https://sm.ms/image/Ya4lGfdXjN3o2qH" target="_blank"><img src="https://i.loli.net/2019/09/25/Ya4lGfdXjN3o2qH.jpg"></a></p>
-<p><strong>Tensorflow中的Mish函数</strong>：</p>
-<p>Tensorflow：x = x *tf.math.tanh(F.softplus(x))</p>
-<h1 id="Mish和其他的激活函数相比怎么样？"><a href="#Mish和其他的激活函数相比怎么样？" class="headerlink" title="Mish和其他的激活函数相比怎么样？"></a>Mish和其他的激活函数相比怎么样？</h1><p>下图显示了Mish与其他一些激活函数的测试结果。这是多达73个测试的结果，在不同的架构，不同的任务上：</p>
-<p><a href="https://sm.ms/image/zrD2FSpymHT13s5" target="_blank"><img src="https://i.loli.net/2019/09/25/zrD2FSpymHT13s5.jpg"></a></p>
-<h1 id="为什么Mish表现这么好？"><a href="#为什么Mish表现这么好？" class="headerlink" title="为什么Mish表现这么好？"></a>为什么Mish表现这么好？</h1><p>以上无边界(即正值可以达到任何高度)避免了由于封顶而导致的饱和。理论上对负值的轻微允许允许更好的梯度流，而不是像ReLU中那样的硬零边界。</p>
-<p>最后，可能也是最重要的，目前的想法是，平滑的激活函数允许更好的信息深入神经网络，从而得到更好的准确性和泛化。</p>
-<p>尽管如此，我测试了许多激活函数，它们也满足了其中的许多想法，但大多数都无法执行。这里的主要区别可能是Mish函数在曲线上几乎所有点上的平滑度。</p>
-<p>这种通过Mish激活曲线平滑性来推送信息的能力如下图所示，在本文的一个简单测试中，越来越多的层被添加到一个测试神经网络中，而没有一个统一的函数。随着层深的增加，ReLU精度迅速下降，其次是Swish。相比之下，Mish能更好地保持准确性，这可能是因为它能更好地传播信息：</p>
-<p><a href="https://sm.ms/image/3udy29EoMmq8KwD" target="_blank"><img src="https://i.loli.net/2019/09/25/3udy29EoMmq8KwD.jpg"></a></p>
-<p>更平滑的激活功能允许信息更深入地流动……注意，随着层数的增加，ReLU快速下降。</p>
-<h1 id="如何把Mish放到你自己的网络中？"><a href="#如何把Mish放到你自己的网络中？" class="headerlink" title="如何把Mish放到你自己的网络中？"></a>如何把Mish放到你自己的网络中？</h1><p>Mish的PyTorch和FastAI的源代码可以在github的两个地方找到：</p>
-<p>1、官方Mish github：<a href="https://github.com/digantamisra98/Mish" target="_blank" rel="noopener">https://github.com/digantamisra98/Mish</a></p>
-<p>2、非官方的Mish使用inline提升速度：<a href="https://github.com/lessw2020/mish" target="_blank" rel="noopener">https://github.com/lessw2020/mish</a></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>ReLU有一些已知的弱点，但是通常它执行起来很轻，并且在计算上很轻。Mish具有较强的理论渊源，在测试中，就训练稳定性和准确性而言，Mish的平均性能优于ReLU。</p>
-<p>复杂度只稍微增加了一点(V100 GPU和Mish，相对于ReLU，每epoch增加大约1秒)，考虑到训练稳定性的提高和最终精度的提高，稍微增加一点时间似乎是值得的。</p>
-<p>最终，在今年测试了大量新的激活函数后，Mish在这方面处于领先地位，许多人怀疑它很有可能成为AI未来的新ReLU。</p>
-<p>英文文章地址：<a href="https://medium.com/@lessw/meet-mish-new-state-of-the-art-ai-activation-function-the-successor-to-relu-846a6d93471f" target="_blank" rel="noopener">https://medium.com/@lessw/meet-mish-new-state-of-the-art-ai-activation-function-the-successor-to-relu-846a6d93471f</a></p>
+<p>相对于其他深度学习的框架，如Tensorflow、Theano、Caffe等，Keras在实际应用中有一些显著的优点，其中最主要的优点就是Keras已经高度模块化了，支持现有的常见模型（CNN、RNN等），更重要的是建模过程相当方便快速，使用Keras可以快速地搭建深度网络，极大的加快了开发速度。此外，Keras具有用户友好性、模块化、易扩展、与Python协作友好的特点。</p>
+<h2 id="Keras学习手册"><a href="#Keras学习手册" class="headerlink" title="Keras学习手册"></a>Keras学习手册</h2><ul>
+<li><p>Keras官方手册，非常详细的官方文档，文档中详细的介绍了从Keras每个知识点的用法，一步步带你从入门到精通。<br><a href="https://keras.io/" target="_blank" rel="noopener">https://keras.io/</a> </p>
+</li>
+<li><p>Keras中文官方手册，该中文官方手册是对对Keras英文官方手册最好的还原，适合所有阶段的Keras学习者阅读。<br><a href="https://keras.io/zh/" target="_blank" rel="noopener">https://keras.io/zh/</a></p>
+</li>
+<li><p>Keras中文文档，另一个非官方的Keras中文文档，笔者花了近两年的时间在维护，文档也一直在更新，包含ConvLSTM2D、SimpleRNNCellKeras、GRUCell等最新的内容，非常用心的一份Keras文档。<br><a href="https://keras-cn.readthedocs.io/en/latest/" target="_blank" rel="noopener">https://keras-cn.readthedocs.io/en/latest/</a></p>
+</li>
+<li><p>安装Keras库进行深度学习，国外一篇比较火的博客，旨在演示如何安装Keras库进行深度学习。<br><a href="http://www.pyimagesearch.com/2016/07/18/installing-keras-for-deep-learning/" target="_blank" rel="noopener">http://www.pyimagesearch.com/2016/07/18/installing-keras-for-deep-learning/</a></p>
+</li>
+<li><p>黄海广博士力荐的Keras github项目，这个github的repository主要是博主在学习Keras的一些记录及练习，满满都是干货，建议大家看一下。<br><a href="https://github.com/erhwenkuo/deep-learning-with-keras-notebooks" target="_blank" rel="noopener">https://github.com/erhwenkuo/deep-learning-with-keras-notebooks</a></p>
+</li>
+<li><p>磐创AI Keras系列教程总结，从CNN到RNN，以入门、基础为主的讲解，适合小白学习。<br><a href="http://www.keraschina.com" target="_blank" rel="noopener">http://www.keraschina.com</a></p>
+</li>
+</ul>
+<h2 id="Keras学习视频"><a href="#Keras学习视频" class="headerlink" title="Keras学习视频"></a>Keras学习视频</h2><ul>
+<li><p>Waterloo大学关于Keras的课程，该视频在YouTube上有很高的播放率，课程质量非常高<br><a href="https://www.youtube.com/watch?v=Tp3SaRbql4k" target="_blank" rel="noopener">https://www.youtube.com/watch?v=Tp3SaRbql4k</a></p>
+</li>
+<li><p>CERN使用Keras进行深度学习系列教程，比较详细、权威的一个Keras系列教程视频。<br><a href="http://cds.cern.ch/record/2157570?ln=en" target="_blank" rel="noopener">http://cds.cern.ch/record/2157570?ln=en</a></p>
+</li>
+<li><p>莫烦Keras视频教程，莫烦老师的视频在B站、YouTube上都有很高的播放量，强烈推荐给大家。<br><a href="https://www.bilibili.com/video/av16910214/" target="_blank" rel="noopener">https://www.bilibili.com/video/av16910214/</a></p>
+</li>
+<li><p>再为大家推荐YouTube上另一个大佬Sentdex的Keras教学视频，还配套有相应的文本教程和笔记。<br><a href="https://www.youtube.com/watch?v=wQ8BIBpya2k" target="_blank" rel="noopener">https://www.youtube.com/watch?v=wQ8BIBpya2k</a></p>
+</li>
+</ul>
+<p><a href="https://pythonprogramming.net/introduction-deep-learning-python-tensorflow-keras/" target="_blank" rel="noopener">https://pythonprogramming.net/introduction-deep-learning-python-tensorflow-keras/</a> </p>
+<h2 id="Keras代码案例"><a href="#Keras代码案例" class="headerlink" title="Keras代码案例"></a>Keras代码案例</h2><h3 id="Keras-amp-NLP代码案例"><a href="#Keras-amp-NLP代码案例" class="headerlink" title="Keras&amp;NLP代码案例"></a>Keras&amp;NLP代码案例</h3><ul>
+<li><p>用LSTM在IMDB影评数据集做文本分类<br><a href="https://github.com/fchollet/keras/blob/master/examples/imdb_lstm.py" target="_blank" rel="noopener">https://github.com/fchollet/keras/blob/master/examples/imdb_lstm.py</a></p>
+</li>
+<li><p>路透社主题分类<br><a href="https://github.com/fchollet/keras/blob/master/examples/reuters_mlp.py" target="_blank" rel="noopener">https://github.com/fchollet/keras/blob/master/examples/reuters_mlp.py</a></p>
+</li>
+<li><p>LSTM做文本生成<br><a href="https://github.com/fchollet/keras/blob/master/examples/lstm_text_generation.py" target="_blank" rel="noopener">https://github.com/fchollet/keras/blob/master/examples/lstm_text_generation.py</a></p>
+</li>
+<li><p>在IMDB数据集上使用FastText<br><a href="https://github.com/fchollet/keras/blob/master/examples/imdb_fasttext.py" target="_blank" rel="noopener">https://github.com/fchollet/keras/blob/master/examples/imdb_fasttext.py</a></p>
+</li>
+<li><p>基于LSTM的BABI数据集网络<br><a href="https://github.com/kerasteam/keras/blob/master/examples/reuters_mlp.py" target="_blank" rel="noopener">https://github.com/kerasteam/keras/blob/master/examples/reuters_mlp.py</a></p>
+</li>
+<li><p>预训练词向量<br><a href="https://github.com/kerasteam/keras/blob/master/examples/pretrained_word_embeddings.py" target="_blank" rel="noopener">https://github.com/kerasteam/keras/blob/master/examples/pretrained_word_embeddings.py</a></p>
+</li>
+<li><p>字符级卷积神经网络做文本分类<br><a href="https://github.com/johnb30/py_crepe" target="_blank" rel="noopener">https://github.com/johnb30/py_crepe</a></p>
+</li>
+<li><p>LSTM预测一个人的性别<br><a href="https://github.com/divamgupta/lstm-gender-predictor" target="_blank" rel="noopener">https://github.com/divamgupta/lstm-gender-predictor</a></p>
+</li>
+</ul>
+<h3 id="Keras-amp-CV代码案例"><a href="#Keras-amp-CV代码案例" class="headerlink" title="Keras&amp;CV代码案例"></a>Keras&amp;CV代码案例</h3><ul>
+<li><p>使用CNN进行MNIST<br><a href="https://github.com/fchollet/keras/blob/master/examples/mnist_cnn.py" target="_blank" rel="noopener">https://github.com/fchollet/keras/blob/master/examples/mnist_cnn.py</a></p>
+</li>
+<li><p>Inception V3<br><a href="https://github.com/fchollet/keras/blob/master/examples/inception_v3.py" target="_blank" rel="noopener">https://github.com/fchollet/keras/blob/master/examples/inception_v3.py</a></p>
+</li>
+<li><p>VGG16<br><a href="https://gist.github.com/baraldilorenzo/07d7802847aaad0a35d3" target="_blank" rel="noopener">https://gist.github.com/baraldilorenzo/07d7802847aaad0a35d3</a></p>
+</li>
+<li><p>FractalNet<br><a href="https://github.com/snf/keras-fractalnet" target="_blank" rel="noopener">https://github.com/snf/keras-fractalnet</a></p>
+</li>
+<li><p>可视问答<br><a href="https://github.com/avisingh599/visual-qa" target="_blank" rel="noopener">https://github.com/avisingh599/visual-qa</a></p>
+</li>
+<li><p>VGG-CAM<br><a href="https://github.com/tdeboissiere/VGG16CAM-keras" target="_blank" rel="noopener">https://github.com/tdeboissiere/VGG16CAM-keras</a></p>
+</li>
+<li><p>ResNet 50<br><a href="https://github.com/keras-team/keras/pull/3266/files" target="_blank" rel="noopener">https://github.com/keras-team/keras/pull/3266/files</a></p>
+</li>
+<li><p>对象分割<br><a href="https://github.com/abbypa/NNProject_DeepMask" target="_blank" rel="noopener">https://github.com/abbypa/NNProject_DeepMask</a></p>
+</li>
+<li><p>fcn、segnet、u-net等常用的图像分割模型<br><a href="https://github.com/divamgupta/image-segmentation-keras" target="_blank" rel="noopener">https://github.com/divamgupta/image-segmentation-keras</a></p>
+</li>
+</ul>
+<h2 id="Keras项目"><a href="#Keras项目" class="headerlink" title="Keras项目"></a>Keras项目</h2><ul>
+<li><p>RocAlphaGo，这个项目是DeepMind 2016年《自然》杂志的一个学生主导的实施项目，使用了Python+keras实现，代码清晰性更好。<br><a href="https://github.com/Rochester-NRT/RocAlphaG" target="_blank" rel="noopener">https://github.com/Rochester-NRT/RocAlphaG</a></p>
+</li>
+<li><p>BetaGo，项目是使用keras的深度学习Go机器人。<br><a href="https://github.com/maxpumperla/betago" target="_blank" rel="noopener">https://github.com/maxpumperla/betago</a></p>
+</li>
+<li><p>DeepJazz，使用Keras深度学习驱动的爵士乐生成系统。<br><a href="https://github.com/jisungk/deepjazz" target="_blank" rel="noopener">https://github.com/jisungk/deepjazz</a></p>
+</li>
+<li><p>dataset-sts，语义文本相似度数据集集线器。<br><a href="https://github.com/brmson/dataset-sts" target="_blank" rel="noopener">https://github.com/brmson/dataset-sts</a></p>
+</li>
+<li><p>NMT-Keras，利用球面进行神经机器翻译。<br><a href="https://github.com/lvapeab/nmt-keras" target="_blank" rel="noopener">https://github.com/lvapeab/nmt-keras</a></p>
+</li>
+<li><p>Headline generator，利用循环神经网络独立生成新闻标题的实现。<br><a href="https://github.com/udibr/headlines" target="_blank" rel="noopener">https://github.com/udibr/headlines</a></p>
+</li>
+</ul>
 
         </div>
         
@@ -246,7 +292,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/深度学习/">深度学习</a>
+                    <a class="has-link-grey -link" href="/tags/学习资料/">学习资料</a>
                 </div>
             </div>
         </div>
@@ -282,17 +328,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/09/25/南大周志华关于论文内容演讲演示文稿/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">南大周志华关于论文内容演讲演示文稿</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/09/25/算法可视化平台/">
-                <span class="level-item">算法可视化平台</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/09/30/人工智能中的数学知识/">
+                <span class="level-item">人工智能中的数学知识</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -1123,7 +1162,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Mish:撼动深度学习ReLU激活函数的新继任者" height="28">
+                    <img src="/images/logo.svg" alt="Keras学习资源" height="28">
                 
                 </a>
                 <p class="is-size-7">
