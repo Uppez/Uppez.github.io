@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-10-05T08:13:50.734Z</updated>
+  <updated>2019-10-05T13:52:05.729Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>开源协议</title>
+    <link href="http://yoursite.com/2019/10/05/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/"/>
+    <id>http://yoursite.com/2019/10/05/开源协议/</id>
+    <published>2019-10-05T13:41:11.000Z</published>
+    <updated>2019-10-05T13:52:05.729Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.runoob.com/w3cnote/open-source-license.html" target="_blank" rel="noopener">各种开源协议介绍</a></p><p><a href="https://blog.csdn.net/qq_22494029/article/details/79731340" target="_blank" rel="noopener">几种常见的开源协议</a></p><p><a href="http://123.baidu.com/" target="_blank" rel="noopener">了解其他开源协议</a></p><a id="more"></a><p>世界上的开源许可证（Open Source License）大概有上百种，我们常用的开源软件协议大致有GPL、BSD、MIT、Mozilla、Apache和LGPL。我们不必要每个开源协议都了然于心，但是可以了解几个主要的协议的权利和义务。</p><p><a href="https://sm.ms/image/bnwXaotEYFueZmd" target="_blank"><img src="https://i.loli.net/2019/10/05/bnwXaotEYFueZmd.png"></a></p><p>如果看完还是一头雾水的话，乌克兰程序员Paul Bagwell，画了一张分析图，说明应该怎么选择，下图为国内大牛阮一峰汉化了版本。</p><p><a href="https://sm.ms/image/YdRXQiZUxWLDKOI" target="_blank"><img src="https://i.loli.net/2019/10/05/YdRXQiZUxWLDKOI.png"></a></p><p>来一个更加清晰和完全一点的图，目前只有英文版，<strong>后期我将会进行汉化</strong>。</p><p><a href="https://sm.ms/image/lswBQk5mXKuyPtU" target="_blank"><img src="https://i.loli.net/2019/10/05/lswBQk5mXKuyPtU.png"></a></p><p>希望这些总结可以帮助每一个人都能更好的为自己的开源项目选择一个合适的开源协议，当自己的开源项目被侵权的时候不至于处于被动的位置，也希望可以帮助到每一个人都能“合法”的应用开源项目，很多开源协议最低要求是使用者需要保留原作者对代码的声明，估计大家都会忽略掉了吧。</p><p><strong>开源不等于免费，开源也不等于没有约束</strong>。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://www.runoob.com/w3cnote/open-source-license.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;各种开源协议介绍&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_22494029/article/details/79731340&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;几种常见的开源协议&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://123.baidu.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;了解其他开源协议&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="杂谈" scheme="http://yoursite.com/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+      <category term="开源协议" scheme="http://yoursite.com/tags/%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>马尔可夫链</title>
@@ -469,31 +494,6 @@
     
     
       <category term="周志华论文" scheme="http://yoursite.com/tags/%E5%91%A8%E5%BF%97%E5%8D%8E%E8%AE%BA%E6%96%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mish:撼动深度学习ReLU激活函数的新继任者</title>
-    <link href="http://yoursite.com/2019/09/25/Mish-%E6%92%BC%E5%8A%A8%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0ReLU%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E7%9A%84%E6%96%B0%E7%BB%A7%E4%BB%BB%E8%80%85/"/>
-    <id>http://yoursite.com/2019/09/25/Mish-撼动深度学习ReLU激活函数的新继任者/</id>
-    <published>2019-09-25T10:55:14.000Z</published>
-    <updated>2019-09-25T11:10:41.493Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>对激活函数的研究一直没有停止过，ReLU还是统治着深度学习的激活函数，不过，这种情况有可能会被Mish改变。</p></blockquote><a id="more"></a><p>Diganta Misra的一篇题为“Mish: A Self Regularized Non-Monotonic Neural Activation Function”的新论文介绍了一个新的深度学习激活函数，该函数在最终准确度上比Swish(+.494%)和ReLU(+ 1.671%)都有提高。</p><p>他们的小型FastAI团队使用Mish代替ReLU，打破了之前在FastAI全球排行榜上准确性得分记录的一部分。结合Ranger优化器，Mish激活，Flat + Cosine 退火和自注意力层，他们能够获得12个新的排行榜记录！</p><p><a href="https://sm.ms/image/PZMCh1OpjkRvYqf" target="_blank"><img src="https://i.loli.net/2019/09/25/PZMCh1OpjkRvYqf.jpg"></a></p><p>我们12项排行榜记录中的6项。每条记录都是用Mish而不是ReLU。(蓝色高亮显示，400 epoch的准确率为94.6，略高于我们的20 epoch的准确率为93.8:)</p><p>作为他们自己测试的一部分，对于ImageWoof数据集的5 epoch测试，他们说：</p><blockquote><p>Mish在高显著性水平上优于ReLU (P &lt; 0.0001)。(FastAI论坛@ Seb)</p></blockquote><p>Mish已经在70多个基准上进行了测试，包括图像分类、分割和生成，并与其他15个激活函数进行了比较。</p><h1 id="什么是Mesh"><a href="#什么是Mesh" class="headerlink" title="什么是Mesh"></a>什么是Mesh</h1><p>直接看Mesh的代码会更简单一点，简单总结一下，Mish=x * tanh(ln(1+e^x))。</p><p>其他的激活函数，ReLU是x = max(0,x)，Swish是x * sigmoid(x)。</p><p><strong>PyTorch的Mish实现</strong>：</p><p><a href="https://sm.ms/image/Ya4lGfdXjN3o2qH" target="_blank"><img src="https://i.loli.net/2019/09/25/Ya4lGfdXjN3o2qH.jpg"></a></p><p><strong>Tensorflow中的Mish函数</strong>：</p><p>Tensorflow：x = x *tf.math.tanh(F.softplus(x))</p><h1 id="Mish和其他的激活函数相比怎么样？"><a href="#Mish和其他的激活函数相比怎么样？" class="headerlink" title="Mish和其他的激活函数相比怎么样？"></a>Mish和其他的激活函数相比怎么样？</h1><p>下图显示了Mish与其他一些激活函数的测试结果。这是多达73个测试的结果，在不同的架构，不同的任务上：</p><p><a href="https://sm.ms/image/zrD2FSpymHT13s5" target="_blank"><img src="https://i.loli.net/2019/09/25/zrD2FSpymHT13s5.jpg"></a></p><h1 id="为什么Mish表现这么好？"><a href="#为什么Mish表现这么好？" class="headerlink" title="为什么Mish表现这么好？"></a>为什么Mish表现这么好？</h1><p>以上无边界(即正值可以达到任何高度)避免了由于封顶而导致的饱和。理论上对负值的轻微允许允许更好的梯度流，而不是像ReLU中那样的硬零边界。</p><p>最后，可能也是最重要的，目前的想法是，平滑的激活函数允许更好的信息深入神经网络，从而得到更好的准确性和泛化。</p><p>尽管如此，我测试了许多激活函数，它们也满足了其中的许多想法，但大多数都无法执行。这里的主要区别可能是Mish函数在曲线上几乎所有点上的平滑度。</p><p>这种通过Mish激活曲线平滑性来推送信息的能力如下图所示，在本文的一个简单测试中，越来越多的层被添加到一个测试神经网络中，而没有一个统一的函数。随着层深的增加，ReLU精度迅速下降，其次是Swish。相比之下，Mish能更好地保持准确性，这可能是因为它能更好地传播信息：</p><p><a href="https://sm.ms/image/3udy29EoMmq8KwD" target="_blank"><img src="https://i.loli.net/2019/09/25/3udy29EoMmq8KwD.jpg"></a></p><p>更平滑的激活功能允许信息更深入地流动……注意，随着层数的增加，ReLU快速下降。</p><h1 id="如何把Mish放到你自己的网络中？"><a href="#如何把Mish放到你自己的网络中？" class="headerlink" title="如何把Mish放到你自己的网络中？"></a>如何把Mish放到你自己的网络中？</h1><p>Mish的PyTorch和FastAI的源代码可以在github的两个地方找到：</p><p>1、官方Mish github：<a href="https://github.com/digantamisra98/Mish" target="_blank" rel="noopener">https://github.com/digantamisra98/Mish</a></p><p>2、非官方的Mish使用inline提升速度：<a href="https://github.com/lessw2020/mish" target="_blank" rel="noopener">https://github.com/lessw2020/mish</a></p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>ReLU有一些已知的弱点，但是通常它执行起来很轻，并且在计算上很轻。Mish具有较强的理论渊源，在测试中，就训练稳定性和准确性而言，Mish的平均性能优于ReLU。</p><p>复杂度只稍微增加了一点(V100 GPU和Mish，相对于ReLU，每epoch增加大约1秒)，考虑到训练稳定性的提高和最终精度的提高，稍微增加一点时间似乎是值得的。</p><p>最终，在今年测试了大量新的激活函数后，Mish在这方面处于领先地位，许多人怀疑它很有可能成为AI未来的新ReLU。</p><p>英文文章地址：<a href="https://medium.com/@lessw/meet-mish-new-state-of-the-art-ai-activation-function-the-successor-to-relu-846a6d93471f" target="_blank" rel="noopener">https://medium.com/@lessw/meet-mish-new-state-of-the-art-ai-activation-function-the-successor-to-relu-846a6d93471f</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;对激活函数的研究一直没有停止过，ReLU还是统治着深度学习的激活函数，不过，这种情况有可能会被Mish改变。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="AI" scheme="http://yoursite.com/categories/AI/"/>
-    
-    
-      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
