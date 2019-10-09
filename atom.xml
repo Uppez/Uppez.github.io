@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-10-07T12:35:20.342Z</updated>
+  <updated>2019-10-09T10:20:10.574Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>用中文方式打开英文论文</title>
+    <link href="http://yoursite.com/2019/10/08/%E7%94%A8%E4%B8%AD%E6%96%87%E6%96%B9%E5%BC%8F%E6%89%93%E5%BC%80%E8%8B%B1%E6%96%87%E8%AE%BA%E6%96%87/"/>
+    <id>http://yoursite.com/2019/10/08/用中文方式打开英文论文/</id>
+    <published>2019-10-08T09:51:05.000Z</published>
+    <updated>2019-10-09T10:20:10.574Z</updated>
+    
+    <content type="html"><![CDATA[<p>阅读论文最头疼的事情就是满屏的英文使我们恐惧到要死，那么有没有什么解决方案呢？</p><a id="more"></a><h1 id="查找到翻译好的论文"><a href="#查找到翻译好的论文" class="headerlink" title="查找到翻译好的论文"></a>查找到翻译好的论文</h1><ol><li><p>通天塔：<a href="http://tongtianta.site/" target="_blank" rel="noopener">http://tongtianta.site/</a></p></li><li><p>百度查找: <a href="https://www.baidu.com" target="_blank" rel="noopener">https://www.baidu.com</a></p></li></ol><h1 id="自己进行论文的翻译"><a href="#自己进行论文的翻译" class="headerlink" title="自己进行论文的翻译"></a>自己进行论文的翻译</h1><ol><li><p>使用微软的word文档自带的全文翻译，使用方法请看：<a href="https://www.zhihu.com/question/20218881" target="_blank" rel="noopener">https://www.zhihu.com/question/20218881</a></p></li><li><p>MedSci翻译：<a href="http://www.medsci.cn/sci/translation.do" target="_blank" rel="noopener">http://www.medsci.cn/sci/translation.do</a></p></li><li><p>google翻译：<a href="https://translate.google.com/" target="_blank" rel="noopener">https://translate.google.com/</a></p></li><li><p>百度翻译：<a href="https://fanyi.baidu.com/" target="_blank" rel="noopener">https://fanyi.baidu.com/</a></p></li><li><p>翻译助手(专业词汇翻译)：<a href="http://dict.cnki.net/" target="_blank" rel="noopener">http://dict.cnki.net/</a></p></li></ol><h1 id="翻译软件"><a href="#翻译软件" class="headerlink" title="翻译软件"></a>翻译软件</h1><ol><li><p>网易有道翻译：<a href="http://cidian.youdao.com/" target="_blank" rel="noopener">http://cidian.youdao.com/</a></p></li><li><p>SCI Translate：<a href="https://www.sogou.com/sogou?ie=utf8&amp;query=SCI+Translate5.0&amp;pid=A83,z-7707" target="_blank" rel="noopener">https://www.sogou.com/sogou?ie=utf8&amp;query=SCI+Translate5.0&amp;pid=A83,z-7707</a></p></li></ol><h1 id="其他翻译方式"><a href="#其他翻译方式" class="headerlink" title="其他翻译方式"></a>其他翻译方式</h1><p>寻找专业的大型翻译平台，<strong>付款</strong>，<strong>人工翻译</strong>，准确，内容精确，但<strong>价格昂贵</strong>。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;阅读论文最头疼的事情就是满屏的英文使我们恐惧到要死，那么有没有什么解决方案呢？&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="杂谈" scheme="http://yoursite.com/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+      <category term="论文翻译" scheme="http://yoursite.com/tags/%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/"/>
+    
+  </entry>
   
   <entry>
     <title>python验证码识别</title>
@@ -213,9 +236,9 @@
     <link href="http://yoursite.com/2019/10/04/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%8E%A8%E8%8D%90/"/>
     <id>http://yoursite.com/2019/10/04/工具使用推荐/</id>
     <published>2019-10-04T10:07:35.000Z</published>
-    <updated>2019-10-04T10:13:36.006Z</updated>
+    <updated>2019-10-09T10:01:29.509Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="百度网盘高速下载方法"><a href="#百度网盘高速下载方法" class="headerlink" title="百度网盘高速下载方法"></a>百度网盘高速下载方法</h2><p>我爱搜盘：<a href="https://www.52sopan.com" target="_blank" rel="noopener">https://www.52sopan.com</a></p><a id="more"></a><p>轻舟网：<a href="https://www.qzhou.com.cn" target="_blank" rel="noopener">https://www.qzhou.com.cn</a></p><p>小白盘：<a href="https://www.xiaobaipan.com" target="_blank" rel="noopener">https://www.xiaobaipan.com</a></p><p>番茄搜搜：<a href="https://www.fqsousou.com" target="_blank" rel="noopener">https://www.fqsousou.com</a></p><p>探索云盘：<a href="http://tansuo233.com" target="_blank" rel="noopener">http://tansuo233.com</a></p><p>磁力喵：<a href="https://www.cilimao.cc" target="_blank" rel="noopener">https://www.cilimao.cc</a></p><h2 id="几款高速下载器"><a href="#几款高速下载器" class="headerlink" title="几款高速下载器"></a>几款高速下载器</h2><h3 id="电脑端："><a href="#电脑端：" class="headerlink" title="电脑端："></a>电脑端：</h3><p>1.pandownload，推荐指数：★★★★★</p><p>下载链接：<a href="http://pandownload.com" target="_blank" rel="noopener">http://pandownload.com</a></p><p>2.速盘，推荐指数：★★★★☆</p><p>下载链接：<a href="https://www.speedpan.com" target="_blank" rel="noopener">https://www.speedpan.com</a></p><p>3.motrix，推荐指数：★★★</p><p>下载链接：<a href="https://motrix.app/" target="_blank" rel="noopener">https://motrix.app/</a></p><p>4.爱奇艺万能播放器，推荐指数：★★★</p><p>下载链接：<a href="http://t.cn/R4Pp9zi" target="_blank" rel="noopener">http://t.cn/R4Pp9zi</a></p><h3 id="手机端："><a href="#手机端：" class="headerlink" title="手机端："></a>手机端：</h3><p>只需要在平时的百度网盘链接中，加入wp两个字母，就可以下载</p><p>比如下载下面链接的文件</p><p><a href="https://pan.baidu.com/s/1cHQbmXqAfbdn1kjURnsrCw" target="_blank" rel="noopener">https://pan.baidu.com/s/1cHQbmXqAfbdn1kjURnsrCw</a> 提取码:1r9z </p><p>大家只需要在baidu后面加上wp，变成baiduwp即可，如下</p><p><a href="https://pan.baiduwp.com/s/1cHQbmXqAfbdn1kjURnsrCw" target="_blank" rel="noopener">https://pan.baiduwp.com/s/1cHQbmXqAfbdn1kjURnsrCw</a> </p><p>然后将链接复制到浏览器回车即可</p><h2 id="影视软件合集"><a href="#影视软件合集" class="headerlink" title="影视软件合集"></a>影视软件合集</h2><p>资源猫（安卓）  ★★★★★</p><p>犀函（iOS） ★★★★</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="百度网盘高速下载方法"><a href="#百度网盘高速下载方法" class="headerlink" title="百度网盘高速下载方法"></a>百度网盘高速下载方法</h2><p>我爱搜盘：<a href="https://www.52sopan.com" target="_blank" rel="noopener">https://www.52sopan.com</a></p><a id="more"></a><p>轻舟网：<a href="https://www.qzhou.com.cn" target="_blank" rel="noopener">https://www.qzhou.com.cn</a></p><p>小白盘：<a href="https://www.xiaobaipan.com" target="_blank" rel="noopener">https://www.xiaobaipan.com</a></p><p>番茄搜搜：<a href="https://www.fqsousou.com" target="_blank" rel="noopener">https://www.fqsousou.com</a></p><p>探索云盘：<a href="http://tansuo233.com" target="_blank" rel="noopener">http://tansuo233.com</a></p><h2 id="几款高速下载器"><a href="#几款高速下载器" class="headerlink" title="几款高速下载器"></a>几款高速下载器</h2><h3 id="电脑端："><a href="#电脑端：" class="headerlink" title="电脑端："></a>电脑端：</h3><p>1.pandownload，推荐指数：★★★★★</p><p>下载链接：<a href="http://pandownload.com" target="_blank" rel="noopener">http://pandownload.com</a></p><p>2.速盘，推荐指数：★★★★☆</p><p>下载链接：<a href="https://www.speedpan.com" target="_blank" rel="noopener">https://www.speedpan.com</a></p><p>3.motrix，推荐指数：★★★</p><p>下载链接：<a href="https://motrix.app/" target="_blank" rel="noopener">https://motrix.app/</a></p><p>4.爱奇艺万能播放器，推荐指数：★★★</p><p>下载链接：<a href="http://t.cn/R4Pp9zi" target="_blank" rel="noopener">http://t.cn/R4Pp9zi</a></p><h3 id="手机端："><a href="#手机端：" class="headerlink" title="手机端："></a>手机端：</h3><p>只需要在平时的百度网盘链接中，加入wp两个字母，就可以下载</p><p>比如下载下面链接的文件</p><p><a href="https://pan.baidu.com/s/1cHQbmXqAfbdn1kjURnsrCw" target="_blank" rel="noopener">https://pan.baidu.com/s/1cHQbmXqAfbdn1kjURnsrCw</a> 提取码:1r9z </p><p>大家只需要在baidu后面加上wp，变成baiduwp即可，如下</p><p><a href="https://pan.baiduwp.com/s/1cHQbmXqAfbdn1kjURnsrCw" target="_blank" rel="noopener">https://pan.baiduwp.com/s/1cHQbmXqAfbdn1kjURnsrCw</a> </p><p>然后将链接复制到浏览器回车即可</p><h2 id="影视软件合集"><a href="#影视软件合集" class="headerlink" title="影视软件合集"></a>影视软件合集</h2><p>资源猫（安卓）  ★★★★★</p><p>犀函（iOS） ★★★★</p>]]></content>
     
     <summary type="html">
     
@@ -475,29 +498,6 @@
     
     
       <category term="内网穿透工具" scheme="http://yoursite.com/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习开源工具</title>
-    <link href="http://yoursite.com/2019/09/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/"/>
-    <id>http://yoursite.com/2019/09/29/机器学习开源工具/</id>
-    <published>2019-09-29T12:46:50.000Z</published>
-    <updated>2019-09-29T12:49:00.777Z</updated>
-    
-    <content type="html"><![CDATA[<p>从事机器学习方面的工作，不会用工具将极大地阻碍工作效率。但现在工具那么多，我们该如何选择呢？本文针对非开发者、模型部署、NLP、语音、视觉、强化学习、数据挖掘等多个不同人群，提供了10个必须掌握的模型。</p><a id="more"></a><p>在厦门人工智能峰会上，依图科技联合创始人、CEO朱珑介绍到短短的5年时间机器的算法水平又提升了100万倍！过去或许只能从1万人中识别出1个人，后来发展到1000万、1亿、10亿甚至20亿人中识别出这个人！与此同时，算力方面提升了10万倍。从过去用1万量级规模的数据做训练，到百万规模的数据做训练，到现在用10亿的数据集做训练，又提升了1万倍！</p><p>我们已经深刻地体会到，人工智能的飞速增长刺激了当今就业市场对机器学习技能的巨大需求。机器学习社区现在非常活跃，各种开源工具层出不穷，让人有点目不暇接，有点不知道该如何选择。那么本篇将为你介绍10个最应该了解的机器学习开源工具，走起！</p><h1 id="非开发者应该用什么？"><a href="#非开发者应该用什么？" class="headerlink" title="非开发者应该用什么？"></a>非开发者应该用什么？</h1><p>不会开发，不会编程，也能用机器学习？答案是可以的，只要你会用工具。这里为初学者推荐两个工具：</p><h2 id="Knime"><a href="#Knime" class="headerlink" title="Knime"></a>Knime</h2><p>Knime是一款出色的工具，可让你无需编写任何代码即可完成端到端的数据科学工作流程。</p><p>它甚至配备了一个拖放式界面，UI清晰，操作简单直观，可以说是懒人福音了。</p><p>操作起来非常简单，首先使用该工具进行数据收集和转换；完成后，你可以创建一个模型并将其可视化。在生产方面，你可以部署和管理数据科学项目。</p><p>最后，你可以通过使用Knime生成洞察来利用你的实现。</p><p>官网：<br><a href="https://www.knime.com/" target="_blank" rel="noopener">https://www.knime.com/</a></p><h2 id="Uber-Ludwig"><a href="#Uber-Ludwig" class="headerlink" title="Uber Ludwig"></a>Uber Ludwig</h2><p>Uber Ludwig是另一款适合初学者的优秀工具。有了它，你可以快速测试和训练深度学习模型。用户可以选择启用懒人模式（拖拽界面），或者直接操作代码。</p><p>使用起来比Knime稍微复杂一点点。需要先加载CSV文件来训练数据。通过使用预先训练的模型，你可以预测输出目标。最后，你可以使用可用的可视化选项可视化你的数据。</p><p>如果你是编程的初学者，你还可以在Python中使用他们扩展的API和训练模型。</p><p>GitHub地址：<br><a href="https://uber.github.io/ludwig/user_guide/" target="_blank" rel="noopener">https://uber.github.io/ludwig/user_guide/</a></p><h1 id="模型部署用什么工具？"><a href="#模型部署用什么工具？" class="headerlink" title="模型部署用什么工具？"></a>模型部署用什么工具？</h1><p>模型部署是机器学习的关键方面之一。为了帮助你完成此过程，这里列出了几个工具。</p><h2 id="TensorFlow-js"><a href="#TensorFlow-js" class="headerlink" title="TensorFlow.js"></a>TensorFlow.js</h2><p>TensorFlow.js允许你直接从Web构建和部署机器学习模型。它使用JavaScript在Web上运行。</p><p>你也可以使用Node.js。有了它，你不仅可以运行现有模型，还可以重新训练现有模型。</p><p>它提供了直观的API，允许你使用JavaScript构建和训练模型，在Web浏览器上也是如此。</p><p>如果你想在移动设备上进行开发，还可以查看TensorFlow Lite。</p><p>官方地址：<br><a href="https://www.tensorflow.org/js/" target="_blank" rel="noopener">https://www.tensorflow.org/js/</a></p><h2 id="MLFlow"><a href="#MLFlow" class="headerlink" title="MLFlow"></a>MLFlow</h2><p>MLFlow让你可以解决端到端的机器学习生命周期问题。它有三个主要组件。</p><p>MLflow跟踪 - 通过记录和比较结果和参数来处理实验<br>MLflow项目 - 允许你将项目打包成其他成员的可重用表单<br>MLflow模型 - 帮助你在不同平台中部署和管理ML库</p><p>MLFlow的另一个惊人功能是它与库无关。这意味着你可以将其与其他机器学习库一起使用而不会出现任何兼容性问题。为了实现library-agonistic行为，它使用REST API和CLI。</p><p>官方地址：<br><a href="https://github.com/databricks/mlflow" target="_blank" rel="noopener">https://github.com/databricks/mlflow</a></p><h1 id="NLP、计算机视觉和音频用什么工具？"><a href="#NLP、计算机视觉和音频用什么工具？" class="headerlink" title="NLP、计算机视觉和音频用什么工具？"></a>NLP、计算机视觉和音频用什么工具？</h1><p>还有其他方便的工具可用于在机器学习中执行不同的操作。</p><h2 id="Detectron"><a href="#Detectron" class="headerlink" title="Detectron"></a>Detectron</h2><p>如果你正在寻找最先进的物体检测算法，那么你可以使用Detectron。</p><p>它由Facebook开发，是AI Research软件系统的一部分。它利用Caffe2深度学习框架和Python。</p><p>官方地址：<br><a href="https://github.com/facebookresearch/Detectron" target="_blank" rel="noopener">https://github.com/facebookresearch/Detectron</a></p><h2 id="SimpleCV"><a href="#SimpleCV" class="headerlink" title="SimpleCV"></a>SimpleCV</h2><p>SimpleCV，一个开源框架，允许你构建计算机视觉应用程序。它类似于OpenCV，使你可以访问高级计算机视觉库。这意味着你不必担心错综复杂的概念。</p><p>有了它，你可以制作计算机视觉项目，而无需在基础知识上投入太多时间。毕竟，出于某种原因，它被命名为SimpleCV。</p><p>官方地址：<br><a href="http://simplecv.org/" target="_blank" rel="noopener">http://simplecv.org/</a></p><h2 id="Tesseract-OCR"><a href="#Tesseract-OCR" class="headerlink" title="Tesseract OCR"></a>Tesseract OCR</h2><p>Tesseract OCR是一款功能强大的光学字符识别软件，可让你识别语言。</p><p>它支持100多种语言，也可以编程识别新语言。</p><p>官方地址：<br><a href="https://github.com/tesseract-ocr/tesseract" target="_blank" rel="noopener">https://github.com/tesseract-ocr/tesseract</a></p><h1 id="强化学习用什么工具？"><a href="#强化学习用什么工具？" class="headerlink" title="强化学习用什么工具？"></a>强化学习用什么工具？</h1><p>如果你想训练智能体，那么你需要帮助强化学习。</p><h2 id="Open-AI-Gym"><a href="#Open-AI-Gym" class="headerlink" title="Open AI Gym"></a>Open AI Gym</h2><p>Open AI Gym让你训练你的智能体做几乎任何事情，包括散步、玩游戏等等。它借助易于使用的强化学习任务套件来实现。</p><p>官方地址：<br><a href="https://gym.openai.com/" target="_blank" rel="noopener">https://gym.openai.com/</a></p><h2 id="Unity-ML-Agents"><a href="#Unity-ML-Agents" class="headerlink" title="Unity ML Agents"></a>Unity ML Agents</h2><p>Unity ML Agents是Unity提供的开源统一插件，让你开发可在游戏中使用的智能体。</p><p>官方网址：<br><a href="https://unity3d.com/machine-learninghttps://unity3d.com/machine-learning" target="_blank" rel="noopener">https://unity3d.com/machine-learninghttps://unity3d.com/machine-learning</a></p><h1 id="数据挖掘用什么工具？"><a href="#数据挖掘用什么工具？" class="headerlink" title="数据挖掘用什么工具？"></a>数据挖掘用什么工具？</h1><p>如果你希望收集数据科学项目的数据，可以使用以下工具。</p><h2 id="Weka"><a href="#Weka" class="headerlink" title="Weka"></a>Weka</h2><p>Weka用于数据挖掘任务。它借助于为数据挖掘设计的机器学习算法来实现。有了它，你可以找到很多东西，包括分类、准备、回归、聚类、可视化和关联规则挖掘。</p><p>该项目是开源的，使用GNU许可。</p><p>官方网址：<br><a href="http://www.cs.waikato.ac.nz/ml/weka/" target="_blank" rel="noopener">http://www.cs.waikato.ac.nz/ml/weka/</a></p><h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>机器学习正在改变我们与世界互动的方式。它使我们的生活更轻松，并确保我们建立一个未来世界。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;从事机器学习方面的工作，不会用工具将极大地阻碍工作效率。但现在工具那么多，我们该如何选择呢？本文针对非开发者、模型部署、NLP、语音、视觉、强化学习、数据挖掘等多个不同人群，提供了10个必须掌握的模型。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="AI" scheme="http://yoursite.com/categories/AI/"/>
-    
-    
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
