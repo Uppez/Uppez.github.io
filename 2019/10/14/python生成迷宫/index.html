@@ -18,18 +18,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>标签: 学习资料 - 教书的先生</title>
+<title>python生成迷宫 - 教书的先生</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="教书的先生">
-<meta property="og:url" content="http://yoursite.com/tags/学习资料/index.html">
+    <meta name="description" content="算法简介:  生成一张网格，把网格里面的所有边都存进一个列表edgeList里面.  从(0, 0)开始，做DFS。每次DFS的时候，随机地选择四周一个没有走过的格子，凿墙过去，把道路打通。凿墙的时候，把edgeList列表中相对应的那堵墙删除掉。  将剩下的没有凿开过的墙画出来，就是一个完整的迷宫了。">
+<meta name="keywords" content="迷宫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python生成迷宫">
+<meta property="og:url" content="http://yoursite.com/2019/10/14/python生成迷宫/index.html">
 <meta property="og:site_name" content="教书的先生">
+<meta property="og:description" content="算法简介:  生成一张网格，把网格里面的所有边都存进一个列表edgeList里面.  从(0, 0)开始，做DFS。每次DFS的时候，随机地选择四周一个没有走过的格子，凿墙过去，把道路打通。凿墙的时候，把edgeList列表中相对应的那堵墙删除掉。  将剩下的没有凿开过的墙画出来，就是一个完整的迷宫了。">
 <meta property="og:locale" content="ch">
-<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:image" content="https://i.loli.net/2019/10/14/76235bmHWNExioq.png">
+<meta property="og:updated_time" content="2019-10-14T12:59:02.717Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="教书的先生">
-<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+<meta name="twitter:title" content="python生成迷宫">
+<meta name="twitter:description" content="算法简介:  生成一张网格，把网格里面的所有边都存进一个列表edgeList里面.  从(0, 0)开始，做DFS。每次DFS的时候，随机地选择四周一个没有走过的格子，凿墙过去，把道路打通。凿墙的时候，把edgeList列表中相对应的那堵墙删除掉。  将剩下的没有凿开过的墙画出来，就是一个完整的迷宫了。">
+<meta name="twitter:image" content="https://i.loli.net/2019/10/14/76235bmHWNExioq.png">
 
 
 
@@ -105,7 +110,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="教书的先生" height="28">
+                <img src="/images/logo.svg" alt="python生成迷宫" height="28">
             
             </a>
         </div>
@@ -171,132 +176,127 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="https://i.loli.net/2019/10/14/76235bmHWNExioq.png" alt="python生成迷宫">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-10-14T12:54:32.000Z">2019-10-14</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Python/">Python</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 minutes 读完 (大约 441 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                python生成迷宫
+            
+        </h1>
+        <div class="content">
+            <p>算法简介:</p>
+<ol>
+<li><p>生成一张网格，把网格里面的所有边都存进一个列表edgeList里面.</p>
+</li>
+<li><p>从(0, 0)开始，做DFS。每次DFS的时候，随机地选择四周一个没有走过的格子，凿墙过去，把道路打通。凿墙的时候，把edgeList列表中相对应的那堵墙删除掉。</p>
+</li>
+<li><p>将剩下的没有凿开过的墙画出来，就是一个完整的迷宫了。</p>
+</li>
+</ol>
+<a id="more"></a>
+
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> sys</span><br><span class="line"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt</span><br><span class="line"><span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> randint</span><br><span class="line"></span><br><span class="line">WIDTH  = <span class="hljs-number">60</span></span><br><span class="line">HEIGHT = <span class="hljs-number">40</span></span><br><span class="line">sys.setrecursionlimit(WIDTH * HEIGHT)</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">initVisitedList</span><span class="hljs-params">()</span>:</span></span><br><span class="line">	visited = []</span><br><span class="line">	<span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> range(HEIGHT):</span><br><span class="line">		line = []</span><br><span class="line">		<span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(WIDTH):</span><br><span class="line">			line.append(<span class="hljs-literal">False</span>)</span><br><span class="line">		visited.append(line)</span><br><span class="line">	<span class="hljs-keyword">return</span> visited</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">drawLine</span><span class="hljs-params">(x1, y1, x2, y2)</span>:</span></span><br><span class="line">	plt.plot([x1, x2], [y1, y2], color=<span class="hljs-string">"black"</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">removeLine</span><span class="hljs-params">(x1, y1, x2, y2)</span>:</span></span><br><span class="line">	plt.plot([x1, x2], [y1, y2], color=<span class="hljs-string">"white"</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_edges</span><span class="hljs-params">(x, y)</span>:</span></span><br><span class="line">	result = []</span><br><span class="line">	result.append((x, y, x, y+<span class="hljs-number">1</span>))</span><br><span class="line">	result.append((x+<span class="hljs-number">1</span>, y, x+<span class="hljs-number">1</span>, y+<span class="hljs-number">1</span>))</span><br><span class="line">	result.append((x, y, x+<span class="hljs-number">1</span>, y))</span><br><span class="line">	result.append((x, y+<span class="hljs-number">1</span>, x+<span class="hljs-number">1</span>, y+<span class="hljs-number">1</span>))</span><br><span class="line"></span><br><span class="line">	<span class="hljs-keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">drawCell</span><span class="hljs-params">(x, y)</span>:</span></span><br><span class="line">	edges = get_edges(x, y)</span><br><span class="line">	<span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> edges:</span><br><span class="line">		drawLine(item[<span class="hljs-number">0</span>], item[<span class="hljs-number">1</span>], item[<span class="hljs-number">2</span>], item[<span class="hljs-number">3</span>])</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getCommonEdge</span><span class="hljs-params">(cell1_x, cell1_y, cell2_x, cell2_y)</span>:</span></span><br><span class="line">	edges1 = get_edges(cell1_x, cell1_y)</span><br><span class="line">	edges2 = set(get_edges(cell2_x, cell2_y))</span><br><span class="line">	<span class="hljs-keyword">for</span> edge <span class="hljs-keyword">in</span> edges1:</span><br><span class="line">		<span class="hljs-keyword">if</span> edge <span class="hljs-keyword">in</span> edges2:</span><br><span class="line">			<span class="hljs-keyword">return</span> edge</span><br><span class="line">	<span class="hljs-keyword">return</span> <span class="hljs-literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">initEdgeList</span><span class="hljs-params">()</span>:</span></span><br><span class="line">	edges = set()</span><br><span class="line">	<span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(WIDTH):</span><br><span class="line">		<span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> range(HEIGHT):</span><br><span class="line">			cellEdges = get_edges(x, y)</span><br><span class="line">			<span class="hljs-keyword">for</span> edge <span class="hljs-keyword">in</span> cellEdges:</span><br><span class="line">				edges.add(edge)</span><br><span class="line">	<span class="hljs-keyword">return</span> edges</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isValidPosition</span><span class="hljs-params">(x, y)</span>:</span></span><br><span class="line">	<span class="hljs-keyword">if</span> x &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> x &gt;= WIDTH:</span><br><span class="line">		<span class="hljs-keyword">return</span> <span class="hljs-literal">False</span></span><br><span class="line">	<span class="hljs-keyword">elif</span> y &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> y &gt;= HEIGHT:</span><br><span class="line">		<span class="hljs-keyword">return</span> <span class="hljs-literal">False</span></span><br><span class="line">	<span class="hljs-keyword">else</span>:</span><br><span class="line">		<span class="hljs-keyword">return</span> <span class="hljs-literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">shuffle</span><span class="hljs-params">(dX, dY)</span>:</span></span><br><span class="line">	<span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> range(<span class="hljs-number">4</span>):</span><br><span class="line">		i = randint(<span class="hljs-number">0</span>, <span class="hljs-number">3</span>)</span><br><span class="line">		j = randint(<span class="hljs-number">0</span>, <span class="hljs-number">3</span>)</span><br><span class="line">		dX[i], dX[j] = dX[j], dX[i]</span><br><span class="line">		dY[i], dY[j] = dY[j], dY[i]</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">DFS</span><span class="hljs-params">(X, Y, edgeList, visited)</span>:</span></span><br><span class="line">	dX = [<span class="hljs-number">0</span>,  <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">1</span>]</span><br><span class="line">	dY = [<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>,  <span class="hljs-number">0</span>]</span><br><span class="line">	shuffle(dX, dY)</span><br><span class="line">	<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(dX)):</span><br><span class="line">		nextX = X + dX[i]</span><br><span class="line">		nextY = Y + dY[i]</span><br><span class="line">		<span class="hljs-keyword">if</span> isValidPosition(nextX, nextY):</span><br><span class="line">			<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> visited[nextY][nextX]:</span><br><span class="line">				visited[nextY][nextX] = <span class="hljs-literal">True</span></span><br><span class="line">				commonEdge = getCommonEdge(X, Y, nextX, nextY)</span><br><span class="line">				<span class="hljs-keyword">if</span> commonEdge <span class="hljs-keyword">in</span> edgeList:</span><br><span class="line">					edgeList.remove(commonEdge)</span><br><span class="line">				DFS(nextX, nextY, edgeList, visited)</span><br><span class="line"></span><br><span class="line">plt.axis(<span class="hljs-string">'equal'</span>)</span><br><span class="line">plt.title(<span class="hljs-string">'Maze'</span>)</span><br><span class="line">edgeList = initEdgeList()</span><br><span class="line">visited  = initVisitedList()</span><br><span class="line">DFS(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, edgeList, visited)</span><br><span class="line">edgeList.remove((<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>))</span><br><span class="line">edgeList.remove((WIDTH, HEIGHT<span class="hljs-number">-1</span>, WIDTH, HEIGHT))</span><br><span class="line"><span class="hljs-keyword">for</span> edge <span class="hljs-keyword">in</span> edgeList:</span><br><span class="line">	drawLine(edge[<span class="hljs-number">0</span>], edge[<span class="hljs-number">1</span>], edge[<span class="hljs-number">2</span>], edge[<span class="hljs-number">3</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/迷宫/">迷宫</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">学习资料</a></li>
-        </ul>
-        </nav>
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="https://i.loli.net/2019/09/17/zitwDTMAfXQ2aoq.png" alt="支付宝"></div>
+</a>
+
+                
+        </div>
     </div>
 </div>
 
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/2019/09/30/Keras学习资源/" class="image is-7by1">
-            <img class="thumbnail" src="https://i.loli.net/2019/09/30/a8gjnN1fhJVUo7t.png" alt="Keras学习资源">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-09-30T04:33:59.000Z">2019-09-30</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/AI/">AI</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    8 minutes 读完 (大约 1142 个字)
-                </span>
-                
-                
-            </div>
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/10/14/十一种概率分布/">
+                <span class="level-item">十一种概率分布</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/09/30/Keras学习资源/">Keras学习资源</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="Keras简介"><a href="#Keras简介" class="headerlink" title="Keras简介"></a>Keras简介</h2><p>Keras是Python中以CNTK、Tensorflow或者Theano为计算后台的一个深度学习建模环境。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/09/30/Keras学习资源/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
         
     </div>
 </div>
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: false,
+        app_id: '0dNioPuDCFsscn6y58dczYiy-gzGzoHsz',
+        app_key: 'jbyn5TRGmiiAsYjo7PFFzrYJ',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
+    });
+</script>
 
-
-
-
-
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/2019/09/29/AI学习资料/" class="image is-7by1">
-            <img class="thumbnail" src="https://i.loli.net/2019/09/29/SUEMnvfOLNlzert.png" alt="AI学习资料">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-09-29T12:58:25.000Z">2019-09-29</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/AI/">AI</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    8 minutes 读完 (大约 1207 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/09/29/AI学习资料/">AI学习资料</a>
-            
-        </h1>
-        <div class="content">
-            <h1 id="国外课程"><a href="#国外课程" class="headerlink" title="国外课程"></a>国外课程</h1><h2 id="斯坦福公开课程：概率和统计"><a href="#斯坦福公开课程：概率和统计" class="headerlink" title="斯坦福公开课程：概率和统计"></a>斯坦福公开课程：概率和统计</h2><p>课程名称：《Probability and Statistics》</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/09/29/AI学习资料/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
     </div>
 </div>
-
-
-
-
-
-
-
-
 </div>
                 
 
@@ -1571,7 +1571,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="教书的先生" height="28">
+                    <img src="/images/logo.svg" alt="python生成迷宫" height="28">
                 
                 </a>
                 <p class="is-size-7">
