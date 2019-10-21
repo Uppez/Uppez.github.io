@@ -1,0 +1,1935 @@
+<!DOCTYPE html>
+<script src="/js/src/click.js"></script>
+<html  lang="ch">
+
+<script type="text/javascript">
+    	/*7Core-CN - 网页鼠标点击特效（爱心）*/
+        !function (e, t, a) {function r() {for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");requestAnimationFrame(r)}function n() {var t = "function" == typeof e.onclick && e.onclick;e.onclick = function (e) {t && t(), o(e)}}function o(e) {var a = t.createElement("div");a.className = "heart", s.push({el: a,x: e.clientX - 5,y: e.clientY - 5,scale: 1,alpha: 1,color: c()}), t.body.appendChild(a)}function i(e) {var a = t.createElement("style");a.type = "text/css";try {a.appendChild(t.createTextNode(e))} catch (t) {a.styleSheet.cssText = e}t.getElementsByTagName("head")[0].appendChild(a)}function c() {return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"}var s = [];e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {setTimeout(e, 1e3 / 60)}, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()}(window, document);
+</script>
+
+
+
+
+
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>当你的贪吃蛇吃满屏幕后... - 教书的先生</title>
+
+
+    <meta name="description" content="介绍A snake AI written in python. Use curses module, Windows usersshould install it first: http://www.lfd.uci.edu/~gohlke/pythonlibs/#curses">
+<meta name="keywords" content="贪吃蛇">
+<meta property="og:type" content="article">
+<meta property="og:title" content="当你的贪吃蛇吃满屏幕后...">
+<meta property="og:url" content="http://yoursite.com/2019/10/21/当你的贪吃蛇吃满屏幕后/index.html">
+<meta property="og:site_name" content="教书的先生">
+<meta property="og:description" content="介绍A snake AI written in python. Use curses module, Windows usersshould install it first: http://www.lfd.uci.edu/~gohlke/pythonlibs/#curses">
+<meta property="og:locale" content="ch">
+<meta property="og:image" content="https://i.loli.net/2019/10/21/vVkNrSQ4J53Teyt.png">
+<meta property="og:updated_time" content="2019-10-21T13:45:54.703Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="当你的贪吃蛇吃满屏幕后...">
+<meta name="twitter:description" content="介绍A snake AI written in python. Use curses module, Windows usersshould install it first: http://www.lfd.uci.edu/~gohlke/pythonlibs/#curses">
+<meta name="twitter:image" content="https://i.loli.net/2019/10/21/vVkNrSQ4J53Teyt.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/tomorrow-night-blue.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+	
+	<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+	<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+
+	
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="当你的贪吃蛇吃满屏幕后..." height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">首页</a>
+                
+                <a class="navbar-item"
+                href="/archives">文章</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/Download">资源</a>
+                
+                <a class="navbar-item"
+                href="/say">说说</a>
+                
+                <a class="navbar-item"
+                href="http://friends.sqdxwz.com">友链</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+                <a class="navbar-item"
+                href="/Chat">聊天吧</a>
+                
+                <a class="navbar-item"
+                href="/Wechat">微信端</a>
+                
+                <a class="navbar-item"
+                href="/User">客户端</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/Uppez">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="https://i.loli.net/2019/10/21/vVkNrSQ4J53Teyt.png" alt="当你的贪吃蛇吃满屏幕后...">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-10-21T13:36:41.000Z">2019-10-21</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Python/">Python</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    28 minutes 读完 (大约 4264 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                当你的贪吃蛇吃满屏幕后...
+            
+        </h1>
+        <div class="content">
+            <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>A snake AI written in python. Use curses module, Windows users<br>should install it first: <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#curses" target="_blank" rel="noopener">http://www.lfd.uci.edu/~gohlke/pythonlibs/#curses</a></p>
+<a id="more"></a>
+
+<p><strong>注意:</strong>curses库在windows可以安装但还是有许多问题，建议在linux和mac下运行代码！</p>
+<p>怎么样运行代码？</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python snake.py</span><br></pre></td></tr></table></figure>
+
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># coding: utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> curses</span><br><span class="line"><span class="hljs-keyword">from</span> curses <span class="hljs-keyword">import</span> KEY_RIGHT, KEY_LEFT, KEY_UP, KEY_DOWN</span><br><span class="line"><span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> randint</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 蛇运动的场地长宽</span></span><br><span class="line">HEIGHT = <span class="hljs-number">10</span></span><br><span class="line">WIDTH = <span class="hljs-number">20</span></span><br><span class="line">FIELD_SIZE = HEIGHT * WIDTH</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 蛇头总是位于snake数组的第一个元素</span></span><br><span class="line">HEAD = <span class="hljs-number">0</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 用来代表不同东西的数字，由于矩阵上每个格子会处理成到达食物的路径长度，</span></span><br><span class="line"><span class="hljs-comment"># 因此这三个变量间需要有足够大的间隔(&gt;HEIGHT*WIDTH)</span></span><br><span class="line">FOOD = <span class="hljs-number">0</span></span><br><span class="line">UNDEFINED = (HEIGHT + <span class="hljs-number">1</span>) * (WIDTH + <span class="hljs-number">1</span>)</span><br><span class="line">SNAKE = <span class="hljs-number">2</span> * UNDEFINED</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 由于snake是一维数组，所以对应元素直接加上以下值就表示向四个方向移动</span></span><br><span class="line">LEFT = <span class="hljs-number">-1</span></span><br><span class="line">RIGHT = <span class="hljs-number">1</span></span><br><span class="line">UP = -WIDTH</span><br><span class="line">DOWN = WIDTH</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 错误码</span></span><br><span class="line">ERR = <span class="hljs-number">-1111</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 用一维数组来表示二维的东西</span></span><br><span class="line"><span class="hljs-comment"># board表示蛇运动的矩形场地</span></span><br><span class="line"><span class="hljs-comment"># 初始化蛇头在(1,1)的地方，第0行，HEIGHT行，第0列，WIDTH列为围墙，不可用</span></span><br><span class="line"><span class="hljs-comment"># 初始蛇长度为1</span></span><br><span class="line">board = [<span class="hljs-number">0</span>] * FIELD_SIZE</span><br><span class="line">snake = [<span class="hljs-number">0</span>] * (FIELD_SIZE+<span class="hljs-number">1</span>)</span><br><span class="line">snake[HEAD] = <span class="hljs-number">1</span>*WIDTH+<span class="hljs-number">1</span></span><br><span class="line">snake_size = <span class="hljs-number">1</span></span><br><span class="line"><span class="hljs-comment"># 与上面变量对应的临时变量，蛇试探性地移动时使用</span></span><br><span class="line">tmpboard = [<span class="hljs-number">0</span>] * FIELD_SIZE</span><br><span class="line">tmpsnake = [<span class="hljs-number">0</span>] * (FIELD_SIZE+<span class="hljs-number">1</span>)</span><br><span class="line">tmpsnake[HEAD] = <span class="hljs-number">1</span>*WIDTH+<span class="hljs-number">1</span></span><br><span class="line">tmpsnake_size = <span class="hljs-number">1</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># food:食物位置(0~FIELD_SIZE-1),初始在(3, 3)</span></span><br><span class="line"><span class="hljs-comment"># best_move: 运动方向</span></span><br><span class="line">food = <span class="hljs-number">3</span> * WIDTH + <span class="hljs-number">3</span></span><br><span class="line">best_move = ERR</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 运动方向数组</span></span><br><span class="line">mov = [LEFT, RIGHT, UP, DOWN]</span><br><span class="line"><span class="hljs-comment"># 接收到的键 和 分数</span></span><br><span class="line">key = KEY_RIGHT                                                    </span><br><span class="line">score = <span class="hljs-number">1</span> <span class="hljs-comment">#分数也表示蛇长</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 检查一个cell有没有被蛇身覆盖，没有覆盖则为free，返回true</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_cell_free</span><span class="hljs-params">(idx, psize, psnake)</span>:</span></span><br><span class="line">    <span class="hljs-comment">#return not (idx in psnake[:]) #错！psnake后面还有很多没用上的单元</span></span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(psize):</span><br><span class="line">        <span class="hljs-keyword">if</span> idx == psnake[i]: <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span></span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 检查某个位置idx是否可向move方向运动</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_move_possible</span><span class="hljs-params">(idx, move)</span>:</span></span><br><span class="line">    flag = <span class="hljs-literal">False</span></span><br><span class="line">    <span class="hljs-keyword">if</span> move == LEFT:</span><br><span class="line">        flag = <span class="hljs-literal">True</span> <span class="hljs-keyword">if</span> idx%WIDTH &gt; <span class="hljs-number">1</span> <span class="hljs-keyword">else</span> <span class="hljs-literal">False</span></span><br><span class="line">    <span class="hljs-keyword">elif</span> move == RIGHT:</span><br><span class="line">        flag = <span class="hljs-literal">True</span> <span class="hljs-keyword">if</span> idx%WIDTH &lt; (WIDTH<span class="hljs-number">-2</span>) <span class="hljs-keyword">else</span> <span class="hljs-literal">False</span></span><br><span class="line">    <span class="hljs-keyword">elif</span> move == UP:</span><br><span class="line">        flag = <span class="hljs-literal">True</span> <span class="hljs-keyword">if</span> idx &gt; (<span class="hljs-number">2</span>*WIDTH<span class="hljs-number">-1</span>) <span class="hljs-keyword">else</span> <span class="hljs-literal">False</span> <span class="hljs-comment"># 即idx/WIDTH &gt; 1</span></span><br><span class="line">    <span class="hljs-keyword">elif</span> move == DOWN:</span><br><span class="line">        flag = <span class="hljs-literal">True</span> <span class="hljs-keyword">if</span> idx &lt; (FIELD_SIZE<span class="hljs-number">-2</span>*WIDTH) <span class="hljs-keyword">else</span> <span class="hljs-literal">False</span> <span class="hljs-comment"># 即idx/WIDTH &lt; HEIGHT-2</span></span><br><span class="line">    <span class="hljs-keyword">return</span> flag</span><br><span class="line"><span class="hljs-comment"># 重置board</span></span><br><span class="line"><span class="hljs-comment"># board_refresh后，UNDEFINED值都变为了到达食物的路径长度</span></span><br><span class="line"><span class="hljs-comment"># 如需要还原，则要重置它</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">board_reset</span><span class="hljs-params">(psnake, psize, pboard)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(FIELD_SIZE):</span><br><span class="line">       <span class="hljs-comment"># f.write('hello ' + str(len(pboard)) +' ' +str(i)+'\n')</span></span><br><span class="line">        <span class="hljs-keyword">if</span> i == food:</span><br><span class="line">            pboard[i] = FOOD</span><br><span class="line">        <span class="hljs-keyword">elif</span> is_cell_free(i, psize, psnake): <span class="hljs-comment"># 该位置为空</span></span><br><span class="line">            pboard[i] = UNDEFINED</span><br><span class="line">        <span class="hljs-keyword">else</span>: <span class="hljs-comment"># 该位置为蛇身</span></span><br><span class="line">            pboard[i] = SNAKE</span><br><span class="line">    </span><br><span class="line"><span class="hljs-comment"># def board_refresh(pfood, psnake, pboard):</span></span><br><span class="line"><span class="hljs-comment">#     board_changed = True</span></span><br><span class="line"><span class="hljs-comment">#     found = False</span></span><br><span class="line"><span class="hljs-comment">#     while board_changed: # 一直更新board，直到每个格子上的数都对应到达食物的步数，不能再改变为止</span></span><br><span class="line"><span class="hljs-comment">#         board_changed = False</span></span><br><span class="line"><span class="hljs-comment">#         for i in xrange(FIELD_SIZE):</span></span><br><span class="line"><span class="hljs-comment">#             if pboard[i] &lt; SNAKE: </span></span><br><span class="line"><span class="hljs-comment">#                 min = pboard[i]</span></span><br><span class="line"><span class="hljs-comment">#                 for j in xrange(4):</span></span><br><span class="line"><span class="hljs-comment">#                     if is_move_possible(i, mov[j]) and pboard[i+mov[j]] &lt; min:</span></span><br><span class="line"><span class="hljs-comment">#                         min = pboard[i+mov[j]]</span></span><br><span class="line"><span class="hljs-comment">#                 if pboard[i] &gt; min+1:</span></span><br><span class="line"><span class="hljs-comment">#                     pboard[i] = min + 1</span></span><br><span class="line"><span class="hljs-comment">#                     board_changed = True</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">#         if ~board_changed: break # 不再改变，退出</span></span><br><span class="line"><span class="hljs-comment">#         board_changed = False</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">#         for i in xrange(FIELD_SIZE-1, -1, -1): # [FIELD_SIZE-1, 0]</span></span><br><span class="line"><span class="hljs-comment">#             if pboard[i] &lt; SNAKE:</span></span><br><span class="line"><span class="hljs-comment">#                 min = pboard[i]</span></span><br><span class="line"><span class="hljs-comment">#                 for j in xrange(4):</span></span><br><span class="line"><span class="hljs-comment">#                     if is_move_possible(i, mov[j]) and pboard[i+mov[j]] &lt; min:</span></span><br><span class="line"><span class="hljs-comment">#                         min = pboard[i+mov[j]]</span></span><br><span class="line"><span class="hljs-comment">#                 if pboard[i] &gt; min+1:</span></span><br><span class="line"><span class="hljs-comment">#                     pboard[i] = min + 1</span></span><br><span class="line"><span class="hljs-comment">#                     board_changed = True</span></span><br><span class="line"><span class="hljs-comment">#     for i in xrange(4):</span></span><br><span class="line"><span class="hljs-comment">#         if is_move_possible(psnake[HEAD], mov[i]) and pboard[psnake[HEAD]+mov[i]]&lt;UNDEFINED:</span></span><br><span class="line"><span class="hljs-comment">#             flag = True</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">#     return flag</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 广度优先搜索遍历整个board，</span></span><br><span class="line"><span class="hljs-comment"># 计算出board中每个非SNAKE元素到达食物的路径长度</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">board_refresh</span><span class="hljs-params">(pfood, psnake, pboard)</span>:</span></span><br><span class="line">    queue = []</span><br><span class="line">    queue.append(pfood)</span><br><span class="line">    inqueue = [<span class="hljs-number">0</span>] * FIELD_SIZE</span><br><span class="line">    found = <span class="hljs-literal">False</span></span><br><span class="line">    <span class="hljs-comment"># while循环结束后，除了蛇的身体，</span></span><br><span class="line">    <span class="hljs-comment"># 其它每个方格中的数字代码从它到食物的路径长度</span></span><br><span class="line">    <span class="hljs-comment">#f.write('bfs begin:\n')</span></span><br><span class="line">    <span class="hljs-keyword">while</span> len(queue)!=<span class="hljs-number">0</span>: </span><br><span class="line">        idx = queue.pop(<span class="hljs-number">0</span>)</span><br><span class="line">        <span class="hljs-keyword">if</span> inqueue[idx] == <span class="hljs-number">1</span>: <span class="hljs-keyword">continue</span></span><br><span class="line">        <span class="hljs-comment">#f.write(str(idx)+'\n')</span></span><br><span class="line">        inqueue[idx] = <span class="hljs-number">1</span></span><br><span class="line">        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(<span class="hljs-number">4</span>):</span><br><span class="line">            <span class="hljs-keyword">if</span> is_move_possible(idx, mov[i]):</span><br><span class="line">                <span class="hljs-keyword">if</span> idx + mov[i] == psnake[HEAD]:</span><br><span class="line">                    found = <span class="hljs-literal">True</span></span><br><span class="line">                <span class="hljs-keyword">if</span> pboard[idx+mov[i]] &lt; SNAKE: <span class="hljs-comment"># 如果该点不是蛇的身体</span></span><br><span class="line">                    </span><br><span class="line">                    <span class="hljs-keyword">if</span> pboard[idx+mov[i]] &gt; pboard[idx]+<span class="hljs-number">1</span>:</span><br><span class="line">                        pboard[idx+mov[i]] = pboard[idx] + <span class="hljs-number">1</span></span><br><span class="line">                    <span class="hljs-keyword">if</span> inqueue[idx+mov[i]] == <span class="hljs-number">0</span>:</span><br><span class="line">                        queue.append(idx+mov[i])</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">#f.write('bfs end\n')</span></span><br><span class="line">    <span class="hljs-comment">#f.write('found: ' + str(found) +'\n')</span></span><br><span class="line">    <span class="hljs-keyword">return</span> found</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 从蛇头开始，根据board中元素值，</span></span><br><span class="line"><span class="hljs-comment"># 从蛇头周围4个领域点中选择最短路径</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">choose_shortest_safe_move</span><span class="hljs-params">(psnake, pboard)</span>:</span></span><br><span class="line">    best_move = ERR</span><br><span class="line">    min = SNAKE</span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(<span class="hljs-number">4</span>):</span><br><span class="line">        <span class="hljs-keyword">if</span> is_move_possible(psnake[HEAD], mov[i]) <span class="hljs-keyword">and</span> pboard[psnake[HEAD]+mov[i]]&lt;min:</span><br><span class="line">            min = pboard[psnake[HEAD]+mov[i]]</span><br><span class="line">            best_move = mov[i]</span><br><span class="line">    <span class="hljs-keyword">return</span> best_move</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 从蛇头开始，根据board中元素值，</span></span><br><span class="line"><span class="hljs-comment"># 从蛇头周围4个领域点中选择最远路径</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">choose_longest_safe_move</span><span class="hljs-params">(psnake, pboard)</span>:</span></span><br><span class="line">    best_move = ERR</span><br><span class="line">    max = <span class="hljs-number">-1</span></span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(<span class="hljs-number">4</span>):</span><br><span class="line">        <span class="hljs-keyword">if</span> is_move_possible(psnake[HEAD], mov[i]) <span class="hljs-keyword">and</span> pboard[psnake[HEAD]+mov[i]]&lt;UNDEFINED <span class="hljs-keyword">and</span> pboard[psnake[HEAD]+mov[i]]&gt;max:</span><br><span class="line">            max = pboard[psnake[HEAD]+mov[i]]</span><br><span class="line">            best_move = mov[i]</span><br><span class="line">    <span class="hljs-keyword">return</span> best_move</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 检查是否可以追着蛇尾运动，即蛇头和蛇尾间是有路径的</span></span><br><span class="line"><span class="hljs-comment"># 为的是避免蛇头陷入死路</span></span><br><span class="line"><span class="hljs-comment"># 虚拟操作，在tmpboard,tmpsnake中进行</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_tail_inside</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-keyword">global</span> tmpboard, tmpsnake, food, tmpsnake_size</span><br><span class="line">    tmpboard[tmpsnake[tmpsnake_size<span class="hljs-number">-1</span>]] = <span class="hljs-number">0</span> <span class="hljs-comment"># 虚拟地将蛇尾变为食物(因为是虚拟的，所以在tmpsnake,tmpboard中进行)</span></span><br><span class="line">    tmpboard[food] = SNAKE <span class="hljs-comment"># 放置食物的地方，看成蛇身</span></span><br><span class="line">    result = board_refresh(tmpsnake[tmpsnake_size<span class="hljs-number">-1</span>], tmpsnake, tmpboard) <span class="hljs-comment"># 求得每个位置到蛇尾的路径长度</span></span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(<span class="hljs-number">4</span>): <span class="hljs-comment"># 如果蛇头和蛇尾紧挨着，则返回False。即不能follow_tail，追着蛇尾运动了</span></span><br><span class="line">        <span class="hljs-keyword">if</span> is_move_possible(tmpsnake[HEAD], mov[i]) <span class="hljs-keyword">and</span> tmpsnake[HEAD]+mov[i]==tmpsnake[tmpsnake_size<span class="hljs-number">-1</span>] <span class="hljs-keyword">and</span> tmpsnake_size&gt;<span class="hljs-number">3</span>:</span><br><span class="line">            result = <span class="hljs-literal">False</span></span><br><span class="line">    <span class="hljs-keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 让蛇头朝着蛇尾运行一步</span></span><br><span class="line"><span class="hljs-comment"># 不管蛇身阻挡，朝蛇尾方向运行</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">follow_tail</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-keyword">global</span> tmpboard, tmpsnake, food, tmpsnake_size</span><br><span class="line">    tmpsnake_size = snake_size</span><br><span class="line">    tmpsnake = snake[:]</span><br><span class="line">    board_reset(tmpsnake, tmpsnake_size, tmpboard) <span class="hljs-comment"># 重置虚拟board</span></span><br><span class="line">    tmpboard[tmpsnake[tmpsnake_size<span class="hljs-number">-1</span>]] = FOOD <span class="hljs-comment"># 让蛇尾成为食物</span></span><br><span class="line">    tmpboard[food] = SNAKE <span class="hljs-comment"># 让食物的地方变成蛇身</span></span><br><span class="line">    board_refresh(tmpsnake[tmpsnake_size<span class="hljs-number">-1</span>], tmpsnake, tmpboard) <span class="hljs-comment"># 求得各个位置到达蛇尾的路径长度</span></span><br><span class="line">    tmpboard[tmpsnake[tmpsnake_size<span class="hljs-number">-1</span>]] = SNAKE <span class="hljs-comment"># 还原蛇尾</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># return choose_longest_safe_move(tmpsnake, tmpboard) # 返回运行方向(让蛇头运动1步)</span></span><br><span class="line">    <span class="hljs-keyword">return</span> choose_longest_safe_move(tmpsnake, tmpboard)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 在各种方案都不行时，随便找一个可行的方向来走(1步),</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">any_possible_move</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-keyword">global</span> food , snake, snake_size, board</span><br><span class="line">    best_move = ERR</span><br><span class="line">    board_reset(snake, snake_size, board)</span><br><span class="line">    board_refresh(food, snake, board)</span><br><span class="line">    min = SNAKE</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(<span class="hljs-number">4</span>):</span><br><span class="line">        <span class="hljs-keyword">if</span> is_move_possible(snake[HEAD], mov[i]) <span class="hljs-keyword">and</span> board[snake[HEAD]+mov[i]]&lt;min:</span><br><span class="line">            min = board[snake[HEAD]+mov[i]]</span><br><span class="line">            best_move = mov[i]</span><br><span class="line">    <span class="hljs-keyword">return</span> best_move</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">shift_array</span><span class="hljs-params">(arr, size)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(size, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>):</span><br><span class="line">        arr[i] = arr[i<span class="hljs-number">-1</span>]</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">new_food</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-keyword">global</span> food, snake_size</span><br><span class="line">    <span class="hljs-keyword">if</span> snake_size &gt;= FIELD_SIZE<span class="hljs-number">-1</span>: <span class="hljs-keyword">return</span></span><br><span class="line">    cell_free = <span class="hljs-literal">False</span></span><br><span class="line">    <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> cell_free:</span><br><span class="line">        w = randint(<span class="hljs-number">1</span>, WIDTH<span class="hljs-number">-2</span>)</span><br><span class="line">        h = randint(<span class="hljs-number">1</span>, HEIGHT<span class="hljs-number">-2</span>)</span><br><span class="line">        food = h * WIDTH + w</span><br><span class="line">        cell_free = is_cell_free(food, snake_size, snake)</span><br><span class="line">    win.addch(food/WIDTH, food%WIDTH, <span class="hljs-string">'@'</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 真正的蛇在这个函数中，朝pbest_move走1步</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">make_move</span><span class="hljs-params">(pbest_move)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">global</span> key, snake, board, snake_size, score</span><br><span class="line">    shift_array(snake, snake_size)</span><br><span class="line">    snake[HEAD] += pbest_move</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 按esc退出，getch同时保证绘图的流畅性，没有它只会看到最终结果</span></span><br><span class="line">    win.timeout(<span class="hljs-number">10</span>)</span><br><span class="line">    event = win.getch()</span><br><span class="line">    key = key <span class="hljs-keyword">if</span> event == <span class="hljs-number">-1</span> <span class="hljs-keyword">else</span> event</span><br><span class="line">    <span class="hljs-keyword">if</span> key == <span class="hljs-number">27</span>: <span class="hljs-keyword">return</span></span><br><span class="line"></span><br><span class="line">    p = snake[HEAD]</span><br><span class="line">    win.addch(p/WIDTH, p%WIDTH, <span class="hljs-string">'*'</span>)</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment"># 如果新加入的蛇头就是食物的位置</span></span><br><span class="line">    <span class="hljs-comment"># 蛇长加1，产生新的食物，重置board(因为原来那些路径长度已经用不上了)</span></span><br><span class="line">    <span class="hljs-keyword">if</span> snake[HEAD] == food:</span><br><span class="line">        board[snake[HEAD]] = SNAKE <span class="hljs-comment"># 新的蛇头</span></span><br><span class="line">        snake_size += <span class="hljs-number">1</span></span><br><span class="line">        score += <span class="hljs-number">1</span></span><br><span class="line">        <span class="hljs-keyword">if</span> snake_size &lt; FIELD_SIZE: new_food()</span><br><span class="line">        <span class="hljs-comment">#board_reset(snake, board) # </span></span><br><span class="line">        <span class="hljs-comment">#return True</span></span><br><span class="line">    <span class="hljs-keyword">else</span>: <span class="hljs-comment"># 如果新加入的蛇头不是食物的位置</span></span><br><span class="line">        board[snake[HEAD]] = SNAKE <span class="hljs-comment"># 新的蛇头</span></span><br><span class="line">        board[snake[snake_size]] = UNDEFINED <span class="hljs-comment"># 蛇尾变为空格</span></span><br><span class="line">        win.addch(snake[snake_size]/WIDTH, snake[snake_size]%WIDTH, <span class="hljs-string">' '</span>)</span><br><span class="line">        <span class="hljs-comment">#return False</span></span><br><span class="line">    <span class="hljs-comment"># test 打印tmpboard</span></span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(HEIGHT):</span><br><span class="line">        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> xrange(WIDTH):</span><br><span class="line">            k = board[i*WIDTH+j]</span><br><span class="line">            f.write(str(k)+<span class="hljs-string">' '</span>)</span><br><span class="line">        f.write(<span class="hljs-string">'\n'</span>)</span><br><span class="line">    <span class="hljs-comment"># print symbol</span></span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(HEIGHT):</span><br><span class="line">        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> xrange(WIDTH):</span><br><span class="line">            k = board[i*WIDTH+j]</span><br><span class="line">            <span class="hljs-keyword">if</span> k == UNDEFINED:</span><br><span class="line">                f.write(<span class="hljs-string">'# '</span>)</span><br><span class="line">            <span class="hljs-keyword">elif</span> k == SNAKE:</span><br><span class="line">                <span class="hljs-keyword">if</span> i*WIDTH+j == snake[HEAD]:</span><br><span class="line">                    f.write(<span class="hljs-string">'+ '</span>) <span class="hljs-comment"># 蛇头</span></span><br><span class="line">                <span class="hljs-keyword">elif</span> i*WIDTH+j == snake[snake_size<span class="hljs-number">-1</span>]:</span><br><span class="line">                    f.write(<span class="hljs-string">'- '</span>) <span class="hljs-comment"># 蛇尾</span></span><br><span class="line">                <span class="hljs-keyword">else</span>:</span><br><span class="line">                    f.write(<span class="hljs-string">'* '</span>)</span><br><span class="line">            <span class="hljs-keyword">else</span>:</span><br><span class="line">                f.write(str(k)+<span class="hljs-string">' '</span>)</span><br><span class="line">        f.write(<span class="hljs-string">'\n'</span>)</span><br><span class="line">    f.write(<span class="hljs-string">'\n'</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 虚拟地运行一次，然后在调用处检查这次运行可否可行</span></span><br><span class="line"><span class="hljs-comment"># 可行才真实运行。</span></span><br><span class="line"><span class="hljs-comment"># 虚拟运行吃到食物后，得到虚拟下蛇在board的位置</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">virtual_shortest_move</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-keyword">global</span> snake, board, snake_size, tmpsnake, tmpboard, tmpsnake_size, food</span><br><span class="line">    <span class="hljs-comment">#f.write('i am in virtual\n')</span></span><br><span class="line">    tmpsnake_size = snake_size</span><br><span class="line">    tmpsnake = snake[:] <span class="hljs-comment"># 如果直接tmpsnake=snake，则两者指向同一处内存</span></span><br><span class="line">    tmpboard = board[:] <span class="hljs-comment"># board中已经是各位置到达食物的路径长度了，不用再计算</span></span><br><span class="line">    board_reset(tmpsnake, tmpsnake_size, tmpboard)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># test 打印tmpboard</span></span><br><span class="line">    <span class="hljs-comment"># for i in xrange(HEIGHT):</span></span><br><span class="line">    <span class="hljs-comment">#     for j in xrange(WIDTH):</span></span><br><span class="line">    <span class="hljs-comment">#         k = tmpboard[i*WIDTH+j]</span></span><br><span class="line">    <span class="hljs-comment">#         f.write(str(k)+' ')</span></span><br><span class="line">    <span class="hljs-comment">#     f.write('\n')</span></span><br><span class="line">    </span><br><span class="line">    food_eated = <span class="hljs-literal">False</span></span><br><span class="line">    <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> food_eated:</span><br><span class="line">        board_refresh(food, tmpsnake, tmpboard)    </span><br><span class="line">        move = choose_shortest_safe_move(tmpsnake, tmpboard)</span><br><span class="line">        shift_array(tmpsnake, tmpsnake_size)</span><br><span class="line">        tmpsnake[HEAD] += move <span class="hljs-comment"># 在蛇头前加入一个新的位置</span></span><br><span class="line">        <span class="hljs-comment">#f.write('snake head: '+str(tmpsnake[HEAD])+'\n')</span></span><br><span class="line">        <span class="hljs-comment"># 如果新加入的蛇头的位置正好是食物的位置</span></span><br><span class="line">        <span class="hljs-comment"># 则长度加1，重置board，食物那个位置变为蛇的一部分(SNAKE)</span></span><br><span class="line">        <span class="hljs-keyword">if</span> tmpsnake[HEAD] == food:</span><br><span class="line">            tmpsnake_size += <span class="hljs-number">1</span></span><br><span class="line">            board_reset(tmpsnake, tmpsnake_size, tmpboard) <span class="hljs-comment"># 虚拟运行后，蛇在board的位置(label101010)</span></span><br><span class="line">            tmpboard[food] = SNAKE</span><br><span class="line">            food_eated = <span class="hljs-literal">True</span></span><br><span class="line">        <span class="hljs-keyword">else</span>: <span class="hljs-comment"># 如果蛇头不是食物的位置，则新加入的位置为蛇头，最后一个变为空格</span></span><br><span class="line">            tmpboard[tmpsnake[HEAD]] = SNAKE</span><br><span class="line">            tmpboard[tmpsnake[tmpsnake_size]] = UNDEFINED</span><br><span class="line">    <span class="hljs-comment">#f.write('i am out virtual\n')</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 如果蛇与食物间有路径，则调用本函数</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find_safe_way</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-keyword">global</span> snake, board</span><br><span class="line">    safe_move = ERR</span><br><span class="line">    <span class="hljs-comment"># 虚拟地运行一次，因为已经确保蛇与食物间有路径，所以执行有效</span></span><br><span class="line">    <span class="hljs-comment"># 运行后得到虚拟下蛇在board中的位置，即tmpboard，见label101010</span></span><br><span class="line">    virtual_shortest_move() <span class="hljs-comment"># 该函数唯一调用处</span></span><br><span class="line">    <span class="hljs-keyword">if</span> is_tail_inside(): <span class="hljs-comment"># 如果虚拟运行后，蛇头蛇尾间有通路，则选最短路运行(1步)</span></span><br><span class="line">        <span class="hljs-keyword">return</span> choose_shortest_safe_move(snake, board)</span><br><span class="line">    safe_move = follow_tail() <span class="hljs-comment"># 否则虚拟地follow_tail 1步，如果可以做到，返回true</span></span><br><span class="line">    <span class="hljs-keyword">return</span> safe_move</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">curses.initscr()</span><br><span class="line">win = curses.newwin(HEIGHT, WIDTH, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)</span><br><span class="line">win.keypad(<span class="hljs-number">1</span>)</span><br><span class="line">curses.noecho()</span><br><span class="line">curses.curs_set(<span class="hljs-number">0</span>)</span><br><span class="line">win.border(<span class="hljs-number">0</span>)</span><br><span class="line">win.nodelay(<span class="hljs-number">1</span>)</span><br><span class="line">win.addch(food/WIDTH, food%WIDTH, <span class="hljs-string">'@'</span>)</span><br><span class="line"></span><br><span class="line">f = file(<span class="hljs-string">'log'</span>, <span class="hljs-string">'w'</span>)</span><br><span class="line">    </span><br><span class="line"><span class="hljs-keyword">while</span> key != <span class="hljs-number">27</span>:</span><br><span class="line">    win.border(<span class="hljs-number">0</span>)</span><br><span class="line">    win.addstr(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-string">'s:'</span> + str(score) + <span class="hljs-string">' '</span>)               </span><br><span class="line">    <span class="hljs-comment">#win.addstr(0, WIDTH/2-3, ' SNAKE ')                                  </span></span><br><span class="line">    win.timeout(<span class="hljs-number">10</span>)</span><br><span class="line">    <span class="hljs-comment"># 接收键盘输入，同时也使显示流畅</span></span><br><span class="line">    event = win.getch()</span><br><span class="line">    key = key <span class="hljs-keyword">if</span> event == <span class="hljs-number">-1</span> <span class="hljs-keyword">else</span> event</span><br><span class="line">    <span class="hljs-keyword">if</span> snake_size &gt;= FIELD_SIZE: <span class="hljs-keyword">continue</span></span><br><span class="line">    <span class="hljs-comment"># 重置矩阵</span></span><br><span class="line">    board_reset(snake, snake_size, board)</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment"># 如果蛇可以吃到食物，board_refresh返回true</span></span><br><span class="line">    <span class="hljs-comment"># 并且board中除了蛇身(=SNAKE)，其它的元素值表示从该点运动到食物的最短路径长</span></span><br><span class="line">    <span class="hljs-keyword">if</span> board_refresh(food, snake, board):</span><br><span class="line">        best_move  = find_safe_way() <span class="hljs-comment"># find_safe_way的唯一调用处</span></span><br><span class="line">        f.write(<span class="hljs-string">'find safe way: '</span> + str(best_move) + <span class="hljs-string">'\n'</span>)</span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        best_move = follow_tail()</span><br><span class="line">        f.write(<span class="hljs-string">'follow tail: '</span> + str(best_move) +<span class="hljs-string">'\n'</span>)</span><br><span class="line">            </span><br><span class="line">    <span class="hljs-keyword">if</span> best_move == ERR:</span><br><span class="line">        best_move = any_possible_move()</span><br><span class="line">        f.write(<span class="hljs-string">'any possible move: '</span> + str(best_move) + <span class="hljs-string">'\n'</span>)</span><br><span class="line">    <span class="hljs-comment"># 上面一次思考，只得出一个方向，运行一步</span></span><br><span class="line">    <span class="hljs-keyword">if</span> best_move != ERR: make_move(best_move)   </span><br><span class="line">    <span class="hljs-keyword">else</span>: <span class="hljs-keyword">break</span>        </span><br><span class="line">        </span><br><span class="line">f.close()</span><br><span class="line">curses.endwin()</span><br><span class="line">print(<span class="hljs-string">"\nScore - "</span> + str(score))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># coding: utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> curses</span><br><span class="line"><span class="hljs-keyword">from</span> curses <span class="hljs-keyword">import</span> KEY_RIGHT, KEY_LEFT, KEY_UP, KEY_DOWN</span><br><span class="line"><span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> randint</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 蛇运动的场地长宽</span></span><br><span class="line">HEIGHT = <span class="hljs-number">10</span></span><br><span class="line">WIDTH = <span class="hljs-number">20</span></span><br><span class="line">FIELD_SIZE = HEIGHT * WIDTH</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 蛇头总是位于snake数组的第一个元素</span></span><br><span class="line">HEAD = <span class="hljs-number">0</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 用来代表不同东西的数字，由于矩阵上每个格子会处理成到达食物的路径长度，</span></span><br><span class="line"><span class="hljs-comment"># 因此这三个变量间需要有足够大的间隔(&gt;HEIGHT*WIDTH)</span></span><br><span class="line">FOOD = <span class="hljs-number">0</span></span><br><span class="line">UNDEFINED = (HEIGHT + <span class="hljs-number">1</span>) * (WIDTH + <span class="hljs-number">1</span>)</span><br><span class="line">SNAKE = <span class="hljs-number">2</span> * UNDEFINED</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 由于snake是一维数组，所以对应元素直接加上以下值就表示向四个方向移动</span></span><br><span class="line">LEFT = <span class="hljs-number">-1</span></span><br><span class="line">RIGHT = <span class="hljs-number">1</span></span><br><span class="line">UP = -WIDTH</span><br><span class="line">DOWN = WIDTH</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 错误码</span></span><br><span class="line">ERR = <span class="hljs-number">-1111</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 用一维数组来表示二维的东西</span></span><br><span class="line"><span class="hljs-comment"># board表示蛇运动的矩形场地</span></span><br><span class="line"><span class="hljs-comment"># 初始化蛇头在(1,1)的地方，第0行，HEIGHT行，第0列，WIDTH列为围墙，不可用</span></span><br><span class="line"><span class="hljs-comment"># 初始蛇长度为1</span></span><br><span class="line">board = [<span class="hljs-number">0</span>] * FIELD_SIZE</span><br><span class="line">snake = [<span class="hljs-number">0</span>] * (FIELD_SIZE+<span class="hljs-number">1</span>)</span><br><span class="line">snake[HEAD] = <span class="hljs-number">1</span>*WIDTH+<span class="hljs-number">1</span></span><br><span class="line">snake_size = <span class="hljs-number">1</span></span><br><span class="line"><span class="hljs-comment"># 与上面变量对应的临时变量，蛇试探性地移动时使用</span></span><br><span class="line">tmpboard = [<span class="hljs-number">0</span>] * FIELD_SIZE</span><br><span class="line">tmpsnake = [<span class="hljs-number">0</span>] * (FIELD_SIZE+<span class="hljs-number">1</span>)</span><br><span class="line">tmpsnake[HEAD] = <span class="hljs-number">1</span>*WIDTH+<span class="hljs-number">1</span></span><br><span class="line">tmpsnake_size = <span class="hljs-number">1</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># food:食物位置(0~FIELD_SIZE-1),初始在(3, 3)</span></span><br><span class="line"><span class="hljs-comment"># best_move: 运动方向</span></span><br><span class="line">food = <span class="hljs-number">3</span> * WIDTH + <span class="hljs-number">3</span></span><br><span class="line">best_move = ERR</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 运动方向数组</span></span><br><span class="line">mov = [LEFT, RIGHT, UP, DOWN]</span><br><span class="line"><span class="hljs-comment"># 接收到的键 和 分数</span></span><br><span class="line">key = KEY_RIGHT                                                    </span><br><span class="line">score = <span class="hljs-number">1</span> <span class="hljs-comment">#分数也表示蛇长</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 检查一个cell有没有被蛇身覆盖，没有覆盖则为free，返回true</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_cell_free</span><span class="hljs-params">(idx, psize, psnake)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">not</span> (idx <span class="hljs-keyword">in</span> psnake[:psize]) </span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 检查某个位置idx是否可向move方向运动</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_move_possible</span><span class="hljs-params">(idx, move)</span>:</span></span><br><span class="line">    flag = <span class="hljs-literal">False</span></span><br><span class="line">    <span class="hljs-keyword">if</span> move == LEFT:</span><br><span class="line">        flag = <span class="hljs-literal">True</span> <span class="hljs-keyword">if</span> idx%WIDTH &gt; <span class="hljs-number">1</span> <span class="hljs-keyword">else</span> <span class="hljs-literal">False</span></span><br><span class="line">    <span class="hljs-keyword">elif</span> move == RIGHT:</span><br><span class="line">        flag = <span class="hljs-literal">True</span> <span class="hljs-keyword">if</span> idx%WIDTH &lt; (WIDTH<span class="hljs-number">-2</span>) <span class="hljs-keyword">else</span> <span class="hljs-literal">False</span></span><br><span class="line">    <span class="hljs-keyword">elif</span> move == UP:</span><br><span class="line">        flag = <span class="hljs-literal">True</span> <span class="hljs-keyword">if</span> idx &gt; (<span class="hljs-number">2</span>*WIDTH<span class="hljs-number">-1</span>) <span class="hljs-keyword">else</span> <span class="hljs-literal">False</span> <span class="hljs-comment"># 即idx/WIDTH &gt; 1</span></span><br><span class="line">    <span class="hljs-keyword">elif</span> move == DOWN:</span><br><span class="line">        flag = <span class="hljs-literal">True</span> <span class="hljs-keyword">if</span> idx &lt; (FIELD_SIZE<span class="hljs-number">-2</span>*WIDTH) <span class="hljs-keyword">else</span> <span class="hljs-literal">False</span> <span class="hljs-comment"># 即idx/WIDTH &lt; HEIGHT-2</span></span><br><span class="line">    <span class="hljs-keyword">return</span> flag</span><br><span class="line"><span class="hljs-comment"># 重置board</span></span><br><span class="line"><span class="hljs-comment"># board_refresh后，UNDEFINED值都变为了到达食物的路径长度</span></span><br><span class="line"><span class="hljs-comment"># 如需要还原，则要重置它</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">board_reset</span><span class="hljs-params">(psnake, psize, pboard)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(FIELD_SIZE):</span><br><span class="line">        <span class="hljs-keyword">if</span> i == food:</span><br><span class="line">            pboard[i] = FOOD</span><br><span class="line">        <span class="hljs-keyword">elif</span> is_cell_free(i, psize, psnake): <span class="hljs-comment"># 该位置为空</span></span><br><span class="line">            pboard[i] = UNDEFINED</span><br><span class="line">        <span class="hljs-keyword">else</span>: <span class="hljs-comment"># 该位置为蛇身</span></span><br><span class="line">            pboard[i] = SNAKE</span><br><span class="line">    </span><br><span class="line"><span class="hljs-comment"># 广度优先搜索遍历整个board，</span></span><br><span class="line"><span class="hljs-comment"># 计算出board中每个非SNAKE元素到达食物的路径长度</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">board_refresh</span><span class="hljs-params">(pfood, psnake, pboard)</span>:</span></span><br><span class="line">    queue = []</span><br><span class="line">    queue.append(pfood)</span><br><span class="line">    inqueue = [<span class="hljs-number">0</span>] * FIELD_SIZE</span><br><span class="line">    found = <span class="hljs-literal">False</span></span><br><span class="line">    <span class="hljs-comment"># while循环结束后，除了蛇的身体，</span></span><br><span class="line">    <span class="hljs-comment"># 其它每个方格中的数字代码从它到食物的路径长度</span></span><br><span class="line">    <span class="hljs-keyword">while</span> len(queue)!=<span class="hljs-number">0</span>: </span><br><span class="line">        idx = queue.pop(<span class="hljs-number">0</span>)</span><br><span class="line">        <span class="hljs-keyword">if</span> inqueue[idx] == <span class="hljs-number">1</span>: <span class="hljs-keyword">continue</span></span><br><span class="line">        inqueue[idx] = <span class="hljs-number">1</span></span><br><span class="line">        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(<span class="hljs-number">4</span>):</span><br><span class="line">            <span class="hljs-keyword">if</span> is_move_possible(idx, mov[i]):</span><br><span class="line">                <span class="hljs-keyword">if</span> idx + mov[i] == psnake[HEAD]:</span><br><span class="line">                    found = <span class="hljs-literal">True</span></span><br><span class="line">                <span class="hljs-keyword">if</span> pboard[idx+mov[i]] &lt; SNAKE: <span class="hljs-comment"># 如果该点不是蛇的身体</span></span><br><span class="line">                    </span><br><span class="line">                    <span class="hljs-keyword">if</span> pboard[idx+mov[i]] &gt; pboard[idx]+<span class="hljs-number">1</span>:</span><br><span class="line">                        pboard[idx+mov[i]] = pboard[idx] + <span class="hljs-number">1</span></span><br><span class="line">                    <span class="hljs-keyword">if</span> inqueue[idx+mov[i]] == <span class="hljs-number">0</span>:</span><br><span class="line">                        queue.append(idx+mov[i])</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">return</span> found</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 从蛇头开始，根据board中元素值，</span></span><br><span class="line"><span class="hljs-comment"># 从蛇头周围4个领域点中选择最短路径</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">choose_shortest_safe_move</span><span class="hljs-params">(psnake, pboard)</span>:</span></span><br><span class="line">    best_move = ERR</span><br><span class="line">    min = SNAKE</span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(<span class="hljs-number">4</span>):</span><br><span class="line">        <span class="hljs-keyword">if</span> is_move_possible(psnake[HEAD], mov[i]) <span class="hljs-keyword">and</span> pboard[psnake[HEAD]+mov[i]]&lt;min:</span><br><span class="line">            min = pboard[psnake[HEAD]+mov[i]]</span><br><span class="line">            best_move = mov[i]</span><br><span class="line">    <span class="hljs-keyword">return</span> best_move</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 从蛇头开始，根据board中元素值，</span></span><br><span class="line"><span class="hljs-comment"># 从蛇头周围4个领域点中选择最远路径</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">choose_longest_safe_move</span><span class="hljs-params">(psnake, pboard)</span>:</span></span><br><span class="line">    best_move = ERR</span><br><span class="line">    max = <span class="hljs-number">-1</span></span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(<span class="hljs-number">4</span>):</span><br><span class="line">        <span class="hljs-keyword">if</span> is_move_possible(psnake[HEAD], mov[i]) <span class="hljs-keyword">and</span> pboard[psnake[HEAD]+mov[i]]&lt;UNDEFINED <span class="hljs-keyword">and</span> pboard[psnake[HEAD]+mov[i]]&gt;max:</span><br><span class="line">            max = pboard[psnake[HEAD]+mov[i]]</span><br><span class="line">            best_move = mov[i]</span><br><span class="line">    <span class="hljs-keyword">return</span> best_move</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 检查是否可以追着蛇尾运动，即蛇头和蛇尾间是有路径的</span></span><br><span class="line"><span class="hljs-comment"># 为的是避免蛇头陷入死路</span></span><br><span class="line"><span class="hljs-comment"># 虚拟操作，在tmpboard,tmpsnake中进行</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_tail_inside</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-keyword">global</span> tmpboard, tmpsnake, food, tmpsnake_size</span><br><span class="line">    tmpboard[tmpsnake[tmpsnake_size<span class="hljs-number">-1</span>]] = <span class="hljs-number">0</span> <span class="hljs-comment"># 虚拟地将蛇尾变为食物(因为是虚拟的，所以在tmpsnake,tmpboard中进行)</span></span><br><span class="line">    tmpboard[food] = SNAKE <span class="hljs-comment"># 放置食物的地方，看成蛇身</span></span><br><span class="line">    result = board_refresh(tmpsnake[tmpsnake_size<span class="hljs-number">-1</span>], tmpsnake, tmpboard) <span class="hljs-comment"># 求得每个位置到蛇尾的路径长度</span></span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(<span class="hljs-number">4</span>): <span class="hljs-comment"># 如果蛇头和蛇尾紧挨着，则返回False。即不能follow_tail，追着蛇尾运动了</span></span><br><span class="line">        <span class="hljs-keyword">if</span> is_move_possible(tmpsnake[HEAD], mov[i]) <span class="hljs-keyword">and</span> tmpsnake[HEAD]+mov[i]==tmpsnake[tmpsnake_size<span class="hljs-number">-1</span>] <span class="hljs-keyword">and</span> tmpsnake_size&gt;<span class="hljs-number">3</span>:</span><br><span class="line">            result = <span class="hljs-literal">False</span></span><br><span class="line">    <span class="hljs-keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 让蛇头朝着蛇尾运行一步</span></span><br><span class="line"><span class="hljs-comment"># 不管蛇身阻挡，朝蛇尾方向运行</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">follow_tail</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-keyword">global</span> tmpboard, tmpsnake, food, tmpsnake_size</span><br><span class="line">    tmpsnake_size = snake_size</span><br><span class="line">    tmpsnake = snake[:]</span><br><span class="line">    board_reset(tmpsnake, tmpsnake_size, tmpboard) <span class="hljs-comment"># 重置虚拟board</span></span><br><span class="line">    tmpboard[tmpsnake[tmpsnake_size<span class="hljs-number">-1</span>]] = FOOD <span class="hljs-comment"># 让蛇尾成为食物</span></span><br><span class="line">    tmpboard[food] = SNAKE <span class="hljs-comment"># 让食物的地方变成蛇身</span></span><br><span class="line">    board_refresh(tmpsnake[tmpsnake_size<span class="hljs-number">-1</span>], tmpsnake, tmpboard) <span class="hljs-comment"># 求得各个位置到达蛇尾的路径长度</span></span><br><span class="line">    tmpboard[tmpsnake[tmpsnake_size<span class="hljs-number">-1</span>]] = SNAKE <span class="hljs-comment"># 还原蛇尾</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">return</span> choose_longest_safe_move(tmpsnake, tmpboard) <span class="hljs-comment"># 返回运行方向(让蛇头运动1步)</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 在各种方案都不行时，随便找一个可行的方向来走(1步),</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">any_possible_move</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-keyword">global</span> food , snake, snake_size, board</span><br><span class="line">    best_move = ERR</span><br><span class="line">    board_reset(snake, snake_size, board)</span><br><span class="line">    board_refresh(food, snake, board)</span><br><span class="line">    min = SNAKE</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(<span class="hljs-number">4</span>):</span><br><span class="line">        <span class="hljs-keyword">if</span> is_move_possible(snake[HEAD], mov[i]) <span class="hljs-keyword">and</span> board[snake[HEAD]+mov[i]]&lt;min:</span><br><span class="line">            min = board[snake[HEAD]+mov[i]]</span><br><span class="line">            best_move = mov[i]</span><br><span class="line">    <span class="hljs-keyword">return</span> best_move</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">shift_array</span><span class="hljs-params">(arr, size)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(size, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>):</span><br><span class="line">        arr[i] = arr[i<span class="hljs-number">-1</span>]</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">new_food</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-keyword">global</span> food, snake_size</span><br><span class="line">    cell_free = <span class="hljs-literal">False</span></span><br><span class="line">    <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> cell_free:</span><br><span class="line">        w = randint(<span class="hljs-number">1</span>, WIDTH<span class="hljs-number">-2</span>)</span><br><span class="line">        h = randint(<span class="hljs-number">1</span>, HEIGHT<span class="hljs-number">-2</span>)</span><br><span class="line">        food = h * WIDTH + w</span><br><span class="line">        cell_free = is_cell_free(food, snake_size, snake)</span><br><span class="line">    win.addch(food/WIDTH, food%WIDTH, <span class="hljs-string">'@'</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 真正的蛇在这个函数中，朝pbest_move走1步</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">make_move</span><span class="hljs-params">(pbest_move)</span>:</span></span><br><span class="line">    <span class="hljs-keyword">global</span> key, snake, board, snake_size, score</span><br><span class="line">    shift_array(snake, snake_size)</span><br><span class="line">    snake[HEAD] += pbest_move</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment"># 按esc退出，getch同时保证绘图的流畅性，没有它只会看到最终结果</span></span><br><span class="line">    win.timeout(<span class="hljs-number">10</span>)</span><br><span class="line">    event = win.getch()</span><br><span class="line">    key = key <span class="hljs-keyword">if</span> event == <span class="hljs-number">-1</span> <span class="hljs-keyword">else</span> event</span><br><span class="line">    <span class="hljs-keyword">if</span> key == <span class="hljs-number">27</span>: <span class="hljs-keyword">return</span></span><br><span class="line"></span><br><span class="line">    p = snake[HEAD]</span><br><span class="line">    win.addch(p/WIDTH, p%WIDTH, <span class="hljs-string">'*'</span>)</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment"># 如果新加入的蛇头就是食物的位置</span></span><br><span class="line">    <span class="hljs-comment"># 蛇长加1，产生新的食物，重置board(因为原来那些路径长度已经用不上了)</span></span><br><span class="line">    <span class="hljs-keyword">if</span> snake[HEAD] == food:</span><br><span class="line">        board[snake[HEAD]] = SNAKE <span class="hljs-comment"># 新的蛇头</span></span><br><span class="line">        snake_size += <span class="hljs-number">1</span></span><br><span class="line">        score += <span class="hljs-number">1</span></span><br><span class="line">        <span class="hljs-keyword">if</span> snake_size &lt; FIELD_SIZE: new_food()</span><br><span class="line">    <span class="hljs-keyword">else</span>: <span class="hljs-comment"># 如果新加入的蛇头不是食物的位置</span></span><br><span class="line">        board[snake[HEAD]] = SNAKE <span class="hljs-comment"># 新的蛇头</span></span><br><span class="line">        board[snake[snake_size]] = UNDEFINED <span class="hljs-comment"># 蛇尾变为空格</span></span><br><span class="line">        win.addch(snake[snake_size]/WIDTH, snake[snake_size]%WIDTH, <span class="hljs-string">' '</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 虚拟地运行一次，然后在调用处检查这次运行可否可行</span></span><br><span class="line"><span class="hljs-comment"># 可行才真实运行。</span></span><br><span class="line"><span class="hljs-comment"># 虚拟运行吃到食物后，得到虚拟下蛇在board的位置</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">virtual_shortest_move</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-keyword">global</span> snake, board, snake_size, tmpsnake, tmpboard, tmpsnake_size, food</span><br><span class="line">    tmpsnake_size = snake_size</span><br><span class="line">    tmpsnake = snake[:] <span class="hljs-comment"># 如果直接tmpsnake=snake，则两者指向同一处内存</span></span><br><span class="line">    tmpboard = board[:] <span class="hljs-comment"># board中已经是各位置到达食物的路径长度了，不用再计算</span></span><br><span class="line">    board_reset(tmpsnake, tmpsnake_size, tmpboard)</span><br><span class="line">    </span><br><span class="line">    food_eated = <span class="hljs-literal">False</span></span><br><span class="line">    <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> food_eated:</span><br><span class="line">        board_refresh(food, tmpsnake, tmpboard)    </span><br><span class="line">        move = choose_shortest_safe_move(tmpsnake, tmpboard)</span><br><span class="line">        shift_array(tmpsnake, tmpsnake_size)</span><br><span class="line">        tmpsnake[HEAD] += move <span class="hljs-comment"># 在蛇头前加入一个新的位置</span></span><br><span class="line">        <span class="hljs-comment"># 如果新加入的蛇头的位置正好是食物的位置</span></span><br><span class="line">        <span class="hljs-comment"># 则长度加1，重置board，食物那个位置变为蛇的一部分(SNAKE)</span></span><br><span class="line">        <span class="hljs-keyword">if</span> tmpsnake[HEAD] == food:</span><br><span class="line">            tmpsnake_size += <span class="hljs-number">1</span></span><br><span class="line">            board_reset(tmpsnake, tmpsnake_size, tmpboard) <span class="hljs-comment"># 虚拟运行后，蛇在board的位置(label101010)</span></span><br><span class="line">            tmpboard[food] = SNAKE</span><br><span class="line">            food_eated = <span class="hljs-literal">True</span></span><br><span class="line">        <span class="hljs-keyword">else</span>: <span class="hljs-comment"># 如果蛇头不是食物的位置，则新加入的位置为蛇头，最后一个变为空格</span></span><br><span class="line">            tmpboard[tmpsnake[HEAD]] = SNAKE</span><br><span class="line">            tmpboard[tmpsnake[tmpsnake_size]] = UNDEFINED</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 如果蛇与食物间有路径，则调用本函数</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find_safe_way</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    <span class="hljs-keyword">global</span> snake, board</span><br><span class="line">    safe_move = ERR</span><br><span class="line">    <span class="hljs-comment"># 虚拟地运行一次，因为已经确保蛇与食物间有路径，所以执行有效</span></span><br><span class="line">    <span class="hljs-comment"># 运行后得到虚拟下蛇在board中的位置，即tmpboard，见label101010</span></span><br><span class="line">    virtual_shortest_move() <span class="hljs-comment"># 该函数唯一调用处</span></span><br><span class="line">    <span class="hljs-keyword">if</span> is_tail_inside(): <span class="hljs-comment"># 如果虚拟运行后，蛇头蛇尾间有通路，则选最短路运行(1步)</span></span><br><span class="line">        <span class="hljs-keyword">return</span> choose_shortest_safe_move(snake, board)</span><br><span class="line">    safe_move = follow_tail() <span class="hljs-comment"># 否则虚拟地follow_tail 1步，如果可以做到，返回true</span></span><br><span class="line">    <span class="hljs-keyword">return</span> safe_move</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">curses.initscr()</span><br><span class="line">win = curses.newwin(HEIGHT, WIDTH, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)</span><br><span class="line">win.keypad(<span class="hljs-number">1</span>)</span><br><span class="line">curses.noecho()</span><br><span class="line">curses.curs_set(<span class="hljs-number">0</span>)</span><br><span class="line">win.border(<span class="hljs-number">0</span>)</span><br><span class="line">win.nodelay(<span class="hljs-number">1</span>)</span><br><span class="line">win.addch(food/WIDTH, food%WIDTH, <span class="hljs-string">'@'</span>)</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="hljs-keyword">while</span> key != <span class="hljs-number">27</span>:</span><br><span class="line">    win.border(<span class="hljs-number">0</span>)</span><br><span class="line">    win.addstr(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-string">'S:'</span> + str(score) + <span class="hljs-string">' '</span>)               </span><br><span class="line">    win.timeout(<span class="hljs-number">10</span>)</span><br><span class="line">    <span class="hljs-comment"># 接收键盘输入，同时也使显示流畅</span></span><br><span class="line">    event = win.getch()</span><br><span class="line">    key = key <span class="hljs-keyword">if</span> event == <span class="hljs-number">-1</span> <span class="hljs-keyword">else</span> event</span><br><span class="line">    <span class="hljs-comment"># 重置矩阵</span></span><br><span class="line">    board_reset(snake, snake_size, board)</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment"># 如果蛇可以吃到食物，board_refresh返回true</span></span><br><span class="line">    <span class="hljs-comment"># 并且board中除了蛇身(=SNAKE)，其它的元素值表示从该点运动到食物的最短路径长</span></span><br><span class="line">    <span class="hljs-keyword">if</span> board_refresh(food, snake, board):</span><br><span class="line">        best_move  = find_safe_way() <span class="hljs-comment"># find_safe_way的唯一调用处</span></span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        best_move = follow_tail()</span><br><span class="line">            </span><br><span class="line">    <span class="hljs-keyword">if</span> best_move == ERR:</span><br><span class="line">        best_move = any_possible_move()</span><br><span class="line">    <span class="hljs-comment"># 上面一次思考，只得出一个方向，运行一步</span></span><br><span class="line">    <span class="hljs-keyword">if</span> best_move != ERR: make_move(best_move)   </span><br><span class="line">    <span class="hljs-keyword">else</span>: <span class="hljs-keyword">break</span>        </span><br><span class="line">        </span><br><span class="line">curses.endwin()</span><br><span class="line">print(<span class="hljs-string">"\nScore - "</span> + str(score))</span><br></pre></td></tr></table></figure>
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/贪吃蛇/">贪吃蛇</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="https://i.loli.net/2019/09/17/zitwDTMAfXQ2aoq.png" alt="支付宝"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/10/21/b站爱5预告片评论简单分析/">
+                <span class="level-item">b站爱5预告片评论简单分析</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: false,
+        app_id: '0dNioPuDCFsscn6y58dczYiy-gzGzoHsz',
+        app_key: 'jbyn5TRGmiiAsYjo7PFFzrYJ',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
+    });
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="http://music.sqdxwz.com" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">教书先生音乐台</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">music.sqdxwz.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://uppez.github.io/wzwenzhang" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">教书先生的总结</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">uppez.github.io</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="http://pan.sqdxwz.com" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">教书先生的网盘</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">pan.sqdxwz.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="http://tuc.sqdxwz.com" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">教书先生的图床</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">tuc.sqdxwz.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="http://game.sqdxwz.com" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">教书先生的游戏</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">game.sqdxwz.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="http://docs.sqdxwz.com" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">教书先生的动态</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">docs.sqdxwz.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="http://note.sqdxwz.com" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">教书先生的笔记</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">note.sqdxwz.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/21/当你的贪吃蛇吃满屏幕后/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://i.loli.net/2019/10/21/vVkNrSQ4J53Teyt.png" alt="当你的贪吃蛇吃满屏幕后...">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-21T13:36:41.000Z">2019-10-21</time></div>
+                    <a href="/2019/10/21/当你的贪吃蛇吃满屏幕后/" class="title has-link-black-ter is-size-6 has-text-weight-normal">当你的贪吃蛇吃满屏幕后...</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Python/">Python</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/10/21/b站爱5预告片评论简单分析/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://i.loli.net/2019/10/21/FwrUB1yx9i4zYdo.png" alt="b站爱5预告片评论简单分析">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-21T11:59:45.000Z">2019-10-21</time></div>
+                    <a href="/2019/10/21/b站爱5预告片评论简单分析/" class="title has-link-black-ter is-size-6 has-text-weight-normal">b站爱5预告片评论简单分析</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Python/">Python</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/10/21/排序动画演示/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://i.loli.net/2019/10/21/CxyFXBZu82rHJ3s.png" alt="排序动画演示">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-21T05:13:53.000Z">2019-10-21</time></div>
+                    <a href="/2019/10/21/排序动画演示/" class="title has-link-black-ter is-size-6 has-text-weight-normal">排序动画演示</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/学习/">学习</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/10/20/河南理工大学110周年校庆剪影/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://i.loli.net/2019/10/20/1ejNAyspoHxhUXE.jpg" alt="河南理工大学110周年校庆剪影">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-20T10:55:37.000Z">2019-10-20</time></div>
+                    <a href="/2019/10/20/河南理工大学110周年校庆剪影/" class="title has-link-black-ter is-size-6 has-text-weight-normal">河南理工大学110周年校庆剪影</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/随笔/">随笔</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/10/20/使用深度学习训练一个游戏/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://i.loli.net/2019/10/20/fXy8F7Qw3l9CAJB.png" alt="使用深度学习训练一个游戏">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-20T04:52:28.000Z">2019-10-20</time></div>
+                    <a href="/2019/10/20/使用深度学习训练一个游戏/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用深度学习训练一个游戏</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/AI/">AI</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="/images/avatar.png" alt="Zhao Wang">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Zhao Wang
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Love Coding？
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>HPU,Jiaozuo City, Henan Province</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        52
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        11
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        43
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/Uppez" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/Uppez">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="QQ" href="http://wpa.qq.com/msgrd?v=3&amp;uin=603329354&amp;site=qq&amp;menu=yes">
+                
+                <i class="fab fa-qq"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com/t8Ndraq2tEKv3nI">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="知乎" href="https://www.zhihu.com/people/wang-rong-sheng-74">
+                
+                <i class="fab fa-zhihu"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+        
+            
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/AI/">
+            <span class="level-start">
+                <span class="level-item">AI</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">14</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Git/">
+            <span class="level-start">
+                <span class="level-item">Git</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Python/">
+            <span class="level-start">
+                <span class="level-item">Python</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">12</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/内网穿透/">
+            <span class="level-start">
+                <span class="level-item">内网穿透</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/学习/">
+            <span class="level-start">
+                <span class="level-item">学习</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/杂谈/">
+            <span class="level-start">
+                <span class="level-item">杂谈</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">15</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/死磕系列/">
+            <span class="level-start">
+                <span class="level-item">死磕系列</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/编程语言/">
+            <span class="level-start">
+                <span class="level-item">编程语言</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/阅读笔记/">
+            <span class="level-start">
+                <span class="level-item">阅读笔记</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/随笔/">
+            <span class="level-start">
+                <span class="level-item">随笔</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/随记/">
+            <span class="level-start">
+                <span class="level-item">随记</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        
+  <div class="widget-wrap">
+
+    <div class="widget tagcloud">
+      <a href="/tags/排序/" style="font-size: 13px; color: #90f">排序</a> <a href="/tags/机器学习/" style="font-size: 23px; color: #f00">机器学习</a> <a href="/tags/抠图/" style="font-size: 13px; color: #90f">抠图</a> <a href="/tags/学习资料/" style="font-size: 16.33px; color: #b0a">学习资料</a> <a href="/tags/Git常用操作/" style="font-size: 13px; color: #90f">Git常用操作</a> <a href="/tags/爱5分析/" style="font-size: 13px; color: #90f">爱5分析</a> <a href="/tags/生命游戏/" style="font-size: 13px; color: #90f">生命游戏</a> <a href="/tags/python常用包/" style="font-size: 13px; color: #90f">python常用包</a> <a href="/tags/Anaconda/" style="font-size: 13px; color: #90f">Anaconda</a> <a href="/tags/cython/" style="font-size: 13px; color: #90f">cython</a> <a href="/tags/迷宫/" style="font-size: 13px; color: #90f">迷宫</a> <a href="/tags/内网穿透工具/" style="font-size: 13px; color: #90f">内网穿透工具</a> <a href="/tags/数学基础/" style="font-size: 13px; color: #90f">数学基础</a> <a href="/tags/matplotlib/" style="font-size: 13px; color: #90f">matplotlib</a> <a href="/tags/Simple-Game/" style="font-size: 13px; color: #90f">Simple Game</a> <a href="/tags/周志华论文/" style="font-size: 13px; color: #90f">周志华论文</a> <a href="/tags/概率分布/" style="font-size: 13px; color: #90f">概率分布</a> <a href="/tags/python常用代码/" style="font-size: 13px; color: #90f">python常用代码</a> <a href="/tags/小工具/" style="font-size: 13px; color: #90f">小工具</a> <a href="/tags/开源协议/" style="font-size: 13px; color: #90f">开源协议</a> <a href="/tags/数据集-推荐系统/" style="font-size: 13px; color: #90f">数据集-推荐系统</a> <a href="/tags/深度学习/" style="font-size: 19.67px; color: #d05">深度学习</a> <a href="/tags/电子书网站/" style="font-size: 13px; color: #90f">电子书网站</a> <a href="/tags/河南理工大学110周年/" style="font-size: 13px; color: #90f">河南理工大学110周年</a> <a href="/tags/可视化/" style="font-size: 13px; color: #90f">可视化</a> <a href="/tags/论文翻译/" style="font-size: 13px; color: #90f">论文翻译</a> <a href="/tags/云栖大会/" style="font-size: 13px; color: #90f">云栖大会</a> <a href="/tags/简历制作/" style="font-size: 13px; color: #90f">简历制作</a> <a href="/tags/镜像/" style="font-size: 13px; color: #90f">镜像</a> <a href="/tags/tensorflow/" style="font-size: 13px; color: #90f">tensorflow</a> <a href="/tags/验证码识别/" style="font-size: 13px; color: #90f">验证码识别</a> <a href="/tags/论文/" style="font-size: 13px; color: #90f">论文</a> <a href="/tags/Numpy/" style="font-size: 13px; color: #90f">Numpy</a> <a href="/tags/告研究生新生-研究生导师书/" style="font-size: 13px; color: #90f">告研究生新生/研究生导师书</a> <a href="/tags/Child’s-Play/" style="font-size: 13px; color: #90f">Child’s Play</a> <a href="/tags/论文-续/" style="font-size: 13px; color: #90f">论文-续</a> <a href="/tags/简历/" style="font-size: 13px; color: #90f">简历</a> <a href="/tags/祖国母亲七十周年/" style="font-size: 13px; color: #90f">祖国母亲七十周年</a> <a href="/tags/数据集/" style="font-size: 13px; color: #90f">数据集</a> <a href="/tags/数据结构/" style="font-size: 13px; color: #90f">数据结构</a> <a href="/tags/学术网站/" style="font-size: 13px; color: #90f">学术网站</a> <a href="/tags/贪吃蛇/" style="font-size: 13px; color: #90f">贪吃蛇</a> <a href="/tags/C/" style="font-size: 13px; color: #90f">C++</a>
+    </div>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">28</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">24</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Anaconda/">
+                        <span class="tag">Anaconda</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/C/">
+                        <span class="tag">C++</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Child’s-Play/">
+                        <span class="tag">Child’s Play</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Git常用操作/">
+                        <span class="tag">Git常用操作</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Numpy/">
+                        <span class="tag">Numpy</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Simple-Game/">
+                        <span class="tag">Simple Game</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cython/">
+                        <span class="tag">cython</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/matplotlib/">
+                        <span class="tag">matplotlib</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/python常用代码/">
+                        <span class="tag">python常用代码</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/python常用包/">
+                        <span class="tag">python常用包</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/tensorflow/">
+                        <span class="tag">tensorflow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/云栖大会/">
+                        <span class="tag">云栖大会</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/内网穿透工具/">
+                        <span class="tag">内网穿透工具</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/可视化/">
+                        <span class="tag">可视化</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/告研究生新生-研究生导师书/">
+                        <span class="tag">告研究生新生/研究生导师书</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/周志华论文/">
+                        <span class="tag">周志华论文</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/学习资料/">
+                        <span class="tag">学习资料</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/学术网站/">
+                        <span class="tag">学术网站</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/小工具/">
+                        <span class="tag">小工具</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/开源协议/">
+                        <span class="tag">开源协议</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/抠图/">
+                        <span class="tag">抠图</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/排序/">
+                        <span class="tag">排序</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数学基础/">
+                        <span class="tag">数学基础</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据结构/">
+                        <span class="tag">数据结构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据集/">
+                        <span class="tag">数据集</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据集-推荐系统/">
+                        <span class="tag">数据集-推荐系统</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/机器学习/">
+                        <span class="tag">机器学习</span>
+                        <span class="tag is-grey">8</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/概率分布/">
+                        <span class="tag">概率分布</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/河南理工大学110周年/">
+                        <span class="tag">河南理工大学110周年</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/深度学习/">
+                        <span class="tag">深度学习</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/爱5分析/">
+                        <span class="tag">爱5分析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/生命游戏/">
+                        <span class="tag">生命游戏</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/电子书网站/">
+                        <span class="tag">电子书网站</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/祖国母亲七十周年/">
+                        <span class="tag">祖国母亲七十周年</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/简历/">
+                        <span class="tag">简历</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/简历制作/">
+                        <span class="tag">简历制作</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/论文/">
+                        <span class="tag">论文</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/论文-续/">
+                        <span class="tag">论文-续</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/论文翻译/">
+                        <span class="tag">论文翻译</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/贪吃蛇/">
+                        <span class="tag">贪吃蛇</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/迷宫/">
+                        <span class="tag">迷宫</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/镜像/">
+                        <span class="tag">镜像</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/验证码识别/">
+                        <span class="tag">验证码识别</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="/images/avatar.png" alt="Zhao Wang">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Zhao Wang
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Love Coding？
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>HPU,Jiaozuo City, Henan Province</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        52
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        11
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        43
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/Uppez" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/Uppez">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="QQ" href="http://wpa.qq.com/msgrd?v=3&amp;uin=603329354&amp;site=qq&amp;menu=yes">
+                
+                <i class="fab fa-qq"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com/t8Ndraq2tEKv3nI">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="知乎" href="https://www.zhihu.com/people/wang-rong-sheng-74">
+                
+                <i class="fab fa-zhihu"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/AI/">
+            <span class="level-start">
+                <span class="level-item">AI</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">14</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Git/">
+            <span class="level-start">
+                <span class="level-item">Git</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Python/">
+            <span class="level-start">
+                <span class="level-item">Python</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">12</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/内网穿透/">
+            <span class="level-start">
+                <span class="level-item">内网穿透</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/学习/">
+            <span class="level-start">
+                <span class="level-item">学习</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/杂谈/">
+            <span class="level-start">
+                <span class="level-item">杂谈</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">15</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/死磕系列/">
+            <span class="level-start">
+                <span class="level-item">死磕系列</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/编程语言/">
+            <span class="level-start">
+                <span class="level-item">编程语言</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/阅读笔记/">
+            <span class="level-start">
+                <span class="level-item">阅读笔记</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/随笔/">
+            <span class="level-start">
+                <span class="level-item">随笔</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/随记/">
+            <span class="level-start">
+                <span class="level-item">随记</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        
+  <div class="widget-wrap">
+
+    <div class="widget tagcloud">
+      <a href="/tags/排序/" style="font-size: 13px; color: #90f">排序</a> <a href="/tags/机器学习/" style="font-size: 23px; color: #f00">机器学习</a> <a href="/tags/抠图/" style="font-size: 13px; color: #90f">抠图</a> <a href="/tags/学习资料/" style="font-size: 16.33px; color: #b0a">学习资料</a> <a href="/tags/Git常用操作/" style="font-size: 13px; color: #90f">Git常用操作</a> <a href="/tags/爱5分析/" style="font-size: 13px; color: #90f">爱5分析</a> <a href="/tags/生命游戏/" style="font-size: 13px; color: #90f">生命游戏</a> <a href="/tags/python常用包/" style="font-size: 13px; color: #90f">python常用包</a> <a href="/tags/Anaconda/" style="font-size: 13px; color: #90f">Anaconda</a> <a href="/tags/cython/" style="font-size: 13px; color: #90f">cython</a> <a href="/tags/迷宫/" style="font-size: 13px; color: #90f">迷宫</a> <a href="/tags/内网穿透工具/" style="font-size: 13px; color: #90f">内网穿透工具</a> <a href="/tags/数学基础/" style="font-size: 13px; color: #90f">数学基础</a> <a href="/tags/matplotlib/" style="font-size: 13px; color: #90f">matplotlib</a> <a href="/tags/Simple-Game/" style="font-size: 13px; color: #90f">Simple Game</a> <a href="/tags/周志华论文/" style="font-size: 13px; color: #90f">周志华论文</a> <a href="/tags/概率分布/" style="font-size: 13px; color: #90f">概率分布</a> <a href="/tags/python常用代码/" style="font-size: 13px; color: #90f">python常用代码</a> <a href="/tags/小工具/" style="font-size: 13px; color: #90f">小工具</a> <a href="/tags/开源协议/" style="font-size: 13px; color: #90f">开源协议</a> <a href="/tags/数据集-推荐系统/" style="font-size: 13px; color: #90f">数据集-推荐系统</a> <a href="/tags/深度学习/" style="font-size: 19.67px; color: #d05">深度学习</a> <a href="/tags/电子书网站/" style="font-size: 13px; color: #90f">电子书网站</a> <a href="/tags/河南理工大学110周年/" style="font-size: 13px; color: #90f">河南理工大学110周年</a> <a href="/tags/可视化/" style="font-size: 13px; color: #90f">可视化</a> <a href="/tags/论文翻译/" style="font-size: 13px; color: #90f">论文翻译</a> <a href="/tags/云栖大会/" style="font-size: 13px; color: #90f">云栖大会</a> <a href="/tags/简历制作/" style="font-size: 13px; color: #90f">简历制作</a> <a href="/tags/镜像/" style="font-size: 13px; color: #90f">镜像</a> <a href="/tags/tensorflow/" style="font-size: 13px; color: #90f">tensorflow</a> <a href="/tags/验证码识别/" style="font-size: 13px; color: #90f">验证码识别</a> <a href="/tags/论文/" style="font-size: 13px; color: #90f">论文</a> <a href="/tags/Numpy/" style="font-size: 13px; color: #90f">Numpy</a> <a href="/tags/告研究生新生-研究生导师书/" style="font-size: 13px; color: #90f">告研究生新生/研究生导师书</a> <a href="/tags/Child’s-Play/" style="font-size: 13px; color: #90f">Child’s Play</a> <a href="/tags/论文-续/" style="font-size: 13px; color: #90f">论文-续</a> <a href="/tags/简历/" style="font-size: 13px; color: #90f">简历</a> <a href="/tags/祖国母亲七十周年/" style="font-size: 13px; color: #90f">祖国母亲七十周年</a> <a href="/tags/数据集/" style="font-size: 13px; color: #90f">数据集</a> <a href="/tags/数据结构/" style="font-size: 13px; color: #90f">数据结构</a> <a href="/tags/学术网站/" style="font-size: 13px; color: #90f">学术网站</a> <a href="/tags/贪吃蛇/" style="font-size: 13px; color: #90f">贪吃蛇</a> <a href="/tags/C/" style="font-size: 13px; color: #90f">C++</a>
+    </div>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">28</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">24</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Anaconda/">
+                        <span class="tag">Anaconda</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/C/">
+                        <span class="tag">C++</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Child’s-Play/">
+                        <span class="tag">Child’s Play</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Git常用操作/">
+                        <span class="tag">Git常用操作</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Numpy/">
+                        <span class="tag">Numpy</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Simple-Game/">
+                        <span class="tag">Simple Game</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cython/">
+                        <span class="tag">cython</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/matplotlib/">
+                        <span class="tag">matplotlib</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/python常用代码/">
+                        <span class="tag">python常用代码</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/python常用包/">
+                        <span class="tag">python常用包</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/tensorflow/">
+                        <span class="tag">tensorflow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/云栖大会/">
+                        <span class="tag">云栖大会</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/内网穿透工具/">
+                        <span class="tag">内网穿透工具</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/可视化/">
+                        <span class="tag">可视化</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/告研究生新生-研究生导师书/">
+                        <span class="tag">告研究生新生/研究生导师书</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/周志华论文/">
+                        <span class="tag">周志华论文</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/学习资料/">
+                        <span class="tag">学习资料</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/学术网站/">
+                        <span class="tag">学术网站</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/小工具/">
+                        <span class="tag">小工具</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/开源协议/">
+                        <span class="tag">开源协议</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/抠图/">
+                        <span class="tag">抠图</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/排序/">
+                        <span class="tag">排序</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数学基础/">
+                        <span class="tag">数学基础</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据结构/">
+                        <span class="tag">数据结构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据集/">
+                        <span class="tag">数据集</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据集-推荐系统/">
+                        <span class="tag">数据集-推荐系统</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/机器学习/">
+                        <span class="tag">机器学习</span>
+                        <span class="tag is-grey">8</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/概率分布/">
+                        <span class="tag">概率分布</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/河南理工大学110周年/">
+                        <span class="tag">河南理工大学110周年</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/深度学习/">
+                        <span class="tag">深度学习</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/爱5分析/">
+                        <span class="tag">爱5分析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/生命游戏/">
+                        <span class="tag">生命游戏</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/电子书网站/">
+                        <span class="tag">电子书网站</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/祖国母亲七十周年/">
+                        <span class="tag">祖国母亲七十周年</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/简历/">
+                        <span class="tag">简历</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/简历制作/">
+                        <span class="tag">简历制作</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/论文/">
+                        <span class="tag">论文</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/论文-续/">
+                        <span class="tag">论文-续</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/论文翻译/">
+                        <span class="tag">论文翻译</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/贪吃蛇/">
+                        <span class="tag">贪吃蛇</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/迷宫/">
+                        <span class="tag">迷宫</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/镜像/">
+                        <span class="tag">镜像</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/验证码识别/">
+                        <span class="tag">验证码识别</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="当你的贪吃蛇吃满屏幕后..." height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 王荣胜&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+	
+<center>
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+            <script>
+                var now = new Date(); 
+                function createtime() { 
+                    var grt= new Date("9/10/2019 12:49:00");//此处修改你的建站时间或者网站上线时间 
+                    now.setTime(now.getTime()+250); 
+                    days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+                    hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+                    if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+                    mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+                    seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+                    snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+                    document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+                    document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+                } 
+            setInterval("createtime()",250);
+            </script>
+			</br>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+</center>	
+
+
+<center>
+</span> 
+ <ul> 
+ <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="330" height="auto"> 
+ <param name="wmode" value="transparent" /> 
+ <param name="movie" value="https://limh.me/content/templates/colorful/images/flash.swf"> 
+ <param name="quality" value="high"> 
+ <embed src="https://limh.me/content/templates/colorful/images/flash.swf" quality="high" pluginspage="https://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="340" height="140" wmode="Transparent"></embed> 
+</object> </ul> 
+</center>
+
+<aside id="php_text-8" class="widget php_text wow fadeInUp" data-wow-delay="0.3s"><div class="textwidget widget-text"><style type="text/css">#container-box-1{color:#526372;text-transform:uppercase;width:100%;font-size:16px;line-height:50px;text-align:center}#flip-box-1{overflow:hidden;height:50px}#flip-box-1 div{height:50px}#flip-box-1>div>div{color:#fff;display:inline-block;text-align:center;height:50px;width:100%}#flip-box-1 div:first-child{animation:show 8s linear infinite}.flip-box-1-1{background-color:#FF7E40}.flip-box-1-2{background-color:#C166FF}.flip-box-1-3{background-color:#737373}.flip-box-1-4{background-color:#4ec7f3}.flip-box-1-5{background-color:#42c58a}.flip-box-1-6{background-color:#F1617D}@keyframes show{0%{margin-top:-300px}5%{margin-top:-250px}16.666%{margin-top:-250px}21.666%{margin-top:-200px}33.332%{margin-top:-200px}38.332%{margin-top:-150px}49.998%{margin-top:-150px}54.998%{margin-top:-100px}66.664%{margin-top:-100px}71.664%{margin-top:-50px}83.33%{margin-top:-50px}88.33%{margin-top:0px}99.996%{margin-top:0px}100%{margin-top:300px}}</style><div id="container-box-1"><div class="container-box-1-1">坚持每天来逛逛，会让你</div><div id="flip-box-1"><div><div class="flip-box-1-1">工作也轻松了！</div></div><div><div class="flip-box-1-2">生活也美好了！</div></div><div><div class="flip-box-1-3">心情也舒畅了！</div></div><div><div class="flip-box-1-4">走路也有劲了！</div></div><div><div class="flip-box-1-5">腿也不痛了！</div></div><div><div class="flip-box-1-6">腰也不酸了！</div></div><div><div class="flip-box-1-1">工作也轻松了！</div></div></div><div class="container-box-1-2">你好我也好，不要忘记哦！</div></div></div><div class="clear"></div></aside>
+	
+	
+
+	
+	
+	
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ch");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'true'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+	
+	
+
+	
+</body>
+</html>
