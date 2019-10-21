@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-10-21T05:22:41.736Z</updated>
+  <updated>2019-10-21T12:10:28.584Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>b站爱5预告片评论简单分析</title>
+    <link href="http://yoursite.com/2019/10/21/b%E7%AB%99%E7%88%B15%E9%A2%84%E5%91%8A%E7%89%87%E8%AF%84%E8%AE%BA%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90/"/>
+    <id>http://yoursite.com/2019/10/21/b站爱5预告片评论简单分析/</id>
+    <published>2019-10-21T11:59:45.000Z</published>
+    <updated>2019-10-21T12:10:28.584Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-数据爬取"><a href="#1-数据爬取" class="headerlink" title="1.数据爬取"></a>1.数据爬取</h2><p>借用cid</p><a id="more"></a><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd </span><br><span class="line"><span class="hljs-keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">"http://comment.bilibili.com/123519261.xml"</span></span><br><span class="line">html = requests.get(url)</span><br><span class="line">html.encoding = <span class="hljs-string">"utf8"</span></span><br><span class="line"></span><br><span class="line">soup = BeautifulSoup(html.text, <span class="hljs-string">"lxml"</span>)</span><br><span class="line">results = soup.find_all(<span class="hljs-string">"d"</span>)</span><br><span class="line"></span><br><span class="line">comments = [comment.text <span class="hljs-keyword">for</span> comment <span class="hljs-keyword">in</span> results]</span><br><span class="line">comments_dict = &#123;<span class="hljs-string">"comments"</span>: comments&#125;</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(comments_dict)</span><br><span class="line">df.to_csv(<span class="hljs-string">"bilibili_data.csv"</span>, encoding=<span class="hljs-string">"utf-8-sig"</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="hljs-string">"爬取完成！"</span>)</span><br></pre></td></tr></table></figure><h2 id="2-数据分析"><a href="#2-数据分析" class="headerlink" title="2.数据分析"></a>2.数据分析</h2><h3 id="2-1数据查看"><a href="#2-1数据查看" class="headerlink" title="2.1数据查看"></a>2.1数据查看</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">data = pd.read_csv(<span class="hljs-string">"bilibili_data.csv"</span>)</span><br><span class="line"><span class="hljs-keyword">del</span>(data[<span class="hljs-string">"Unnamed: 0"</span>])</span><br><span class="line">data.head(<span class="hljs-number">5</span>)</span><br></pre></td></tr></table></figure><div><style scoped>    .dataframe tbody tr th:only-of-type {        vertical-align: middle;    }<pre><code>.dataframe tbody tr th {    vertical-align: top;}.dataframe thead th {    text-align: right;}</code></pre><p></style><p></p><table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th></th>      <th>comments</th>    </tr>  </thead>  <tbody>    <tr>      <td>0</td>      <td>啊啊啊啊啊啊啊</td>    </tr>    <tr>      <td>1</td>      <td>高三</td>    </tr>    <tr>      <td>2</td>      <td>高二加1</td>    </tr>    <tr>      <td>3</td>      <td>可惜了关谷，，悠悠</td>    </tr>    <tr>      <td>4</td>      <td>没多少戏应该是请不起了</td>    </tr>  </tbody></table></div><h3 id="2-2怀念度（年龄）分析"><a href="#2-2怀念度（年龄）分析" class="headerlink" title="2.2怀念度（年龄）分析"></a>2.2怀念度（年龄）分析</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">dayicount = <span class="hljs-number">0</span></span><br><span class="line">daercount = <span class="hljs-number">0</span></span><br><span class="line">dasancount = <span class="hljs-number">0</span></span><br><span class="line">gaoyicount = <span class="hljs-number">0</span></span><br><span class="line">gaoercount = <span class="hljs-number">0</span></span><br><span class="line">gaosancount = <span class="hljs-number">0</span></span><br><span class="line">xiaoxuecount = <span class="hljs-number">0</span></span><br><span class="line">chuzhongcount = <span class="hljs-number">0</span></span><br><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(data)):</span><br><span class="line">    <span class="hljs-keyword">if</span> <span class="hljs-string">"大一"</span> <span class="hljs-keyword">in</span> data[<span class="hljs-string">"comments"</span>][i]:</span><br><span class="line">        dayicount += <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">elif</span> <span class="hljs-string">"大二"</span> <span class="hljs-keyword">in</span> data[<span class="hljs-string">"comments"</span>][i]:</span><br><span class="line">        daercount += <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">elif</span> <span class="hljs-string">"大三"</span> <span class="hljs-keyword">in</span> data[<span class="hljs-string">"comments"</span>][i]:</span><br><span class="line">        dasancount += <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">elif</span> <span class="hljs-string">"高一"</span> <span class="hljs-keyword">in</span> data[<span class="hljs-string">"comments"</span>][i]:</span><br><span class="line">        gaoyicount += <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">elif</span> <span class="hljs-string">"高二"</span> <span class="hljs-keyword">in</span> data[<span class="hljs-string">"comments"</span>][i]:</span><br><span class="line">        gaoercount += <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">elif</span> <span class="hljs-string">"高三"</span> <span class="hljs-keyword">in</span> data[<span class="hljs-string">"comments"</span>][i]:</span><br><span class="line">        gaosancount += <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">elif</span> <span class="hljs-string">"小学"</span> <span class="hljs-keyword">in</span> data[<span class="hljs-string">"comments"</span>][i]:</span><br><span class="line">        xiaoxuecount += <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">elif</span> <span class="hljs-string">"初中"</span> <span class="hljs-keyword">in</span> data[<span class="hljs-string">"comments"</span>][i]:</span><br><span class="line">        chuzhongcount += <span class="hljs-number">1</span></span><br><span class="line">print(<span class="hljs-string">"大一："</span>,dayicount)</span><br><span class="line">print(<span class="hljs-string">"大二："</span>,daercount)</span><br><span class="line">print(<span class="hljs-string">"大三："</span>,dasancount)</span><br><span class="line">print(<span class="hljs-string">"高一："</span>,gaoyicount)</span><br><span class="line">print(<span class="hljs-string">"高二："</span>,gaoercount)</span><br><span class="line">print(<span class="hljs-string">"高三："</span>,gaosancount)</span><br><span class="line">print(<span class="hljs-string">"小学："</span>,xiaoxuecount)</span><br><span class="line">print(<span class="hljs-string">"初中："</span>,chuzhongcount)</span><br></pre></td></tr></table></figure><pre><code>大一： 60大二： 34大三： 19高一： 72高二： 59高三： 70小学： 5初中： 2</code></pre><p>1000条弹幕就有这么多怀念青春的人  哈哈哈</p><h2 id="3-源文件下载"><a href="#3-源文件下载" class="headerlink" title="3.源文件下载"></a>3.源文件下载</h2><p><a href="http://pan.sqdxwz.com/?/python/爱5分析/" target="_blank" rel="noopener">oneindex下载</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-数据爬取&quot;&gt;&lt;a href=&quot;#1-数据爬取&quot; class=&quot;headerlink&quot; title=&quot;1.数据爬取&quot;&gt;&lt;/a&gt;1.数据爬取&lt;/h2&gt;&lt;p&gt;借用cid&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+    
+      <category term="爱5分析" scheme="http://yoursite.com/tags/%E7%88%B15%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
   
   <entry>
     <title>排序动画演示</title>
@@ -479,29 +502,6 @@
     
     
       <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>电子类书籍搜索网站</title>
-    <link href="http://yoursite.com/2019/10/04/%E7%94%B5%E5%AD%90%E7%B1%BB%E4%B9%A6%E7%B1%8D%E6%90%9C%E7%B4%A2%E7%BD%91%E7%AB%99/"/>
-    <id>http://yoursite.com/2019/10/04/电子类书籍搜索网站/</id>
-    <published>2019-10-04T13:21:49.000Z</published>
-    <updated>2019-10-04T13:31:04.160Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="「万千合集站」"><a href="#「万千合集站」" class="headerlink" title="「万千合集站」"></a>「万千合集站」</h1><p>万千合集站融合了大学、考研等各种教科书的网盘下载链接，种类非常齐全。</p><a id="more"></a><p>当然，网站为了盈利，广告可能多些，但资源确实很全，而且提供百度网盘链接也是方便无比。</p><p>打开网站，比如搜索高等数学，搜到的版本很全，且可按热度、大小等排序，网站应该涉及到文理工科各个领域的教科书、课后答案等PDF的资料文档。</p><h1 id="「脚本之家」"><a href="#「脚本之家」" class="headerlink" title="「脚本之家」"></a>「脚本之家」</h1><p>脚本之家这个网站资源很全，分享代码、脚本和编程类书籍，编程类的pdf书籍资源确实很全，注意的就是下载的时候不要去点上面的高速下载，这应该都是常识了。</p><h1 id="「鸠摩搜书」"><a href="#「鸠摩搜书」" class="headerlink" title="「鸠摩搜书」"></a>「鸠摩搜书」</h1><p>十分有名的一个网站，不管是专业还是娱乐类书籍都能搜到，搜到的多是百度网盘或者微盘链接。</p><h1 id="「智奇搜书」"><a href="#「智奇搜书」" class="headerlink" title="「智奇搜书」"></a>「智奇搜书」</h1><p>智奇搜书和鸠摩搜书类似，也是一个电子书搜索引擎，资源搜索也是比较齐全好用。</p><h1 id="「PDF之家」"><a href="#「PDF之家」" class="headerlink" title="「PDF之家」"></a>「PDF之家」</h1><p>PDF之家分享的书籍也是很多，门类很多，也有教科书，比如计算机类的。</p><h1 id="「itbook」"><a href="#「itbook」" class="headerlink" title="「itbook」"></a>「itbook」</h1><p>itbook是一个免费下载编程类电子书的网站，涵盖了很多中英文的电子书籍，每天限制下载五本，书籍介绍页面有资源解压密码，不过看这些书名也算是淘书的一部分了。</p><h1 id="「Library-Genesis」"><a href="#「Library-Genesis」" class="headerlink" title="「Library Genesis」"></a>「Library Genesis」</h1><p>国外知名电子书下载站，界面相对比较专业了，从网站栏目上看主要分书籍、文献、杂志等，当然大部分都是外文的，且全部免费。</p><h1 id="「BookZZ」"><a href="#「BookZZ」" class="headerlink" title="「BookZZ」"></a>「BookZZ」</h1><p>如下网站，也是整洁的一个界面，直接输入想要搜索的即可，号称200多万书籍和5000多万论文也不是吹的，提供免费下载。</p><h1 id="「Online-Books」"><a href="#「Online-Books」" class="headerlink" title="「Online Books」"></a>「Online Books」</h1><p>依然国外站，称免费提供300万本电子书。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;「万千合集站」&quot;&gt;&lt;a href=&quot;#「万千合集站」&quot; class=&quot;headerlink&quot; title=&quot;「万千合集站」&quot;&gt;&lt;/a&gt;「万千合集站」&lt;/h1&gt;&lt;p&gt;万千合集站融合了大学、考研等各种教科书的网盘下载链接，种类非常齐全。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="杂谈" scheme="http://yoursite.com/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-      <category term="电子书网站" scheme="http://yoursite.com/tags/%E7%94%B5%E5%AD%90%E4%B9%A6%E7%BD%91%E7%AB%99/"/>
     
   </entry>
   
