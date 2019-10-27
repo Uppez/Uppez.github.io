@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-10-27T10:11:05.670Z</updated>
+  <updated>2019-10-27T23:57:00.115Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于显卡</title>
+    <link href="http://yoursite.com/2019/10/28/%E5%85%B3%E4%BA%8E%E6%98%BE%E5%8D%A1/"/>
+    <id>http://yoursite.com/2019/10/28/关于显卡/</id>
+    <published>2019-10-27T23:07:50.000Z</published>
+    <updated>2019-10-27T23:57:00.115Z</updated>
+    
+    <content type="html"><![CDATA[<p>为了便于理解，全文形象化介绍。</p><a id="more"></a><p>首先，<strong>显卡是电脑上绘制图像的东西</strong>，我们所看到的图像都是显卡<strong>一张一张</strong>“画”出来的，然后通过高速连续的播放，形成了我们看到的连贯图像。</p><h2 id="显卡性能的关键参数"><a href="#显卡性能的关键参数" class="headerlink" title="显卡性能的关键参数"></a>显卡性能的关键参数</h2><p>（1）流处理器数量（CUDA核心）</p><p>可以理解为人类世界的“画师”。比如：</p><p><a href="https://sm.ms/image/pKGzfNXTUmrRwkj" target="_blank"><img src="https://i.loli.net/2019/10/28/pKGzfNXTUmrRwkj.png"></a></p><p>我们可以看到流处理器单元为1536units，相当于这个显卡为1536个“画师”。</p><p>此时我们可以知道，“画师”数量越多，画画的速度也就越快，也就是我们所说的游戏帧数高。</p><p>由此，显卡的性能优劣就可以对比出来，但是仅仅是比“画师”的数量是不够的，还要看画画的水平。</p><p>（2）显卡的架构</p><p>比如：老的麦克斯架构的GTX960显卡，与同级别但是采用帕斯卡架构的显卡中，后者是比前者性能要好的，由此我们看到，新架构的显卡的效率更高，性能更强。</p><p>我们平时利用显卡来跑深度学习程序的时候，对显卡架构来说并不用很关心，大部分关于显卡架构的工作，我们的CUDA库和所使用的深度学习库都帮我们处理了，我们平时用的GTX 1080ti、GTX 1080以及所有10系列的显卡，使用的是 <strong>Pascal 架构</strong> ，而最新出来的RTX 2080、RTX 2080ti则使用的是<strong>Turning(图灵架构)</strong> ，而之前的服务器级别显卡P100则使用的是<strong>Volta架构</strong> 。</p><p><strong>流处理器和架构是最影响显卡性能的参数。</strong></p><p>（3）显卡的核心频率</p><p>这里我们可以理解为“画师”的画画速度。</p><p>在相同的流处理器和架构情况下，显卡的核心频率越高，显卡的性能也就越好。</p><p>但是我们也可以通过<strong>显卡超频（Over Clock，OC）</strong> ，也就是压榨“画师”多多来工作，去强行提升这个频率，但是要记住，<strong>超频有风险</strong>，折腾需谨慎。</p><p>（4）显存容量/位宽/频率</p><p>我们可以理解为“画师”做好了画，是需要空间<strong>存贮这些画</strong> 的。</p><ul><li><p>显存位宽：表示小车将画从“画师”那里运送到仓库的数据大小，一般为128-bit或者64-bit。</p></li><li><p>显存频率：表示小车每秒能运输多少次。</p></li><li><p>显存容量：表示仓库的大小。</p></li></ul><p><a href="https://sm.ms/image/vFH7p1wlbUG3yNk" target="_blank"><img src="https://i.loli.net/2019/10/28/vFH7p1wlbUG3yNk.png"></a></p><h2 id="公版显卡与非公版显卡"><a href="#公版显卡与非公版显卡" class="headerlink" title="公版显卡与非公版显卡"></a>公版显卡与非公版显卡</h2><ul><li><p>公版显卡：显卡研发厂家（英伟达或者AMD）官方出售的显卡，以稳定著称。</p></li><li><p>非公版显卡：各大品牌厂家购买官方的显卡芯片后进行自己组装拼凑出来的显卡。</p></li></ul><p>常见情况下我们所使用和购买的显卡都为非公版显卡。</p><h2 id="N卡-A卡-买哪个？"><a href="#N卡-A卡-买哪个？" class="headerlink" title="N卡/A卡/买哪个？"></a>N卡/A卡/买哪个？</h2><ul><li><p>N卡是英伟达芯片的显卡。</p></li><li><p>A卡是AMD芯片的显卡。</p></li></ul><p>如今N卡与A卡在游戏上的区别并不是很大，但是很多游戏的话对N卡的优化比较好，所以<strong>买就买N卡</strong>吧。</p><p>下面给出一个显卡性能的天梯图（来自2019年）：</p><p><a href="https://sm.ms/image/9Kfkbr7NesaO3Gv" target="_blank"><img src="https://i.loli.net/2019/10/28/9Kfkbr7NesaO3Gv.jpg"></a></p><p>最后推荐购买高性能显卡中的<strong>RTX 2080ti、2080</strong> （价格在1w左右），图灵架构，拥有深度学习超采样技术和光线追踪两大黑科技。</p><p>但是相比之下，华硕ROG GTX1060 6GB猛禽、华硕 GTX1060 6G雪豹、索泰 GTX1060 6G至尊更适合我们这种低端玩家（俗称穷鬼），其性价比是不错的。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;为了便于理解，全文形象化介绍。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="杂谈" scheme="http://yoursite.com/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+      <category term="显卡" scheme="http://yoursite.com/tags/%E6%98%BE%E5%8D%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>学生信息管理系统（python语言）</title>
@@ -476,29 +499,6 @@
     
     
       <category term="论文-续" scheme="http://yoursite.com/tags/%E8%AE%BA%E6%96%87-%E7%BB%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用中文方式打开英文论文</title>
-    <link href="http://yoursite.com/2019/10/08/%E7%94%A8%E4%B8%AD%E6%96%87%E6%96%B9%E5%BC%8F%E6%89%93%E5%BC%80%E8%8B%B1%E6%96%87%E8%AE%BA%E6%96%87/"/>
-    <id>http://yoursite.com/2019/10/08/用中文方式打开英文论文/</id>
-    <published>2019-10-08T09:51:05.000Z</published>
-    <updated>2019-10-09T10:20:10.574Z</updated>
-    
-    <content type="html"><![CDATA[<p>阅读论文最头疼的事情就是满屏的英文使我们恐惧到要死，那么有没有什么解决方案呢？</p><a id="more"></a><h1 id="查找到翻译好的论文"><a href="#查找到翻译好的论文" class="headerlink" title="查找到翻译好的论文"></a>查找到翻译好的论文</h1><ol><li><p>通天塔：<a href="http://tongtianta.site/" target="_blank" rel="noopener">http://tongtianta.site/</a></p></li><li><p>百度查找: <a href="https://www.baidu.com" target="_blank" rel="noopener">https://www.baidu.com</a></p></li></ol><h1 id="自己进行论文的翻译"><a href="#自己进行论文的翻译" class="headerlink" title="自己进行论文的翻译"></a>自己进行论文的翻译</h1><ol><li><p>使用微软的word文档自带的全文翻译，使用方法请看：<a href="https://www.zhihu.com/question/20218881" target="_blank" rel="noopener">https://www.zhihu.com/question/20218881</a></p></li><li><p>MedSci翻译：<a href="http://www.medsci.cn/sci/translation.do" target="_blank" rel="noopener">http://www.medsci.cn/sci/translation.do</a></p></li><li><p>google翻译：<a href="https://translate.google.com/" target="_blank" rel="noopener">https://translate.google.com/</a></p></li><li><p>百度翻译：<a href="https://fanyi.baidu.com/" target="_blank" rel="noopener">https://fanyi.baidu.com/</a></p></li><li><p>翻译助手(专业词汇翻译)：<a href="http://dict.cnki.net/" target="_blank" rel="noopener">http://dict.cnki.net/</a></p></li></ol><h1 id="翻译软件"><a href="#翻译软件" class="headerlink" title="翻译软件"></a>翻译软件</h1><ol><li><p>网易有道翻译：<a href="http://cidian.youdao.com/" target="_blank" rel="noopener">http://cidian.youdao.com/</a></p></li><li><p>SCI Translate：<a href="https://www.sogou.com/sogou?ie=utf8&amp;query=SCI+Translate5.0&amp;pid=A83,z-7707" target="_blank" rel="noopener">https://www.sogou.com/sogou?ie=utf8&amp;query=SCI+Translate5.0&amp;pid=A83,z-7707</a></p></li></ol><h1 id="其他翻译方式"><a href="#其他翻译方式" class="headerlink" title="其他翻译方式"></a>其他翻译方式</h1><p>寻找专业的大型翻译平台，<strong>付款</strong>，<strong>人工翻译</strong>，准确，内容精确，但<strong>价格昂贵</strong>。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;阅读论文最头疼的事情就是满屏的英文使我们恐惧到要死，那么有没有什么解决方案呢？&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="杂谈" scheme="http://yoursite.com/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-      <category term="论文翻译" scheme="http://yoursite.com/tags/%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/"/>
     
   </entry>
   
