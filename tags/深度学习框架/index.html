@@ -18,23 +18,18 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>b站爱5预告片评论简单分析 - 教书的先生</title>
+<title>标签: 深度学习框架 - 教书的先生</title>
 
 
-    <meta name="description" content="1.数据爬取借用cid">
-<meta name="keywords" content="爱5分析">
-<meta property="og:type" content="article">
-<meta property="og:title" content="b站爱5预告片评论简单分析">
-<meta property="og:url" content="http://yoursite.com/2019/10/21/b站爱5预告片评论简单分析/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="教书的先生">
+<meta property="og:url" content="http://yoursite.com/tags/深度学习框架/index.html">
 <meta property="og:site_name" content="教书的先生">
-<meta property="og:description" content="1.数据爬取借用cid">
 <meta property="og:locale" content="ch">
-<meta property="og:image" content="https://i.loli.net/2019/10/21/FwrUB1yx9i4zYdo.png">
-<meta property="og:updated_time" content="2019-10-21T12:10:28.584Z">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="b站爱5预告片评论简单分析">
-<meta name="twitter:description" content="1.数据爬取借用cid">
-<meta name="twitter:image" content="https://i.loli.net/2019/10/21/FwrUB1yx9i4zYdo.png">
+<meta name="twitter:title" content="教书的先生">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
 
 
@@ -112,7 +107,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="b站爱5预告片评论简单分析" height="28">
+                <img src="/images/logo.svg" alt="教书的先生" height="28">
             
             </a>
         </div>
@@ -181,28 +176,39 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">标签</a></li>
+            <li class="is-active"><a href="#" aria-current="page">深度学习框架</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    <div class="card">
     
     <div class="card-image">
-        <span  class="image is-7by1">
-            <img class="thumbnail" src="https://i.loli.net/2019/10/21/FwrUB1yx9i4zYdo.png" alt="b站爱5预告片评论简单分析">
-        </span>
+        <a href="/2019/10/27/pytorch与tensorflow两大框架对比/" class="image is-7by1">
+            <img class="thumbnail" src="https://s2.ax1x.com/2019/10/27/Ks7md0.png" alt="pytorch与tensorflow两大框架对比">
+        </a>
     </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-10-21T11:59:45.000Z">2019-10-21</time>
+                <time class="level-item has-text-grey" datetime="2019-10-27T08:35:59.000Z">2019-10-27</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Python/">Python</a>
+                <a class="has-link-grey -link" href="/categories/AI/">AI</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes 读完 (大约 339 个字)
+                    18 minutes 读完 (大约 2746 个字)
                 </span>
                 
                 
@@ -211,162 +217,33 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                b站爱5预告片评论简单分析
+                <a class="has-link-black-ter" href="/2019/10/27/pytorch与tensorflow两大框架对比/">pytorch与tensorflow两大框架对比</a>
             
         </h1>
         <div class="content">
-            <h2 id="1-数据爬取"><a href="#1-数据爬取" class="headerlink" title="1.数据爬取"></a>1.数据爬取</h2><p>借用cid</p>
-<a id="more"></a>
-
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd </span><br><span class="line"><span class="hljs-keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">"http://comment.bilibili.com/123519261.xml"</span></span><br><span class="line">html = requests.get(url)</span><br><span class="line">html.encoding = <span class="hljs-string">"utf8"</span></span><br><span class="line"></span><br><span class="line">soup = BeautifulSoup(html.text, <span class="hljs-string">"lxml"</span>)</span><br><span class="line">results = soup.find_all(<span class="hljs-string">"d"</span>)</span><br><span class="line"></span><br><span class="line">comments = [comment.text <span class="hljs-keyword">for</span> comment <span class="hljs-keyword">in</span> results]</span><br><span class="line">comments_dict = &#123;<span class="hljs-string">"comments"</span>: comments&#125;</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(comments_dict)</span><br><span class="line">df.to_csv(<span class="hljs-string">"bilibili_data.csv"</span>, encoding=<span class="hljs-string">"utf-8-sig"</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="hljs-string">"爬取完成！"</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-数据分析"><a href="#2-数据分析" class="headerlink" title="2.数据分析"></a>2.数据分析</h2><h3 id="2-1数据查看"><a href="#2-1数据查看" class="headerlink" title="2.1数据查看"></a>2.1数据查看</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">data = pd.read_csv(<span class="hljs-string">"bilibili_data.csv"</span>)</span><br><span class="line"><span class="hljs-keyword">del</span>(data[<span class="hljs-string">"Unnamed: 0"</span>])</span><br><span class="line">data.head(<span class="hljs-number">5</span>)</span><br></pre></td></tr></table></figure>
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th {
-    vertical-align: top;
-}
-
-.dataframe thead th {
-    text-align: right;
-}</code></pre><p></style><p></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>comments</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>啊啊啊啊啊啊啊</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>高三</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>高二加1</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>可惜了关谷，，悠悠</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>没多少戏应该是请不起了</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-<h3 id="2-2怀念度（年龄）分析"><a href="#2-2怀念度（年龄）分析" class="headerlink" title="2.2怀念度（年龄）分析"></a>2.2怀念度（年龄）分析</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">dayicount = <span class="hljs-number">0</span></span><br><span class="line">daercount = <span class="hljs-number">0</span></span><br><span class="line">dasancount = <span class="hljs-number">0</span></span><br><span class="line">gaoyicount = <span class="hljs-number">0</span></span><br><span class="line">gaoercount = <span class="hljs-number">0</span></span><br><span class="line">gaosancount = <span class="hljs-number">0</span></span><br><span class="line">xiaoxuecount = <span class="hljs-number">0</span></span><br><span class="line">chuzhongcount = <span class="hljs-number">0</span></span><br><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(data)):</span><br><span class="line">    <span class="hljs-keyword">if</span> <span class="hljs-string">"大一"</span> <span class="hljs-keyword">in</span> data[<span class="hljs-string">"comments"</span>][i]:</span><br><span class="line">        dayicount += <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">elif</span> <span class="hljs-string">"大二"</span> <span class="hljs-keyword">in</span> data[<span class="hljs-string">"comments"</span>][i]:</span><br><span class="line">        daercount += <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">elif</span> <span class="hljs-string">"大三"</span> <span class="hljs-keyword">in</span> data[<span class="hljs-string">"comments"</span>][i]:</span><br><span class="line">        dasancount += <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">elif</span> <span class="hljs-string">"高一"</span> <span class="hljs-keyword">in</span> data[<span class="hljs-string">"comments"</span>][i]:</span><br><span class="line">        gaoyicount += <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">elif</span> <span class="hljs-string">"高二"</span> <span class="hljs-keyword">in</span> data[<span class="hljs-string">"comments"</span>][i]:</span><br><span class="line">        gaoercount += <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">elif</span> <span class="hljs-string">"高三"</span> <span class="hljs-keyword">in</span> data[<span class="hljs-string">"comments"</span>][i]:</span><br><span class="line">        gaosancount += <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">elif</span> <span class="hljs-string">"小学"</span> <span class="hljs-keyword">in</span> data[<span class="hljs-string">"comments"</span>][i]:</span><br><span class="line">        xiaoxuecount += <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">elif</span> <span class="hljs-string">"初中"</span> <span class="hljs-keyword">in</span> data[<span class="hljs-string">"comments"</span>][i]:</span><br><span class="line">        chuzhongcount += <span class="hljs-number">1</span></span><br><span class="line">print(<span class="hljs-string">"大一："</span>,dayicount)</span><br><span class="line">print(<span class="hljs-string">"大二："</span>,daercount)</span><br><span class="line">print(<span class="hljs-string">"大三："</span>,dasancount)</span><br><span class="line">print(<span class="hljs-string">"高一："</span>,gaoyicount)</span><br><span class="line">print(<span class="hljs-string">"高二："</span>,gaoercount)</span><br><span class="line">print(<span class="hljs-string">"高三："</span>,gaosancount)</span><br><span class="line">print(<span class="hljs-string">"小学："</span>,xiaoxuecount)</span><br><span class="line">print(<span class="hljs-string">"初中："</span>,chuzhongcount)</span><br></pre></td></tr></table></figure>
-
-<pre><code>大一： 60
-大二： 34
-大三： 19
-高一： 72
-高二： 59
-高三： 70
-小学： 5
-初中： 2</code></pre><p>1000条弹幕就有这么多怀念青春的人  哈哈哈</p>
-<h2 id="3-源文件下载"><a href="#3-源文件下载" class="headerlink" title="3.源文件下载"></a>3.源文件下载</h2><p><a href="http://pan.sqdxwz.com/?/python/爱5分析/" target="_blank" rel="noopener">oneindex下载</a></p>
-
+            <p>如果你在读这篇文章，那么你可能已经开始了自己的深度学习之旅。如果你对这一领域还不是很熟悉，那么简单来说，深度学习使用了「人工神经网络」，这是一种类似大脑的特殊架构，这个领域的发展目标是开发出能解决真实世界问题的类人计算机。为了帮助开发这些架构，谷歌、Facebook 和 Uber 等科技巨头已经为 Python 深度学习环境发布了多款框架，这让人们可以更轻松地学习、构建和训练不同类型的神经网络。</p>
         </div>
         
-        <div class="level is-size-7 is-uppercase">
+        
+        <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/爱5分析/">爱5分析</a>
+                <a class="button is-size-7 is-light" href="/2019/10/27/pytorch与tensorflow两大框架对比/#more">阅读更多</a>
                 </div>
             </div>
         </div>
         
         
-        
-        <div class="social-share"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
-        
     </div>
 </div>
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
-        <div class="buttons is-centered">
-            
-                
-<a class="button is-info donate">
-    <span class="icon is-small">
-        <i class="fab fa-alipay"></i>
-    </span>
-    <span>支付宝</span>
-    <div class="qrcode"><img src="https://i.loli.net/2019/09/17/zitwDTMAfXQ2aoq.png" alt="支付宝"></div>
-</a>
-
-                
-        </div>
-    </div>
-</div>
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/10/21/当你的贪吃蛇吃满屏幕后/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">当你的贪吃蛇吃满屏幕后...</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/10/21/排序动画演示/">
-                <span class="level-item">排序动画演示</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
 
 
-
-<div class="card">
-    <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">评论</h3>
-        
-<div id="valine-thread" class="content"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-<script>
-    new Valine({
-        el: '#valine-thread' ,
-        notify: false,
-        verify: false,
-        app_id: '0dNioPuDCFsscn6y58dczYiy-gzGzoHsz',
-        app_key: 'jbyn5TRGmiiAsYjo7PFFzrYJ',
-        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!'
-    });
-</script>
-
-    </div>
-</div>
 </div>
                 
 
@@ -1825,7 +1702,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="b站爱5预告片评论简单分析" height="28">
+                    <img src="/images/logo.svg" alt="教书的先生" height="28">
                 
                 </a>
                 <p class="is-size-7">
