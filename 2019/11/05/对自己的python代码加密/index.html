@@ -30,7 +30,7 @@
 <meta property="og:description" content="由于 Python 的动态特性和开源特点，导致 Python 代码很难做到很好的加密。社区中的一些声音认为这样的限制是事实，应该通过法律手段而不是加密源码达到商业保护的目的；而还有一些声音则是不论如何都希望能有一种手段来加密。于是乎，人们想出了各种或加密、或混淆的方案，借此来达到保护源码的目的。">
 <meta property="og:locale" content="ch">
 <meta property="og:image" content="https://i.loli.net/2019/11/05/VHfgm1YKIMF64nv.png">
-<meta property="og:updated_time" content="2019-11-05T14:21:46.034Z">
+<meta property="og:updated_time" content="2019-11-08T13:14:18.472Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对自己的python代码加密">
 <meta name="twitter:description" content="由于 Python 的动态特性和开源特点，导致 Python 代码很难做到很好的加密。社区中的一些声音认为这样的限制是事实，应该通过法律手段而不是加密源码达到商业保护的目的；而还有一些声音则是不论如何都希望能有一种手段来加密。于是乎，人们想出了各种或加密、或混淆的方案，借此来达到保护源码的目的。">
@@ -238,7 +238,7 @@
 <figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uncompyle6 -o . 文件名</span><br></pre></td></tr></table></figure>
 
 <p><strong>批量解密.pyc文件</strong>：</p>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># encoding=utf8</span><br><span class="line">import os</span><br><span class="line">import uncompyle6</span><br><span class="line">from uncompyle6 import decompile_file</span><br><span class="line">def main():</span><br><span class="line">    path = 'C:\filename'.decode('utf8')        # Windows下</span><br><span class="line">    for root, dirs, files in os.walk(path):</span><br><span class="line">        if root != path:</span><br><span class="line">            break</span><br><span class="line">        for filename in files:</span><br><span class="line">            if filename.endswith('pyc'):</span><br><span class="line">                print filename</span><br><span class="line">                os.system('uncompyle6 -o . %s'%filename)</span><br><span class="line">    </span><br><span class="line">if __name__ == '__main__':</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># encoding=utf8</span></span><br><span class="line"><span class="hljs-keyword">import</span> os</span><br><span class="line"><span class="hljs-keyword">import</span> uncompyle6</span><br><span class="line"><span class="hljs-keyword">from</span> uncompyle6 <span class="hljs-keyword">import</span> decompile_file</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    path = <span class="hljs-string">'C:\filename'</span>.decode(<span class="hljs-string">'utf8'</span>)        <span class="hljs-comment"># Windows下</span></span><br><span class="line">    <span class="hljs-keyword">for</span> root, dirs, files <span class="hljs-keyword">in</span> os.walk(path):</span><br><span class="line">        <span class="hljs-keyword">if</span> root != path:</span><br><span class="line">            <span class="hljs-keyword">break</span></span><br><span class="line">        <span class="hljs-keyword">for</span> filename <span class="hljs-keyword">in</span> files:</span><br><span class="line">            <span class="hljs-keyword">if</span> filename.endswith(<span class="hljs-string">'pyc'</span>):</span><br><span class="line">                <span class="hljs-keyword">print</span> filename</span><br><span class="line">                os.system(<span class="hljs-string">'uncompyle6 -o . %s'</span>%filename)</span><br><span class="line">    </span><br><span class="line"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
 
 <p>优点：</p>
 <ul>
@@ -367,6 +367,13 @@
 
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/11/08/算法刷题网站/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">算法刷题网站</span>
+            </a>
+        </div>
         
         
         <div class="level-end">
@@ -512,6 +519,44 @@
         
         <article class="media">
             
+            <a href="/2019/11/08/提取ipynb文件中的py代码/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://i.loli.net/2019/11/08/sDrwh2ALpomfMev.png" alt="提取ipynb文件中的py代码">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-08T13:07:53.000Z">2019-11-08</time></div>
+                    <a href="/2019/11/08/提取ipynb文件中的py代码/" class="title has-link-black-ter is-size-6 has-text-weight-normal">提取ipynb文件中的py代码</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Python/">Python</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/08/算法刷题网站/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://i.loli.net/2019/11/08/6XcvfNPQgwVA4lm.png" alt="算法刷题网站">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-08T12:42:15.000Z">2019-11-08</time></div>
+                    <a href="/2019/11/08/算法刷题网站/" class="title has-link-black-ter is-size-6 has-text-weight-normal">算法刷题网站</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/杂谈/">杂谈</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/11/05/对自己的python代码加密/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://i.loli.net/2019/11/05/VHfgm1YKIMF64nv.png" alt="对自己的python代码加密">
@@ -567,44 +612,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/11/02/手把手配置AI项目的环境-双系统/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://i.loli.net/2019/11/02/bhVSHjf8c3wEGBv.png" alt="手把手配置AI项目的环境(双系统)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-02T05:07:42.000Z">2019-11-02</time></div>
-                    <a href="/2019/11/02/手把手配置AI项目的环境-双系统/" class="title has-link-black-ter is-size-6 has-text-weight-normal">手把手配置AI项目的环境(双系统)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/杂谈/">杂谈</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/10/30/python自动导入缺失的库/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://i.loli.net/2019/10/30/yVghpIqUGz4mBAN.png" alt="python自动导入缺失的库">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-30T04:43:31.000Z">2019-10-30</time></div>
-                    <a href="/2019/10/30/python自动导入缺失的库/" class="title has-link-black-ter is-size-6 has-text-weight-normal">python自动导入缺失的库</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Python/">Python</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -648,7 +655,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        65
+                        67
                     </p>
                 </div>
             </div>
@@ -668,7 +675,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        56
+                        58
                     </p>
                 </div>
             </div>
@@ -753,7 +760,7 @@
                 <span class="level-item">Python</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">17</span>
+                <span class="level-item tag">18</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/内网穿透/">
@@ -785,7 +792,7 @@
                 <span class="level-item">杂谈</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">18</span>
+                <span class="level-item tag">19</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/死磕系列/">
@@ -843,7 +850,7 @@
   <div class="widget-wrap">
 
     <div class="widget tagcloud">
-      <a href="/tags/数据集-推荐系统/" style="font-size: 13px; color: #90f">数据集-推荐系统</a> <a href="/tags/1024快乐/" style="font-size: 13px; color: #90f">1024快乐</a> <a href="/tags/深度学习/" style="font-size: 19.67px; color: #d05">深度学习</a> <a href="/tags/学习资料/" style="font-size: 16.33px; color: #b0a">学习资料</a> <a href="/tags/Git常用操作/" style="font-size: 13px; color: #90f">Git常用操作</a> <a href="/tags/Jupyter拓展/" style="font-size: 13px; color: #90f">Jupyter拓展</a> <a href="/tags/爱5分析/" style="font-size: 13px; color: #90f">爱5分析</a> <a href="/tags/抠图/" style="font-size: 13px; color: #90f">抠图</a> <a href="/tags/python常用包/" style="font-size: 13px; color: #90f">python常用包</a> <a href="/tags/生命游戏/" style="font-size: 13px; color: #90f">生命游戏</a> <a href="/tags/迷宫/" style="font-size: 13px; color: #90f">迷宫</a> <a href="/tags/导库/" style="font-size: 13px; color: #90f">导库</a> <a href="/tags/pytorch/" style="font-size: 13px; color: #90f">pytorch</a> <a href="/tags/pytorch张量/" style="font-size: 13px; color: #90f">pytorch张量</a> <a href="/tags/Anaconda/" style="font-size: 13px; color: #90f">Anaconda</a> <a href="/tags/cython/" style="font-size: 13px; color: #90f">cython</a> <a href="/tags/matplotlib/" style="font-size: 13px; color: #90f">matplotlib</a> <a href="/tags/数学基础/" style="font-size: 13px; color: #90f">数学基础</a> <a href="/tags/显卡/" style="font-size: 13px; color: #90f">显卡</a> <a href="/tags/Simple-Game/" style="font-size: 13px; color: #90f">Simple Game</a> <a href="/tags/概率分布/" style="font-size: 13px; color: #90f">概率分布</a> <a href="/tags/周志华论文/" style="font-size: 13px; color: #90f">周志华论文</a> <a href="/tags/python常用代码/" style="font-size: 13px; color: #90f">python常用代码</a> <a href="/tags/内网穿透工具/" style="font-size: 13px; color: #90f">内网穿透工具</a> <a href="/tags/k-means算法/" style="font-size: 13px; color: #90f">k-means算法</a> <a href="/tags/开源协议/" style="font-size: 13px; color: #90f">开源协议</a> <a href="/tags/学生信息管理系统/" style="font-size: 13px; color: #90f">学生信息管理系统</a> <a href="/tags/小工具/" style="font-size: 13px; color: #90f">小工具</a> <a href="/tags/机器学习/" style="font-size: 23px; color: #f00">机器学习</a> <a href="/tags/双系统/" style="font-size: 13px; color: #90f">双系统</a> <a href="/tags/代码加密/" style="font-size: 13px; color: #90f">代码加密</a> <a href="/tags/河南理工大学110周年/" style="font-size: 13px; color: #90f">河南理工大学110周年</a> <a href="/tags/排序/" style="font-size: 13px; color: #90f">排序</a> <a href="/tags/论文翻译/" style="font-size: 13px; color: #90f">论文翻译</a> <a href="/tags/电子书网站/" style="font-size: 13px; color: #90f">电子书网站</a> <a href="/tags/简历制作/" style="font-size: 13px; color: #90f">简历制作</a> <a href="/tags/镜像/" style="font-size: 13px; color: #90f">镜像</a> <a href="/tags/云栖大会/" style="font-size: 13px; color: #90f">云栖大会</a> <a href="/tags/可视化/" style="font-size: 13px; color: #90f">可视化</a> <a href="/tags/入门/" style="font-size: 13px; color: #90f">入门</a> <a href="/tags/tensorflow/" style="font-size: 13px; color: #90f">tensorflow</a> <a href="/tags/验证码识别/" style="font-size: 13px; color: #90f">验证码识别</a> <a href="/tags/深度学习框架/" style="font-size: 13px; color: #90f">深度学习框架</a> <a href="/tags/内置函数/" style="font-size: 13px; color: #90f">内置函数</a> <a href="/tags/论文/" style="font-size: 13px; color: #90f">论文</a> <a href="/tags/告研究生新生-研究生导师书/" style="font-size: 13px; color: #90f">告研究生新生/研究生导师书</a> <a href="/tags/Numpy/" style="font-size: 13px; color: #90f">Numpy</a> <a href="/tags/论文-续/" style="font-size: 13px; color: #90f">论文-续</a> <a href="/tags/Child’s-Play/" style="font-size: 13px; color: #90f">Child’s Play</a> <a href="/tags/简历/" style="font-size: 13px; color: #90f">简历</a> <a href="/tags/祖国母亲七十周年/" style="font-size: 13px; color: #90f">祖国母亲七十周年</a> <a href="/tags/数据集/" style="font-size: 13px; color: #90f">数据集</a> <a href="/tags/数据结构/" style="font-size: 13px; color: #90f">数据结构</a> <a href="/tags/学术网站/" style="font-size: 13px; color: #90f">学术网站</a> <a href="/tags/贪吃蛇/" style="font-size: 13px; color: #90f">贪吃蛇</a> <a href="/tags/C/" style="font-size: 13px; color: #90f">C++</a>
+      <a href="/tags/双系统/" style="font-size: 13px; color: #90f">双系统</a> <a href="/tags/1024快乐/" style="font-size: 13px; color: #90f">1024快乐</a> <a href="/tags/深度学习/" style="font-size: 19.67px; color: #d05">深度学习</a> <a href="/tags/Git常用操作/" style="font-size: 13px; color: #90f">Git常用操作</a> <a href="/tags/学习资料/" style="font-size: 16.33px; color: #b0a">学习资料</a> <a href="/tags/抠图/" style="font-size: 13px; color: #90f">抠图</a> <a href="/tags/爱5分析/" style="font-size: 13px; color: #90f">爱5分析</a> <a href="/tags/迷宫/" style="font-size: 13px; color: #90f">迷宫</a> <a href="/tags/生命游戏/" style="font-size: 13px; color: #90f">生命游戏</a> <a href="/tags/python常用包/" style="font-size: 13px; color: #90f">python常用包</a> <a href="/tags/导库/" style="font-size: 13px; color: #90f">导库</a> <a href="/tags/pytorch/" style="font-size: 13px; color: #90f">pytorch</a> <a href="/tags/Jupyter拓展/" style="font-size: 13px; color: #90f">Jupyter拓展</a> <a href="/tags/数学基础/" style="font-size: 13px; color: #90f">数学基础</a> <a href="/tags/pytorch张量/" style="font-size: 13px; color: #90f">pytorch张量</a> <a href="/tags/Anaconda/" style="font-size: 13px; color: #90f">Anaconda</a> <a href="/tags/matplotlib/" style="font-size: 13px; color: #90f">matplotlib</a> <a href="/tags/cython/" style="font-size: 13px; color: #90f">cython</a> <a href="/tags/Simple-Game/" style="font-size: 13px; color: #90f">Simple Game</a> <a href="/tags/内网穿透工具/" style="font-size: 13px; color: #90f">内网穿透工具</a> <a href="/tags/显卡/" style="font-size: 13px; color: #90f">显卡</a> <a href="/tags/概率分布/" style="font-size: 13px; color: #90f">概率分布</a> <a href="/tags/python常用代码/" style="font-size: 13px; color: #90f">python常用代码</a> <a href="/tags/周志华论文/" style="font-size: 13px; color: #90f">周志华论文</a> <a href="/tags/k-means算法/" style="font-size: 13px; color: #90f">k-means算法</a> <a href="/tags/代码加密/" style="font-size: 13px; color: #90f">代码加密</a> <a href="/tags/小工具/" style="font-size: 13px; color: #90f">小工具</a> <a href="/tags/开源协议/" style="font-size: 13px; color: #90f">开源协议</a> <a href="/tags/提取ipynb文件/" style="font-size: 13px; color: #90f">提取ipynb文件</a> <a href="/tags/机器学习/" style="font-size: 23px; color: #f00">机器学习</a> <a href="/tags/排序/" style="font-size: 13px; color: #90f">排序</a> <a href="/tags/数据集-推荐系统/" style="font-size: 13px; color: #90f">数据集-推荐系统</a> <a href="/tags/河南理工大学110周年/" style="font-size: 13px; color: #90f">河南理工大学110周年</a> <a href="/tags/论文翻译/" style="font-size: 13px; color: #90f">论文翻译</a> <a href="/tags/电子书网站/" style="font-size: 13px; color: #90f">电子书网站</a> <a href="/tags/简历制作/" style="font-size: 13px; color: #90f">简历制作</a> <a href="/tags/学生信息管理系统/" style="font-size: 13px; color: #90f">学生信息管理系统</a> <a href="/tags/可视化/" style="font-size: 13px; color: #90f">可视化</a> <a href="/tags/镜像/" style="font-size: 13px; color: #90f">镜像</a> <a href="/tags/云栖大会/" style="font-size: 13px; color: #90f">云栖大会</a> <a href="/tags/内置函数/" style="font-size: 13px; color: #90f">内置函数</a> <a href="/tags/深度学习框架/" style="font-size: 13px; color: #90f">深度学习框架</a> <a href="/tags/tensorflow/" style="font-size: 13px; color: #90f">tensorflow</a> <a href="/tags/验证码识别/" style="font-size: 13px; color: #90f">验证码识别</a> <a href="/tags/告研究生新生-研究生导师书/" style="font-size: 13px; color: #90f">告研究生新生/研究生导师书</a> <a href="/tags/论文/" style="font-size: 13px; color: #90f">论文</a> <a href="/tags/论文-续/" style="font-size: 13px; color: #90f">论文-续</a> <a href="/tags/Child’s-Play/" style="font-size: 13px; color: #90f">Child’s Play</a> <a href="/tags/Numpy/" style="font-size: 13px; color: #90f">Numpy</a> <a href="/tags/祖国母亲七十周年/" style="font-size: 13px; color: #90f">祖国母亲七十周年</a> <a href="/tags/数据集/" style="font-size: 13px; color: #90f">数据集</a> <a href="/tags/简历/" style="font-size: 13px; color: #90f">简历</a> <a href="/tags/数据结构/" style="font-size: 13px; color: #90f">数据结构</a> <a href="/tags/入门/" style="font-size: 13px; color: #90f">入门</a> <a href="/tags/算法刷题/" style="font-size: 13px; color: #90f">算法刷题</a> <a href="/tags/学术网站/" style="font-size: 13px; color: #90f">学术网站</a> <a href="/tags/贪吃蛇/" style="font-size: 13px; color: #90f">贪吃蛇</a> <a href="/tags/C/" style="font-size: 13px; color: #90f">C++</a>
     </div>
   </div>
 
@@ -869,7 +876,7 @@
                     <span class="level-item">November 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1141,6 +1148,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/提取ipynb文件/">
+                        <span class="tag">提取ipynb文件</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/数学基础/">
                         <span class="tag">数学基础</span>
                         <span class="tag is-grey">1</span>
@@ -1248,6 +1262,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/简历制作/">
                         <span class="tag">简历制作</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/算法刷题/">
+                        <span class="tag">算法刷题</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1353,7 +1374,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        65
+                        67
                     </p>
                 </div>
             </div>
@@ -1373,7 +1394,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        56
+                        58
                     </p>
                 </div>
             </div>
@@ -1458,7 +1479,7 @@
                 <span class="level-item">Python</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">17</span>
+                <span class="level-item tag">18</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/内网穿透/">
@@ -1490,7 +1511,7 @@
                 <span class="level-item">杂谈</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">18</span>
+                <span class="level-item tag">19</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/死磕系列/">
@@ -1548,7 +1569,7 @@
   <div class="widget-wrap">
 
     <div class="widget tagcloud">
-      <a href="/tags/数据集-推荐系统/" style="font-size: 13px; color: #90f">数据集-推荐系统</a> <a href="/tags/1024快乐/" style="font-size: 13px; color: #90f">1024快乐</a> <a href="/tags/深度学习/" style="font-size: 19.67px; color: #d05">深度学习</a> <a href="/tags/学习资料/" style="font-size: 16.33px; color: #b0a">学习资料</a> <a href="/tags/Git常用操作/" style="font-size: 13px; color: #90f">Git常用操作</a> <a href="/tags/Jupyter拓展/" style="font-size: 13px; color: #90f">Jupyter拓展</a> <a href="/tags/爱5分析/" style="font-size: 13px; color: #90f">爱5分析</a> <a href="/tags/抠图/" style="font-size: 13px; color: #90f">抠图</a> <a href="/tags/python常用包/" style="font-size: 13px; color: #90f">python常用包</a> <a href="/tags/生命游戏/" style="font-size: 13px; color: #90f">生命游戏</a> <a href="/tags/迷宫/" style="font-size: 13px; color: #90f">迷宫</a> <a href="/tags/导库/" style="font-size: 13px; color: #90f">导库</a> <a href="/tags/pytorch/" style="font-size: 13px; color: #90f">pytorch</a> <a href="/tags/pytorch张量/" style="font-size: 13px; color: #90f">pytorch张量</a> <a href="/tags/Anaconda/" style="font-size: 13px; color: #90f">Anaconda</a> <a href="/tags/cython/" style="font-size: 13px; color: #90f">cython</a> <a href="/tags/matplotlib/" style="font-size: 13px; color: #90f">matplotlib</a> <a href="/tags/数学基础/" style="font-size: 13px; color: #90f">数学基础</a> <a href="/tags/显卡/" style="font-size: 13px; color: #90f">显卡</a> <a href="/tags/Simple-Game/" style="font-size: 13px; color: #90f">Simple Game</a> <a href="/tags/概率分布/" style="font-size: 13px; color: #90f">概率分布</a> <a href="/tags/周志华论文/" style="font-size: 13px; color: #90f">周志华论文</a> <a href="/tags/python常用代码/" style="font-size: 13px; color: #90f">python常用代码</a> <a href="/tags/内网穿透工具/" style="font-size: 13px; color: #90f">内网穿透工具</a> <a href="/tags/k-means算法/" style="font-size: 13px; color: #90f">k-means算法</a> <a href="/tags/开源协议/" style="font-size: 13px; color: #90f">开源协议</a> <a href="/tags/学生信息管理系统/" style="font-size: 13px; color: #90f">学生信息管理系统</a> <a href="/tags/小工具/" style="font-size: 13px; color: #90f">小工具</a> <a href="/tags/机器学习/" style="font-size: 23px; color: #f00">机器学习</a> <a href="/tags/双系统/" style="font-size: 13px; color: #90f">双系统</a> <a href="/tags/代码加密/" style="font-size: 13px; color: #90f">代码加密</a> <a href="/tags/河南理工大学110周年/" style="font-size: 13px; color: #90f">河南理工大学110周年</a> <a href="/tags/排序/" style="font-size: 13px; color: #90f">排序</a> <a href="/tags/论文翻译/" style="font-size: 13px; color: #90f">论文翻译</a> <a href="/tags/电子书网站/" style="font-size: 13px; color: #90f">电子书网站</a> <a href="/tags/简历制作/" style="font-size: 13px; color: #90f">简历制作</a> <a href="/tags/镜像/" style="font-size: 13px; color: #90f">镜像</a> <a href="/tags/云栖大会/" style="font-size: 13px; color: #90f">云栖大会</a> <a href="/tags/可视化/" style="font-size: 13px; color: #90f">可视化</a> <a href="/tags/入门/" style="font-size: 13px; color: #90f">入门</a> <a href="/tags/tensorflow/" style="font-size: 13px; color: #90f">tensorflow</a> <a href="/tags/验证码识别/" style="font-size: 13px; color: #90f">验证码识别</a> <a href="/tags/深度学习框架/" style="font-size: 13px; color: #90f">深度学习框架</a> <a href="/tags/内置函数/" style="font-size: 13px; color: #90f">内置函数</a> <a href="/tags/论文/" style="font-size: 13px; color: #90f">论文</a> <a href="/tags/告研究生新生-研究生导师书/" style="font-size: 13px; color: #90f">告研究生新生/研究生导师书</a> <a href="/tags/Numpy/" style="font-size: 13px; color: #90f">Numpy</a> <a href="/tags/论文-续/" style="font-size: 13px; color: #90f">论文-续</a> <a href="/tags/Child’s-Play/" style="font-size: 13px; color: #90f">Child’s Play</a> <a href="/tags/简历/" style="font-size: 13px; color: #90f">简历</a> <a href="/tags/祖国母亲七十周年/" style="font-size: 13px; color: #90f">祖国母亲七十周年</a> <a href="/tags/数据集/" style="font-size: 13px; color: #90f">数据集</a> <a href="/tags/数据结构/" style="font-size: 13px; color: #90f">数据结构</a> <a href="/tags/学术网站/" style="font-size: 13px; color: #90f">学术网站</a> <a href="/tags/贪吃蛇/" style="font-size: 13px; color: #90f">贪吃蛇</a> <a href="/tags/C/" style="font-size: 13px; color: #90f">C++</a>
+      <a href="/tags/双系统/" style="font-size: 13px; color: #90f">双系统</a> <a href="/tags/1024快乐/" style="font-size: 13px; color: #90f">1024快乐</a> <a href="/tags/深度学习/" style="font-size: 19.67px; color: #d05">深度学习</a> <a href="/tags/Git常用操作/" style="font-size: 13px; color: #90f">Git常用操作</a> <a href="/tags/学习资料/" style="font-size: 16.33px; color: #b0a">学习资料</a> <a href="/tags/抠图/" style="font-size: 13px; color: #90f">抠图</a> <a href="/tags/爱5分析/" style="font-size: 13px; color: #90f">爱5分析</a> <a href="/tags/迷宫/" style="font-size: 13px; color: #90f">迷宫</a> <a href="/tags/生命游戏/" style="font-size: 13px; color: #90f">生命游戏</a> <a href="/tags/python常用包/" style="font-size: 13px; color: #90f">python常用包</a> <a href="/tags/导库/" style="font-size: 13px; color: #90f">导库</a> <a href="/tags/pytorch/" style="font-size: 13px; color: #90f">pytorch</a> <a href="/tags/Jupyter拓展/" style="font-size: 13px; color: #90f">Jupyter拓展</a> <a href="/tags/数学基础/" style="font-size: 13px; color: #90f">数学基础</a> <a href="/tags/pytorch张量/" style="font-size: 13px; color: #90f">pytorch张量</a> <a href="/tags/Anaconda/" style="font-size: 13px; color: #90f">Anaconda</a> <a href="/tags/matplotlib/" style="font-size: 13px; color: #90f">matplotlib</a> <a href="/tags/cython/" style="font-size: 13px; color: #90f">cython</a> <a href="/tags/Simple-Game/" style="font-size: 13px; color: #90f">Simple Game</a> <a href="/tags/内网穿透工具/" style="font-size: 13px; color: #90f">内网穿透工具</a> <a href="/tags/显卡/" style="font-size: 13px; color: #90f">显卡</a> <a href="/tags/概率分布/" style="font-size: 13px; color: #90f">概率分布</a> <a href="/tags/python常用代码/" style="font-size: 13px; color: #90f">python常用代码</a> <a href="/tags/周志华论文/" style="font-size: 13px; color: #90f">周志华论文</a> <a href="/tags/k-means算法/" style="font-size: 13px; color: #90f">k-means算法</a> <a href="/tags/代码加密/" style="font-size: 13px; color: #90f">代码加密</a> <a href="/tags/小工具/" style="font-size: 13px; color: #90f">小工具</a> <a href="/tags/开源协议/" style="font-size: 13px; color: #90f">开源协议</a> <a href="/tags/提取ipynb文件/" style="font-size: 13px; color: #90f">提取ipynb文件</a> <a href="/tags/机器学习/" style="font-size: 23px; color: #f00">机器学习</a> <a href="/tags/排序/" style="font-size: 13px; color: #90f">排序</a> <a href="/tags/数据集-推荐系统/" style="font-size: 13px; color: #90f">数据集-推荐系统</a> <a href="/tags/河南理工大学110周年/" style="font-size: 13px; color: #90f">河南理工大学110周年</a> <a href="/tags/论文翻译/" style="font-size: 13px; color: #90f">论文翻译</a> <a href="/tags/电子书网站/" style="font-size: 13px; color: #90f">电子书网站</a> <a href="/tags/简历制作/" style="font-size: 13px; color: #90f">简历制作</a> <a href="/tags/学生信息管理系统/" style="font-size: 13px; color: #90f">学生信息管理系统</a> <a href="/tags/可视化/" style="font-size: 13px; color: #90f">可视化</a> <a href="/tags/镜像/" style="font-size: 13px; color: #90f">镜像</a> <a href="/tags/云栖大会/" style="font-size: 13px; color: #90f">云栖大会</a> <a href="/tags/内置函数/" style="font-size: 13px; color: #90f">内置函数</a> <a href="/tags/深度学习框架/" style="font-size: 13px; color: #90f">深度学习框架</a> <a href="/tags/tensorflow/" style="font-size: 13px; color: #90f">tensorflow</a> <a href="/tags/验证码识别/" style="font-size: 13px; color: #90f">验证码识别</a> <a href="/tags/告研究生新生-研究生导师书/" style="font-size: 13px; color: #90f">告研究生新生/研究生导师书</a> <a href="/tags/论文/" style="font-size: 13px; color: #90f">论文</a> <a href="/tags/论文-续/" style="font-size: 13px; color: #90f">论文-续</a> <a href="/tags/Child’s-Play/" style="font-size: 13px; color: #90f">Child’s Play</a> <a href="/tags/Numpy/" style="font-size: 13px; color: #90f">Numpy</a> <a href="/tags/祖国母亲七十周年/" style="font-size: 13px; color: #90f">祖国母亲七十周年</a> <a href="/tags/数据集/" style="font-size: 13px; color: #90f">数据集</a> <a href="/tags/简历/" style="font-size: 13px; color: #90f">简历</a> <a href="/tags/数据结构/" style="font-size: 13px; color: #90f">数据结构</a> <a href="/tags/入门/" style="font-size: 13px; color: #90f">入门</a> <a href="/tags/算法刷题/" style="font-size: 13px; color: #90f">算法刷题</a> <a href="/tags/学术网站/" style="font-size: 13px; color: #90f">学术网站</a> <a href="/tags/贪吃蛇/" style="font-size: 13px; color: #90f">贪吃蛇</a> <a href="/tags/C/" style="font-size: 13px; color: #90f">C++</a>
     </div>
   </div>
 
@@ -1574,7 +1595,7 @@
                     <span class="level-item">November 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1846,6 +1867,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/提取ipynb文件/">
+                        <span class="tag">提取ipynb文件</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/数学基础/">
                         <span class="tag">数学基础</span>
                         <span class="tag is-grey">1</span>
@@ -1953,6 +1981,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/简历制作/">
                         <span class="tag">简历制作</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/算法刷题/">
+                        <span class="tag">算法刷题</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
