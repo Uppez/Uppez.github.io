@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-09T03:08:51.266Z</updated>
+  <updated>2019-11-09T03:41:43.652Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>搜索引擎之高级搜索</title>
+    <link href="http://yoursite.com/2019/11/09/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%B9%8B%E9%AB%98%E7%BA%A7%E6%90%9C%E7%B4%A2/"/>
+    <id>http://yoursite.com/2019/11/09/搜索引擎之高级搜索/</id>
+    <published>2019-11-09T03:27:25.000Z</published>
+    <updated>2019-11-09T03:41:43.652Z</updated>
+    
+    <content type="html"><![CDATA[<p>普通搜索可以满足基本的需求，特殊搜索一直都是网站SEO的必修课。</p><a id="more"></a><p>介绍下搜索方法的高级搜索方法，之前在某平台看到过，没太在意，如今再次被人提起，就整理下。</p><h2 id="1-site："><a href="#1-site：" class="headerlink" title="1.site："></a>1.site：</h2><p>site是最常用的搜索指令，它是用来搜索某个域名下的所有文件(注意：文件须是搜索引擎收录的文件)。</p><h2 id="2-双引号"><a href="#2-双引号" class="headerlink" title="2.双引号"></a>2.双引号</h2><p>把搜索词放在双引号，代表<strong>完全匹配搜索</strong>。搜索结果返回的页面包含双引号中出现的所有词，连顺序也必须完全匹配。百度和谷歌都支持这个指令。</p><h2 id="3-减号"><a href="#3-减号" class="headerlink" title="3.减号"></a>3.减号</h2><p>减号(-)代表搜索不包含减号后面的词的页面。</p><p><strong>注意</strong>：减号前面有空格而后面没有空格，紧跟着需要排除的词。百度和谷歌都支持这个指令。</p><h2 id="4-星号"><a href="#4-星号" class="headerlink" title="4.星号"></a>4.星号</h2><p>星号(*)在计算机里的术语叫通配符，就是匹配全部的意思。百度不支持*号搜索指令。比如在Google中搜索”郭*纲”，其中*号代表了任何文字。返回的结果不仅包含了郭德纲，还包含了其他。</p><h2 id="5-inulr："><a href="#5-inulr：" class="headerlink" title="5.inulr："></a>5.inulr：</h2><p>inurl:指令用于搜索查询词出现在URL(链接)中的页面。</p><h2 id="6-inanchor："><a href="#6-inanchor：" class="headerlink" title="6.inanchor："></a>6.inanchor：</h2><p>这个指令返回的结果是导入链接锚文字中包含搜索词的页面，百度不支持该指令。这个指令可以帮助SEOer去研究竞争对手页面有哪些外链，可以找到很多行业外链资源平台。</p><h2 id="7-intitle："><a href="#7-intitle：" class="headerlink" title="7.intitle："></a>7.intitle：</h2><p>该指令返回的是页面title中包含关键词的页面。百度和Google都支持该指令。SEOer都会把关键词放进Title中，因此使用intitle指令找到的文件才是更准确的竞争页面。而没有出现在title中的大部分是并没有针对关键词进行优化，也不是有力的竞争对手。</p><h2 id="8-alltitle："><a href="#8-alltitle：" class="headerlink" title="8.alltitle："></a>8.alltitle：</h2><p>该标签返回的结果是页面标题中包含多组关键词的文件，如：alltitle:SEO搜索引擎优化就相当于intitle:SEO intitle:搜索引擎优化返回的是标题中既包含”SEO”也包含”搜索引擎优化”的页面。</p><h2 id="9-allinurl："><a href="#9-allinurl：" class="headerlink" title="9.allinurl："></a>9.allinurl：</h2><p>与alltitle类似。allurl:SEO搜索引擎优化就相当于iknurl:SEO inurl:搜索引擎优化。</p><h2 id="10-filetype："><a href="#10-filetype：" class="headerlink" title="10.filetype："></a>10.filetype：</h2><p>该指令用于特定的文件格式。百度和Google都支持该指令。</p><h2 id="11-link："><a href="#11-link：" class="headerlink" title="11.link："></a>11.link：</h2><p>link是以前SEO常用的指令，用来搜索某个url的反向链接，既包括内部链接，也包括外部链接。但是现在Google对这个指令只返回其索引库中的一部分，而且是近乎随机的一部分，所以用这个指令查反链几乎没有用。百度则不支持该指令。</p><h2 id="12-linkdomain："><a href="#12-linkdomain：" class="headerlink" title="12.linkdomain："></a>12.linkdomain：</h2><p>该指令曾经是SEOer必用的外链查询工具，随着雅虎放弃自己的搜索技术，这个指令已经作废。这个指令只适用于雅虎。</p><h2 id="13-related："><a href="#13-related：" class="headerlink" title="13.related："></a>13.related：</h2><p>该指令只适用于Google，返回的结果是与某个网站有关联的页面。这种关联到底指的是什么，Google并没有明确说明，一般认为指的是有共同外部链接的网站。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;普通搜索可以满足基本的需求，特殊搜索一直都是网站SEO的必修课。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="杂谈" scheme="http://yoursite.com/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+      <category term="高级搜索" scheme="http://yoursite.com/tags/%E9%AB%98%E7%BA%A7%E6%90%9C%E7%B4%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>Python实现​旋转描记器</title>
@@ -458,31 +481,6 @@
     
     
       <category term="排序" scheme="http://yoursite.com/tags/%E6%8E%92%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>河南理工大学110周年校庆剪影</title>
-    <link href="http://yoursite.com/2019/10/20/%E6%B2%B3%E5%8D%97%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6110%E5%91%A8%E5%B9%B4%E6%A0%A1%E5%BA%86%E5%89%AA%E5%BD%B1/"/>
-    <id>http://yoursite.com/2019/10/20/河南理工大学110周年校庆剪影/</id>
-    <published>2019-10-20T10:55:37.000Z</published>
-    <updated>2019-10-20T11:37:02.935Z</updated>
-    
-    <content type="html"><![CDATA[<center><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=511590282&auto=0&height=66"></iframe></center><a id="more"></a><p><a href="https://sm.ms/image/ubkC75Y6DsEmo49" target="_blank"><img src="https://i.loli.net/2019/10/20/ubkC75Y6DsEmo49.jpg"></a></p><p><a href="https://sm.ms/image/ujJnZ1fpBd3Am5h" target="_blank"><img src="https://i.loli.net/2019/10/20/ujJnZ1fpBd3Am5h.jpg"></a></p><p><a href="https://sm.ms/image/BVfp9ZwNO8I7kmU" target="_blank"><img src="https://i.loli.net/2019/10/20/BVfp9ZwNO8I7kmU.jpg"></a></p><p><a href="https://sm.ms/image/KCRmwLZY7pyQVXi" target="_blank"><img src="https://i.loli.net/2019/10/20/KCRmwLZY7pyQVXi.jpg"></a></p><p><a href="https://sm.ms/image/1U74qxnHrEMOLje" target="_blank"><img src="https://i.loli.net/2019/10/20/1U74qxnHrEMOLje.jpg"></a></p><p><a href="https://sm.ms/image/X6WKGrRzkSmnt1i" target="_blank"><img src="https://i.loli.net/2019/10/20/X6WKGrRzkSmnt1i.jpg"></a></p><p><a href="https://sm.ms/image/cokbJKUn3umrlwY" target="_blank"><img src="https://i.loli.net/2019/10/20/cokbJKUn3umrlwY.jpg"></a></p><p><a href="https://sm.ms/image/w3CFYrH9RNJ2o6L" target="_blank"><img src="https://i.loli.net/2019/10/20/w3CFYrH9RNJ2o6L.jpg"></a></p><p><a href="https://sm.ms/image/eLxRaXDBFiuYMpq" target="_blank"><img src="https://i.loli.net/2019/10/20/eLxRaXDBFiuYMpq.jpg"></a></p><p><a href="https://sm.ms/image/BRIJAegwuDOVEGn" target="_blank"><img src="https://i.loli.net/2019/10/20/BRIJAegwuDOVEGn.jpg"></a></p><p><a href="https://sm.ms/image/tLM3qeagwJGpbYy" target="_blank"><img src="https://i.loli.net/2019/10/20/tLM3qeagwJGpbYy.jpg"></a></p><p><a href="https://sm.ms/image/hcuYoy3rKWV4CLk" target="_blank"><img src="https://i.loli.net/2019/10/20/hcuYoy3rKWV4CLk.jpg"></a></p><p><a href="https://sm.ms/image/wI5A6blkn72K8zj" target="_blank"><img src="https://i.loli.net/2019/10/20/wI5A6blkn72K8zj.jpg"></a></p><p><a href="https://sm.ms/image/pxQhlMUiPsKRk8B" target="_blank"><img src="https://i.loli.net/2019/10/20/pxQhlMUiPsKRk8B.jpg"></a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;center&gt;
-&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=511590282&amp;auto=0&amp;height=66&quot;&gt;&lt;/iframe&gt;
-&lt;/center&gt;
-    
-    </summary>
-    
-    
-      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-      <category term="河南理工大学110周年" scheme="http://yoursite.com/tags/%E6%B2%B3%E5%8D%97%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6110%E5%91%A8%E5%B9%B4/"/>
     
   </entry>
   
