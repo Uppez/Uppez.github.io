@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-28T04:01:37.935Z</updated>
+  <updated>2019-11-28T11:04:19.207Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决在github上查看ipynb（大文件）笔记时加载很慢以及失败的问题</title>
+    <link href="http://yoursite.com/2019/11/28/%E8%A7%A3%E5%86%B3%E5%9C%A8github%E4%B8%8A%E6%9F%A5%E7%9C%8Bipynb%EF%BC%88%E5%A4%A7%E6%96%87%E4%BB%B6%EF%BC%89%E7%AC%94%E8%AE%B0%E6%97%B6%E5%8A%A0%E8%BD%BD%E5%BE%88%E6%85%A2%E4%BB%A5%E5%8F%8A%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2019/11/28/解决在github上查看ipynb（大文件）笔记时加载很慢以及失败的问题/</id>
+    <published>2019-11-28T10:55:09.000Z</published>
+    <updated>2019-11-28T11:04:19.207Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>markdown和code能一起使用真是非常方便，在本地使用jupyter notebook书写笔记，然后上传到github上，不仅自己复习的时候方便查阅，还能帮到其他有需要的人。在github上查看ipynb文件以及大文件时，需要加载很长时间，而且经常加载失败。使用起来很不方便而且让人头疼、浪费时间。比如我查看优达学城的一个<a href="https://github.com/q759729997/Udacity_nd101_cn_p4/blob/master/dlnd_face_generation.ipynb" target="_blank" rel="noopener">深度学习</a> 的小项目，如果直接访问github仓库里的ipynb文件的话，会遇到加载失败或者等很久情况，如下图：</p><a id="more"></a><img src="https://s2.ax1x.com/2019/11/28/QiOSu4.png" alt="QiOSu4.png" border="0"><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>文件打不开很让人头疼，但是一个好的方法可以解决：<br>免费的<a href="https://nbviewer.jupyter.org/" target="_blank" rel="noopener">nbviewer开源项目</a> ，解决了上面的问题。所有上传到github上的ipynb文件，都会同步到nbviewer服务器上。笔记也经过了渲染，显示效果很棒，而且访问速度非常快，使用方法是在nbviewer主页上，输入别人或自己的github用户名，找到自己创建的仓库，再找到对应的笔记。比如上面无法显示的笔记，去nbviewer上查看的话，能快速打开笔记，方便查看笔记内容。例如输入刚才那位用户的ID：q759729997 或者刚才项目位置：q759729997/Udacity_nd101_cn_p4</p><img src="https://s2.ax1x.com/2019/11/28/QiLXCV.png" alt="QiLXCV.png" border="0"><p>瞬间就能打开自己想看的项目：</p><img src="https://s2.ax1x.com/2019/11/28/QiL7Hs.png" alt="QiL7Hs.png" border="0"><p>你们点击链接体验一下加载速度：<a href="https://nbviewer.jupyter.org/github/q759729997/Udacity_nd101_cn_p4/tree/master/" target="_blank" rel="noopener">点击这里 深度学习项目</a> ，然后再打开ipynb的笔记。<br>几万行的代码可以瞬间打开，不用因为加载失败或者打不开让你头疼。<br>你可别学经常使用github的不会这个技能。它可以让你大大的节省时间学习其他知识。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h1&gt;&lt;p&gt;markdown和code能一起使用真是非常方便，在本地使用jupyter notebook书写笔记，然后上传到github上，不仅自己复习的时候方便查阅，还能帮到其他有需要的人。在github上查看ipynb文件以及大文件时，需要加载很长时间，而且经常加载失败。使用起来很不方便而且让人头疼、浪费时间。比如我查看优达学城的一个&lt;a href=&quot;https://github.com/q759729997/Udacity_nd101_cn_p4/blob/master/dlnd_face_generation.ipynb&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;深度学习&lt;/a&gt; 的小项目，如果直接访问github仓库里的ipynb文件的话，会遇到加载失败或者等很久情况，如下图：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="杂谈" scheme="http://yoursite.com/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+      <category term="查看大文件" scheme="http://yoursite.com/tags/%E6%9F%A5%E7%9C%8B%E5%A4%A7%E6%96%87%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>程序员的黑话</title>
@@ -459,29 +482,6 @@
     
     
       <category term="内置函数" scheme="http://yoursite.com/tags/%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>手把手配置AI项目的环境(双系统)</title>
-    <link href="http://yoursite.com/2019/11/02/%E6%89%8B%E6%8A%8A%E6%89%8B%E9%85%8D%E7%BD%AEAI%E9%A1%B9%E7%9B%AE%E7%9A%84%E7%8E%AF%E5%A2%83-%E5%8F%8C%E7%B3%BB%E7%BB%9F/"/>
-    <id>http://yoursite.com/2019/11/02/手把手配置AI项目的环境-双系统/</id>
-    <published>2019-11-02T05:07:42.000Z</published>
-    <updated>2019-11-02T05:30:14.750Z</updated>
-    
-    <content type="html"><![CDATA[<p>此篇文章是为了介绍如何安装双系统（win+ubuntu），对于简单的一下过程不再描述，对于关键环节做出说明介绍。</p><a id="more"></a><h2 id="1-下载ubuntu镜像"><a href="#1-下载ubuntu镜像" class="headerlink" title="1.下载ubuntu镜像"></a>1.下载ubuntu镜像</h2><p>可以先进入中国linux官网：<a href="https://cn.ubuntu.com/" target="_blank" rel="noopener">https://cn.ubuntu.com/</a> ，选择Ubuntu桌面系统，之后选择下载ubuntu。</p><p>可以选择两个版本，这两个版本都是比较稳定的：</p><ol><li><p><a href="http://releases.ubuntu.com/18.04/" target="_blank" rel="noopener">http://releases.ubuntu.com/18.04/</a></p></li><li><p><a href="http://releases.ubuntu.com/16.04/" target="_blank" rel="noopener">http://releases.ubuntu.com/16.04/</a></p></li></ol><h2 id="2-制作启动盘"><a href="#2-制作启动盘" class="headerlink" title="2.制作启动盘"></a>2.制作启动盘</h2><p>建议实用<strong>USBwriter</strong> 进行制作</p><h2 id="3-电脑磁盘分区"><a href="#3-电脑磁盘分区" class="headerlink" title="3.电脑磁盘分区"></a>3.电脑磁盘分区</h2><p>自行百度</p><h2 id="4-设置BIOS，U盘启动"><a href="#4-设置BIOS，U盘启动" class="headerlink" title="4.设置BIOS，U盘启动"></a>4.设置BIOS，U盘启动</h2><p>有些电脑需要设置BIOS启动，其他电脑我用过DELL等，都是直接开机长按F2,F12,F10都有，如何成功进入BIOS，百度一下自己的电脑即可。</p><p>当然如果是笔记本就是Fn+按键即可</p><h2 id="5-开始安装Ubuntu"><a href="#5-开始安装Ubuntu" class="headerlink" title="5.开始安装Ubuntu"></a>5.开始安装Ubuntu</h2><p>一波傻瓜式操作</p><h2 id="6-分区"><a href="#6-分区" class="headerlink" title="6.分区"></a>6.分区</h2><p>主要分以下这些：</p><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">swap：用作虚拟内存，这个一般和自己的物理内存一般大</span><br><span class="line">/：主要用来存放Linux系统文件</span><br><span class="line">/boot:存放linux内核，用来引导系统的，如果是Legacy启动就要设置引导，UEFI就不用设置这个（UEFI要设置EFI文件）</span><br><span class="line">/usr:存放用户程序，一般在/usr/bin中存放发行版提供的程序，用户自行安装的程序默认安装到/usr/local/bin中</span><br><span class="line">/home:存放用户文件</span><br></pre></td></tr></table></figure><p>当初压缩的磁盘如下图所示，选中那个空闲磁盘，然后点击+号，开始分配。</p><p><a href="https://sm.ms/image/lnKGxUCBOs4zVXu" target="_blank"><img src="https://i.loli.net/2019/11/02/lnKGxUCBOs4zVXu.jpg"></a></p><p>① 分配swap，选择主分区，空间起始位置，大小最好和自己物理内存一样（我的是16G分配两倍，以后可能装个内存条所以分配32G），用于交换空间</p><p><a href="https://sm.ms/image/FEjanXhHdep8QrM" target="_blank"><img src="https://i.loli.net/2019/11/02/FEjanXhHdep8QrM.jpg"></a></p><p>② 设置EFI引导，选择逻辑分区，空间起始位置，用于EFI系统分区，大小设置4G即可</p><p>③ 设置Boot引导，选择逻辑分区，空间起始位置，用于Ext4日志文件，挂载点：/boot，大小设置8G</p><p>④ 设置/，选择逻辑分区，空间起始位置，用于Ext4日志文件，挂载点：/，大小的话推荐100G.</p><p>⑤ 设置home，选择逻辑分区，空间起始位置，用于Ext4日志文件，挂载点：/home，home大一些300G</p><p>⑥ 设置usr，选择逻辑分区，空间起始位置，用于Ext4日志文件，挂载点：/usr，大小的话剩下100G。</p><p>以上分配方式，EFI需要依照前面的①步骤分配，其余②-⑥全部以home分配为例进行分配如下图类似，自行分配即可，不一样的只是分配的大小 </p><p><a href="https://sm.ms/image/ZjfQMvzmsEaJH2L" target="_blank"><img src="https://i.loli.net/2019/11/02/ZjfQMvzmsEaJH2L.jpg"></a></p><p>分配好之后如下图方框所示，椭圆形为需要安装的前的最后一步设置引导器，选择设置为EFI的引导盘作为安装启动器设备，如下图所示。 </p><p><a href="https://sm.ms/image/2lcSFuvPotEpefA" target="_blank"><img src="https://i.loli.net/2019/11/02/2lcSFuvPotEpefA.jpg"></a></p><p><a href="https://sm.ms/image/u2capUBFsWNICkP" target="_blank"><img src="https://i.loli.net/2019/11/02/u2capUBFsWNICkP.jpg"></a></p><p><a href="https://sm.ms/image/8CkmYrosnFx1ZTA" target="_blank"><img src="https://i.loli.net/2019/11/02/8CkmYrosnFx1ZTA.jpg"></a></p><p>等待完成就可以了。</p><h2 id="7-设置启动引导"><a href="#7-设置启动引导" class="headerlink" title="7.设置启动引导"></a>7.设置启动引导</h2><p>可以实用EasyBCD 2.3软件来设置引导，参考如下：<a href="https://blog.csdn.net/u014422976/article/details/80393841" target="_blank" rel="noopener">https://blog.csdn.net/u014422976/article/details/80393841</a></p><p>自我感觉比较麻烦并且很多时候不好用，这里推荐使用BOOT引导，即：首先进入电脑BIOS设置后，把boot的linux启动项调到windows上面即可，之后保存重启即可进入每次就有选系统的界面了。</p><h2 id="8-一些问题的解决"><a href="#8-一些问题的解决" class="headerlink" title="8.一些问题的解决"></a>8.一些问题的解决</h2><p>解决方法：</p><p>Pro1：安装ubuntu的时候由于分辨率问题，导致安装界面显示不全（如图），没法继续安装<br><a href="https://zhidao.baidu.com/question/522177686034499645.html?word=Ubuntu" target="_blank" rel="noopener">https://zhidao.baidu.com/question/522177686034499645.html?word=Ubuntu</a> 安装过程中分辨率不兼容</p><p>Pro2：最后的引导问题：<br><a href="https://blog.csdn.net/u014422976/article/details/80393841" target="_blank" rel="noopener">https://blog.csdn.net/u014422976/article/details/80393841</a></p><p>Pro3：装Ubuntu老停在ubuntu界面<br><a href="https://zhidao.baidu.com/question/923767939677091819?g_f=11301026&amp;word=" target="_blank" rel="noopener">https://zhidao.baidu.com/question/923767939677091819?g_f=11301026&amp;word=</a> 装Ubuntu老停在ubuntu界面</p><p>Pro4：ubuntu 安装完成后重启电脑报错: BUG soft lockup 的解决办法<br><a href="https://blog.csdn.net/xrinosvip/article/details/80447139" target="_blank" rel="noopener">https://blog.csdn.net/xrinosvip/article/details/80447139</a></p><p>Pro5: 解決搜狗输入法无法安装的问题：<br><a href="https://blog.csdn.net/qq_22186119/article/details/70316727" target="_blank" rel="noopener">https://blog.csdn.net/qq_22186119/article/details/70316727</a></p><p>Pro6: ubuntu搜狗输入法中文无法切换英文：<br><a href="https://blog.csdn.net/kang_tju/article/details/54630994" target="_blank" rel="noopener">https://blog.csdn.net/kang_tju/article/details/54630994</a></p><p>Pro7：装完双系统之后,linux和windows转换最后windows下时间错乱，早了八个小时解决方案<br><a href="https://blog.csdn.net/qq_40197828/article/details/79334158" target="_blank" rel="noopener">https://blog.csdn.net/qq_40197828/article/details/79334158</a></p><p>Pro8: Linux（Ubuntu16.04）调节屏幕亮度（亮度控制条消失的问题）：<br><a href="https://blog.csdn.net/kingthon/article/details/81190898" target="_blank" rel="noopener">https://blog.csdn.net/kingthon/article/details/81190898</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;此篇文章是为了介绍如何安装双系统（win+ubuntu），对于简单的一下过程不再描述，对于关键环节做出说明介绍。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="杂谈" scheme="http://yoursite.com/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-      <category term="双系统" scheme="http://yoursite.com/tags/%E5%8F%8C%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   
