@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-30T08:42:06.984Z</updated>
+  <updated>2019-11-30T14:11:19.552Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>磁盘图标修改</title>
+    <link href="http://yoursite.com/2019/11/30/%E7%A3%81%E7%9B%98%E5%9B%BE%E6%A0%87%E4%BF%AE%E6%94%B9/"/>
+    <id>http://yoursite.com/2019/11/30/磁盘图标修改/</id>
+    <published>2019-11-30T14:04:58.000Z</published>
+    <updated>2019-11-30T14:11:19.552Z</updated>
+    
+    <content type="html"><![CDATA[<p>自带的电脑的磁盘图标，太丑了！所以？改！！！</p><a id="more"></a><ol><li>准备一张’.ico’的图片，并且放在要修改的磁盘下</li><li>写一个txt文件，里面写入：</li></ol><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[autorun]ICON=图片名称.ico</span><br></pre></td></tr></table></figure><p>保存！</p><ol start="3"><li><p>重命名文件为：’autorun.inf’</p></li><li><p>重启电脑搞定！</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;自带的电脑的磁盘图标，太丑了！所以？改！！！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="杂谈" scheme="http://yoursite.com/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+      <category term="图标修改" scheme="http://yoursite.com/tags/%E5%9B%BE%E6%A0%87%E4%BF%AE%E6%94%B9/"/>
+    
+  </entry>
   
   <entry>
     <title>速查表下载</title>
@@ -457,29 +480,6 @@
     
     
       <category term="算法刷题" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>对自己的python代码加密</title>
-    <link href="http://yoursite.com/2019/11/05/%E5%AF%B9%E8%87%AA%E5%B7%B1%E7%9A%84python%E4%BB%A3%E7%A0%81%E5%8A%A0%E5%AF%86/"/>
-    <id>http://yoursite.com/2019/11/05/对自己的python代码加密/</id>
-    <published>2019-11-05T14:04:28.000Z</published>
-    <updated>2019-11-08T13:14:18.472Z</updated>
-    
-    <content type="html"><![CDATA[<p>由于 Python 的动态特性和开源特点，导致 Python 代码很难做到很好的加密。社区中的一些声音认为这样的限制是事实，应该通过法律手段而不是加密源码达到商业保护的目的；而还有一些声音则是不论如何都希望能有一种手段来加密。于是乎，人们想出了各种或加密、或混淆的方案，借此来达到保护源码的目的。</p><a id="more"></a><p>常见的源码保护手段有如下几种：</p><ol><li><p>发行.pyc文件</p></li><li><p>代码混淆</p></li><li><p>使用py2exe</p></li><li><p>使用Cython</p></li></ol><p>下面来简单说说这些方案。</p><h2 id="1-发行-pyc-文件"><a href="#1-发行-pyc-文件" class="headerlink" title="1.发行.pyc 文件"></a>1.发行.pyc 文件</h2><p><strong>生产.pyc文件</strong>：</p><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m compileall 文件名称</span><br></pre></td></tr></table></figure><p><strong>解密.pyc文件</strong>：</p><p>首先安装<strong>uncompyle6</strong> 库，然后在同文件下执行：</p><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uncompyle6 -o . 文件名</span><br></pre></td></tr></table></figure><p><strong>批量解密.pyc文件</strong>：</p><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># encoding=utf8</span></span><br><span class="line"><span class="hljs-keyword">import</span> os</span><br><span class="line"><span class="hljs-keyword">import</span> uncompyle6</span><br><span class="line"><span class="hljs-keyword">from</span> uncompyle6 <span class="hljs-keyword">import</span> decompile_file</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span></span><br><span class="line">    path = <span class="hljs-string">'C:\filename'</span>.decode(<span class="hljs-string">'utf8'</span>)        <span class="hljs-comment"># Windows下</span></span><br><span class="line">    <span class="hljs-keyword">for</span> root, dirs, files <span class="hljs-keyword">in</span> os.walk(path):</span><br><span class="line">        <span class="hljs-keyword">if</span> root != path:</span><br><span class="line">            <span class="hljs-keyword">break</span></span><br><span class="line">        <span class="hljs-keyword">for</span> filename <span class="hljs-keyword">in</span> files:</span><br><span class="line">            <span class="hljs-keyword">if</span> filename.endswith(<span class="hljs-string">'pyc'</span>):</span><br><span class="line">                <span class="hljs-keyword">print</span> filename</span><br><span class="line">                os.system(<span class="hljs-string">'uncompyle6 -o . %s'</span>%filename)</span><br><span class="line">    </span><br><span class="line"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure><p>优点：</p><ul><li><p>简单方便，提高了一点源码破解门槛</p></li><li><p>平台兼容性好，.py能在哪里运行，.pyc就能在哪里运行</p></li></ul><p>不足：</p><ul><li><p>解释器兼容性差，.pyc只能在特定版本的解释器上运行</p></li><li><p>有现成的反编译工具，破解成本低</p></li></ul><h2 id="2-代码混淆"><a href="#2-代码混淆" class="headerlink" title="2.代码混淆"></a>2.代码混淆</h2><ul><li><p>网站混淆：<a href="http://pyob.oxyry.com/" target="_blank" rel="noopener">http://pyob.oxyry.com/</a></p></li><li><p>使用 pyobfuscate 库进行混淆</p></li></ul><p>优点：</p><ul><li>简单方便，提高了一点源码破解门槛</li><li>兼容性好，只要源码逻辑能做到兼容，混淆代码亦能</li></ul><p>不足：</p><ul><li>只能对单个文件混淆，无法做到多个互相有联系的源码文件的联动混淆</li><li>代码结构未发生变化，也能获取字节码，破解难度不大</li></ul><h2 id="3-使用py2exe"><a href="#3-使用py2exe" class="headerlink" title="3.使用py2exe"></a>3.使用py2exe</h2><p>py2exe 是一款将 Python 脚本转换为 Windows 平台上的可执行文件的工具。其原理是将源码编译为.pyc文件，加之必要的依赖文件，一起打包成一个可执行文件。</p><p>使用py2exe进行打包的步骤较为简便。</p><p>1）编写入口文件。本示例中取名为hello.py：</p><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print 'Hello World'</span><br></pre></td></tr></table></figure><p>2）编写setup.py：</p><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from distutils.core import setup</span><br><span class="line">import py2exe</span><br><span class="line"></span><br><span class="line">setup(console=['hello.py'])</span><br></pre></td></tr></table></figure><p>3）生成可执行文件</p><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python setup.py py2exe</span><br></pre></td></tr></table></figure><p>生成的可执行文件位于dist\hello.exe</p><p>优点：</p><ul><li><p>能够直接打包成 exe，方便分发和执行</p></li><li><p>破解门槛比 .pyc 更高一些</p></li></ul><p>不足：</p><ul><li><p>兼容性差，只能运行在 Windows 系统上</p></li><li><p>生成的可执行文件内的布局是明确、公开的，可以找到源码对应的.pyc文件，进而反编译出源码</p></li></ul><h2 id="4-使用-Cython"><a href="#4-使用-Cython" class="headerlink" title="4.使用 Cython"></a>4.使用 Cython</h2><p>使用Cython进行开发的步骤也不复杂。</p><p>1）编写文件hello.pyx或hello.py：</p><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def hello():</span><br><span class="line">    print('hello')</span><br></pre></td></tr></table></figure><p>2）编写setup.py：</p><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from distutils.core import setup</span><br><span class="line">from Cython.Build import cythonize</span><br><span class="line"></span><br><span class="line">setup(name='Hello World app',</span><br><span class="line">     ext_modules=cythonize('hello.pyx'))</span><br></pre></td></tr></table></figure><p>3）编译为.c，再进一步编译为.so或.pyd：</p><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python setup.py build_ext --inplace</span><br></pre></td></tr></table></figure><p>执行python -c “from hello import hello;hello()”即可直接引用生成的二进制文件中的hello()函数。</p><p>优点：</p><ul><li><p>生成的二进制 .so 或 .pyd 文件难以破解</p></li><li><p>同时带来了性能提升</p></li></ul><p>不足：</p><ul><li><p>兼容性稍差，对于不同版本的操作系统，可能需要重新编译</p></li><li><p>虽然支持大多数 Python 代码，但如果一旦发现部分代码不支持，完善成本较高</p></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;由于 Python 的动态特性和开源特点，导致 Python 代码很难做到很好的加密。社区中的一些声音认为这样的限制是事实，应该通过法律手段而不是加密源码达到商业保护的目的；而还有一些声音则是不论如何都希望能有一种手段来加密。于是乎，人们想出了各种或加密、或混淆的方案，借此来达到保护源码的目的。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-    
-      <category term="代码加密" scheme="http://yoursite.com/tags/%E4%BB%A3%E7%A0%81%E5%8A%A0%E5%AF%86/"/>
     
   </entry>
   
