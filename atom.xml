@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-30T14:11:19.552Z</updated>
+  <updated>2019-12-05T02:29:40.315Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Postman的安装与使用</title>
+    <link href="http://yoursite.com/2019/12/05/Postman%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2019/12/05/Postman的安装与使用/</id>
+    <published>2019-12-05T02:22:30.000Z</published>
+    <updated>2019-12-05T02:29:40.315Z</updated>
+    
+    <content type="html"><![CDATA[<p>Postman一款非常流行的API调试工具。其实，开发人员用的更多。因为测试人员做接口测试会有更多选择，例如Jmeter、soapUI等。不过，对于开发过程中去调试接口，Postman确实足够的简单方便，而且功能强大。</p><a id="more"></a><p>官方网站：<a href="https://www.getpostman.com/" target="_blank" rel="noopener">https://www.getpostman.com/</a></p><h2 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h2><p>1、Postman最早是作用chrome浏览器插件存在的，所以，你可以到chrome商店搜索下载安装，因为重所周知的原因，所以，大家都会找别人共享的postman插件文件来安装。由于2018年初Chrome停止对Chrome应用程序的支持。</p><p>2、Postman提供了独立的安装包，不再依赖于Chrome浏览器了。同时支持MAC、Windows和Linux，推荐你使用这种方式安装。<a href="https://www.getpostman.com/apps" target="_blank" rel="noopener">https://www.getpostman.com/apps</a></p><h2 id="使用："><a href="#使用：" class="headerlink" title="使用："></a>使用：</h2><p>Postman主界面：</p><p><a href="https://sm.ms/image/gzdY6EyCP3aJROm" target="_blank"><img src="https://i.loli.net/2019/12/05/gzdY6EyCP3aJROm.png"></a></p><h3 id="1、简单的Get请求："><a href="#1、简单的Get请求：" class="headerlink" title="1、简单的Get请求："></a>1、简单的Get请求：</h3><p>参考：<a href="http://www.python-requests.org/en/master/user/quickstart/" target="_blank" rel="noopener">http://www.python-requests.org/en/master/user/quickstart/</a></p><p><a href="https://sm.ms/image/35y9BJYnlSKuAwZ" target="_blank"><img src="https://i.loli.net/2019/12/05/35y9BJYnlSKuAwZ.png"></a></p><p>GET：HTTP的常用请求方法。</p><p>“<a href="https://api.github.com/events&quot;：请求的URL" target="_blank" rel="noopener">https://api.github.com/events&quot;：请求的URL</a></p><p>点击蓝色“Send”按钮，获取返回值。</p><p>注： GET请求的参数在url后面拼接，如：”<a href="https://api.github.com/events?id=1&amp;name=user&quot;" target="_blank" rel="noopener">https://api.github.com/events?id=1&amp;name=user&quot;</a></p><h3 id="2、简单的POST请求"><a href="#2、简单的POST请求" class="headerlink" title="2、简单的POST请求"></a>2、简单的POST请求</h3><p>参考：<a href="http://www.python-requests.org/en/master/user/quickstart/" target="_blank" rel="noopener">http://www.python-requests.org/en/master/user/quickstart/</a></p><p><a href="https://sm.ms/image/5B6WH3vaPEMnTjh" target="_blank"><img src="https://i.loli.net/2019/12/05/5B6WH3vaPEMnTjh.png"></a></p><p>POST：HTTP的常用请求方法。<br>“<a href="http://httpbin.org/post&quot;：请求的URL。" target="_blank" rel="noopener">http://httpbin.org/post&quot;：请求的URL。</a><br>Body：设置POST请求的参数。</p><ul><li><p>form-data： HTTP请求中的multipart/form-data，它会将表单的数据处理为一条消息，以标签为单元，用分隔符分开。</p></li><li><p>x-wwww-form-urlencode：HTTP请求中的application/x-www-from-urlencoded，会将表单内的数据转换为键值对。</p></li><li><p>raw：可以发送任意格式的接口数据，可以text、json、xml、html等。</p></li><li><p>binary：HTTP请求中的相Content-Type:application/octet-stream，只可以发送二进制数据。通常用于文件的上传。</p></li></ul><h3 id="3、认证接口"><a href="#3、认证接口" class="headerlink" title="3、认证接口"></a>3、认证接口</h3><p>创建一个接口调用：</p><p>参考：<a href="http://www.python-requests.org/en/master/" target="_blank" rel="noopener">http://www.python-requests.org/en/master/</a></p><p><a href="https://sm.ms/image/DnJud2YporWNTIf" target="_blank"><img src="https://i.loli.net/2019/12/05/DnJud2YporWNTIf.png"></a></p><p>Authorization：用于需要认证的接口。</p><p>Basic Auth：最基本的一种认证类型，还有OAuth 1.0/2.0、Digest Auth等认证类型。</p><p>Username/Password：这是针对Basic Auth类型的认证的用户名/密码，并非我们认为的系统登录的用户名密码。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Postman一款非常流行的API调试工具。其实，开发人员用的更多。因为测试人员做接口测试会有更多选择，例如Jmeter、soapUI等。不过，对于开发过程中去调试接口，Postman确实足够的简单方便，而且功能强大。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="杂谈" scheme="http://yoursite.com/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+      <category term="Postman" scheme="http://yoursite.com/tags/Postman/"/>
+    
+  </entry>
   
   <entry>
     <title>磁盘图标修改</title>
@@ -457,29 +480,6 @@
     
     
       <category term="提取ipynb文件" scheme="http://yoursite.com/tags/%E6%8F%90%E5%8F%96ipynb%E6%96%87%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>算法刷题网站</title>
-    <link href="http://yoursite.com/2019/11/08/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E7%BD%91%E7%AB%99/"/>
-    <id>http://yoursite.com/2019/11/08/算法刷题网站/</id>
-    <published>2019-11-08T12:42:15.000Z</published>
-    <updated>2019-11-08T12:58:32.343Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近一直想刷题，经过苦苦寻找，找到了以下几个较好的平台，然后记录在这里吧。</p><a id="more"></a><h1 id="一、收割offer版"><a href="#一、收割offer版" class="headerlink" title="一、收割offer版"></a>一、收割offer版</h1><h2 id="1-力扣"><a href="#1-力扣" class="headerlink" title="1.力扣"></a>1.力扣</h2><p>英文网址：<a href="https://leetcode.com/" target="_blank" rel="noopener">https://leetcode.com/</a></p><p>中文网址：<a href="https://leetcode-cn.com/" target="_blank" rel="noopener">https://leetcode-cn.com/</a></p><p>估计 leetcode（力扣）大家都很熟悉了，都被推荐烂了，很多国内外的程序员在上面刷题，难度从 Easy、Medium 至 Hard 都有，据说很多面试官都会从中挑选各种题目，号称大厂的筛码工。</p><h2 id="2-hihoCoder"><a href="#2-hihoCoder" class="headerlink" title="2.hihoCoder"></a>2.hihoCoder</h2><p>网址：<a href="https://hihocoder.com" target="_blank" rel="noopener">https://hihocoder.com</a></p><p>网站的技术团队来自于原北大 POJ 的开发团队，至于 POJ 会在后面的篇章中介绍，反正膜拜就完事了。一些知名的大厂比如微软、百度、腾讯、网易等会在上面举办在线编程比赛，风格倒是和 ACM 比赛类似。</p><h2 id="3-牛客网"><a href="#3-牛客网" class="headerlink" title="3.牛客网"></a>3.牛客网</h2><p>网址：<a href="https://www.nowcoder.com/" target="_blank" rel="noopener">https://www.nowcoder.com/</a></p><p>牛客网作为国内内容超级丰富的 IT 题库，各种东西看的我眼花缭乱，题库+面试+学习+求职+讨论 360 度无死角服务，堪称”互联网求职神器”。它好就好在不只是一个刷题的平台，还是一个交流学习的平台，发个问题贴总有热心的大佬帮助。</p><h2 id="计蒜客"><a href="#计蒜客" class="headerlink" title="计蒜客"></a>计蒜客</h2><p>网址：<a href="https://www.jisuanke.com/" target="_blank" rel="noopener">https://www.jisuanke.com/</a></p><p>计蒜客这个网站可能很多人不知道，它也有可以刷题的题库，也会定期举办比赛。</p><h1 id="二、ACM-竞赛版"><a href="#二、ACM-竞赛版" class="headerlink" title="二、ACM 竞赛版"></a>二、ACM 竞赛版</h1><h2 id="1-HDU"><a href="#1-HDU" class="headerlink" title="1.HDU"></a>1.HDU</h2><p>网址：<a href="http://acm.hdu.edu.cn/" target="_blank" rel="noopener">http://acm.hdu.edu.cn/</a></p><p>杭电（杭州电子科技大学）的 OJ 大概是国内最火的几个 OJ 之一了，大多数 ACMer 应该都知道（其实我想说所有来着），勿需多说，非常多比赛都在上面，比如每年暑假的多校联赛，朝鲜、外蒙等学校的队伍都会参加，想不知道都不可能。</p><h2 id="2-POJ"><a href="#2-POJ" class="headerlink" title="2.POJ"></a>2.POJ</h2><p>网址：<a href="http://poj.org/" target="_blank" rel="noopener">http://poj.org/</a></p><p>POJ（Peking University Online Judge）,同样作为国内最火的几大 OJ 之一，它的建立时间更早，一些上古时期的题目也能在上面找到，同样 POJ 也很出名。</p><h2 id="3-SDUT"><a href="#3-SDUT" class="headerlink" title="3.SDUT"></a>3.SDUT</h2><p>网址：<a href="https://acm.sdut.edu.cn/" target="_blank" rel="noopener">https://acm.sdut.edu.cn/</a></p><h2 id="4-其它-OJ"><a href="#4-其它-OJ" class="headerlink" title="4.其它 OJ"></a>4.其它 OJ</h2><p>最后附带一些其它同样优秀的 OJ 平台：</p><p><strong>国内：</strong></p><p>ZJU（浙大）: <a href="https://zoj.pintia.cn/home" target="_blank" rel="noopener">https://zoj.pintia.cn/home</a></p><p>USTC（中科大）：<a href="http://acm.ustc.edu.cn/ustcoj/" target="_blank" rel="noopener">http://acm.ustc.edu.cn/ustcoj/</a></p><p>FZU（福大）：<a href="http://acm.fzu.edu.cn/" target="_blank" rel="noopener">http://acm.fzu.edu.cn/</a></p><p>HIT（哈工大）：<a href="http://acm.hit.edu.cn/" target="_blank" rel="noopener">http://acm.hit.edu.cn/</a></p><p><strong>国外：</strong></p><p>URAL：<a href="http://acm.timus.ru/" target="_blank" rel="noopener">http://acm.timus.ru/</a></p><p>SPOJ：<a href="https://www.spoj.com/" target="_blank" rel="noopener">https://www.spoj.com/</a></p><h1 id="三、提高版"><a href="#三、提高版" class="headerlink" title="三、提高版"></a>三、提高版</h1><h2 id="1-Codeforces"><a href="#1-Codeforces" class="headerlink" title="1.Codeforces"></a>1.Codeforces</h2><p>网址：<a href="https://codeforces.com/" target="_blank" rel="noopener">https://codeforces.com/</a></p><p>Codeforces 又被戏称为 CF，是一家俄罗斯的网站，当然还是用英文食用。这里的很好的比赛，很好的题目，很好的选手，简称”三好”。</p><h2 id="2-Topcoder"><a href="#2-Topcoder" class="headerlink" title="2.Topcoder"></a>2.Topcoder</h2><p>网址：<a href="https://www.topcoder.com/" target="_blank" rel="noopener">https://www.topcoder.com/</a></p><p>Topcoder 据说是世界上规模最大的编程网站，如果这样的话那这个 Top 就可以理解了，Top 的 coder。</p><h1 id="四、写在最后"><a href="#四、写在最后" class="headerlink" title="四、写在最后"></a>四、写在最后</h1><p><strong>刷题不要单纯的为了追求做题的数量，还是要以学会为目的，并且学以致用。</strong></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近一直想刷题，经过苦苦寻找，找到了以下几个较好的平台，然后记录在这里吧。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="杂谈" scheme="http://yoursite.com/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-      <category term="算法刷题" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/"/>
     
   </entry>
   
