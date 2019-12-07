@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-12-05T02:29:40.315Z</updated>
+  <updated>2019-12-07T14:58:47.992Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>白嫖Github作为自己的免费图床</title>
+    <link href="http://yoursite.com/2019/12/07/%E7%99%BD%E5%AB%96Github%E4%BD%9C%E4%B8%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/"/>
+    <id>http://yoursite.com/2019/12/07/白嫖Github作为自己的免费图床/</id>
+    <published>2019-12-07T14:44:33.000Z</published>
+    <updated>2019-12-07T14:58:47.992Z</updated>
+    
+    <content type="html"><![CDATA[<p>在自己的博客或者网站中插入图片的比较推荐的做法是将图片置于第三方图床，然后以Markdown格式引入到你的文章中去，这样便于统一管理。</p><p>所以接下来利用GitHub这个宝库就能完成我们的需求。</p><a id="more"></a><h1 id="手段一：明目张胆法"><a href="#手段一：明目张胆法" class="headerlink" title="手段一：明目张胆法"></a>手段一：明目张胆法</h1><blockquote><p>第一种方法是直接在Github上创建一个public的空仓库专门用做图片存储。</p></blockquote><ol><li><p>在Github创建一个空白的public仓库</p></li><li><p>将刚刚创建的空白仓库clone到本地</p></li><li><p>分目录地在里面放好你需要托管到Github上的图片</p></li><li><p><em>add</em>， <em>commit</em>， <em>push</em>一顿骚操作将图片文件推到仓库里去</p></li><li><p>然后在库中找到图片URL，放到markdown中进行图片外链的引用</p></li></ol><blockquote><p>Tips 1：看到这里，大家如果觉得手动敲命令，手动替换不优雅的话，我想大家肯定能想到各种各样的自动化操作骚操作，是的，写个自动化脚本即可全自动完成一切！</p></blockquote><blockquote><p>Tips 2：当然除了写自动化脚本，这里还推荐一个非常牛批的图片上传自动化工具<em>PicGo</em> ，具体怎么用，大家可以自行搜索</p></blockquote><h1 id="手段二：暗箱操作法"><a href="#手段二：暗箱操作法" class="headerlink" title="手段二：暗箱操作法"></a>手段二：暗箱操作法</h1><blockquote><p>第二种方法则是利用Github的隐藏功能Issue来实现。</p></blockquote><ol><li><p>创建一个新Issue</p></li><li><p>接下来可以将图片直接拖拉或者上传到Issue框后，会返回一个地址，该地址即图片外链</p></li><li><p>将此地址放到markdown中进行图片外链的引用</p></li></ol><h1 id="手段三：还没想好名字"><a href="#手段三：还没想好名字" class="headerlink" title="手段三：还没想好名字"></a>手段三：还没想好名字</h1><p>既然上面第二种方法，利用仓库的Issues功能可以完成图片存储需求的话，那很明显GitHub仓库的 Wiki功能必然也是可以的嘛，对不对</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在自己的博客或者网站中插入图片的比较推荐的做法是将图片置于第三方图床，然后以Markdown格式引入到你的文章中去，这样便于统一管理。&lt;/p&gt;
+&lt;p&gt;所以接下来利用GitHub这个宝库就能完成我们的需求。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="杂谈" scheme="http://yoursite.com/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+      <category term="Github图床" scheme="http://yoursite.com/tags/Github%E5%9B%BE%E5%BA%8A/"/>
+    
+  </entry>
   
   <entry>
     <title>Postman的安装与使用</title>
@@ -457,29 +481,6 @@
     
     
       <category term="旋转描记器" scheme="http://yoursite.com/tags/%E6%97%8B%E8%BD%AC%E6%8F%8F%E8%AE%B0%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>提取ipynb文件中的py代码</title>
-    <link href="http://yoursite.com/2019/11/08/%E6%8F%90%E5%8F%96ipynb%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84py%E4%BB%A3%E7%A0%81/"/>
-    <id>http://yoursite.com/2019/11/08/提取ipynb文件中的py代码/</id>
-    <published>2019-11-08T13:07:53.000Z</published>
-    <updated>2019-11-08T13:13:44.882Z</updated>
-    
-    <content type="html"><![CDATA[<p>.ipynb是Anaconda3中Jupyter Notebook的文件格式，非常方便Python教学，在科学计算和数据分析等领域使用较多。在Jupyter Notebook中，使用菜单File==&gt;Download as==&gt;Python(.py)可以直接另存为.py文件，但是如果已经存在.ipynb文件该怎么去获得python代码呢？</p><a id="more"></a><p>当我们利用记事本打开.ipynb文件时，会发现文件的格式跟json文件是一样的。这样的话可以使用Python标准库json进行解析，然后提取其中的Python代码。</p><p>参考代码：</p><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">with</span> open(<span class="hljs-string">"你的文件名称.ipynb"</span>,encoding=<span class="hljs-string">"utf-8"</span>) <span class="hljs-keyword">as</span> fp:</span><br><span class="line">    content = json.load(fp)</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">with</span> open(<span class="hljs-string">"保存的文件名称.py"</span>,<span class="hljs-string">"w"</span>,encoding=<span class="hljs-string">"utf-8"</span>) <span class="hljs-keyword">as</span> fp:</span><br><span class="line">    <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> content[<span class="hljs-string">"cells"</span>]:</span><br><span class="line">        fp.writelines([i.rstrip()+<span class="hljs-string">"\n"</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> item[<span class="hljs-string">"source"</span>]])</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;.ipynb是Anaconda3中Jupyter Notebook的文件格式，非常方便Python教学，在科学计算和数据分析等领域使用较多。在Jupyter Notebook中，使用菜单File==&amp;gt;Download as==&amp;gt;Python(.py)可以直接另存为.py文件，但是如果已经存在.ipynb文件该怎么去获得python代码呢？&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-    
-      <category term="提取ipynb文件" scheme="http://yoursite.com/tags/%E6%8F%90%E5%8F%96ipynb%E6%96%87%E4%BB%B6/"/>
     
   </entry>
   
